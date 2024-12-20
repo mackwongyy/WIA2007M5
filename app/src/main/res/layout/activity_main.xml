@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- PASS Shortform TextView -->
+    <TextView
+        android:id="@+id/PASS_shortform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PASS"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp" />
+
+    <!-- PASS Longform TextView -->
+    <TextView
+        android:id="@+id/PASS_longform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prosperity Assistance and Support Service"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/PASS_shortform"
+        android:layout_marginTop="20dp" />
+
+    <!-- First Button -->
+    <Button
+        android:id="@+id/DFAP"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#03A9F4"
+        android:onClick="toDFAP"
+        android:text="Direct Financial Aid Platform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/PASS_longform" />
+
+    <!-- Second Button -->
+    <Button
+        android:id="@+id/FMT"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#03A9F4"
+        android:text="Finance Management Tools"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/DFAP"
+        android:layout_marginTop="20dp" />
+
+    <!-- Third Button -->
+    <Button
+        android:id="@+id/FBSL"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#03A9F4"
+        android:text="Food Bank and Shelter Location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/FMT"
+        android:layout_marginTop="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

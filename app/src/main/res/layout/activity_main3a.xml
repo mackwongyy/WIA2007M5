@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity3">
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="311dp"
+        android:layout_height="477dp"
+        android:background="@drawable/border8dp"
+        android:layout_marginBottom="99dp"
+        android:fadingEdgeLength="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/subtitleTextView" />
+
+    <View
+        android:id="@+id/sortView"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:background="@drawable/border4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="71dp" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Direct Financial Aid Platform"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/subtitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Sort Criteria for Financial Aid"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+    <TextView
+        android:id="@+id/nameCriteriaTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="56dp"
+        android:text="Name"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/subtitleTextView" />
+
+    <TextView
+        android:id="@+id/amountCriteriaTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="72dp"
+        android:text="Amount"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameCriteriaTextView3" />
+
+    <EditText
+        android:id="@+id/minAmountEditText3"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="20dp"
+        android:hint="Min: 500"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/amountCriteriaTextView3" />
+
+    <EditText
+        android:id="@+id/maxAmountEditText3"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="222dp"
+        android:hint="Max: 2000"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/minAmountEditText3" />
+
+    <TextView
+        android:id="@+id/availableSlotsCriteriaTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="20dp"
+        android:text="Available Slots"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/maxAmountEditText3" />
+
+    <EditText
+        android:id="@+id/minSlotsEditText3"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="20dp"
+        android:hint="Min: 1"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/availableSlotsCriteriaTextView3" />
+
+    <EditText
+        android:id="@+id/maxSlotsEditText3"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="222dp"
+        android:hint="Max: 2"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/minSlotsEditText3" />
+
+    <TextView
+        android:id="@+id/datelineCriteriaTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="16dp"
+        android:text="Dateline"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/maxSlotsEditText3" />
+
+    <EditText
+        android:id="@+id/maxSlotsEditText2"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="222dp"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/minSlotsEditText3" />
+
+    <EditText
+        android:id="@+id/minSlotsEditText3a"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="20dp"
+        android:hint="Min: 1"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/datelineCriteriaTextView3" />
+
+    <EditText
+        android:id="@+id/maxSlotsEditText3a"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="222dp"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/minSlotsEditText3a" />
+
+    <EditText
+        android:id="@+id/NameEditText3"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="12dp"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameCriteriaTextView3" />
+
+    <View
+        android:id="@+id/view3Unclear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/transparent_background_80pc" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="#03A9F4"
+        app:layout_constraintEnd_toEndOf="@+id/view3Unclear"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/view3Unclear"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="#03A9F4"
+        android:fontFamily="sans-serif-black"
+        android:text="Do you wish to apply\nfor the financial aid?"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/view3Unclear"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/view3Unclear"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <View
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:background="@drawable/border4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:background="@drawable/view_ffffff_colour"
+        app:layout_constraintEnd_toEndOf="@+id/view3Unclear"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/view3Unclear"
+        tools:layout_editor_absoluteY="245dp" />
+
+    <Button
+        android:id="@+id/yesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view3Unclear"
+        tools:layout_editor_absoluteY="290dp" />
+
+    <Button
+        android:id="@+id/noButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view3Unclear"
+        tools:layout_editor_absoluteY="350dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

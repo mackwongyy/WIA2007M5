@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="applyButton" type="id" />
+    <item name="financial_management_tools" type="id" />
+    <item name="expenses" type="id" />
+    <item name="financial_dashboard" type="id" />
+    <item name="expenses_value" type="id" />
+    <item name="income_value" type="id" />
+    <item name="net_profit_value" type="id" />
+    <item name="expenses_label" type="id" />
+    <item name="income_label" type="id" />
+    <item name="net_profit_label" type="id" />
+    <item name="date_08_2024" type="id" />
+    <item name="date_09_2024" type="id" />
+    <item name="date_10_2024" type="id" />
+    <item name="date" type="id" />
+    <item name="date_11_2024" type="id" />
+</resources>
