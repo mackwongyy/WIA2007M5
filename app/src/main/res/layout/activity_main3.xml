@@ -22,10 +22,12 @@
         android:id="@+id/sortView"
         android:layout_width="300dp"
         android:layout_height="30dp"
+        android:layout_marginTop="72dp"
         android:background="@drawable/border4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="71dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -65,6 +67,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/subtitleTextView" />
 
+    <EditText
+        android:id="@+id/NameEditText3"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="12dp"
+        android:hint="Type the name..."
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameCriteriaTextView3" />
+
     <TextView
         android:id="@+id/amountCriteriaTextView3"
         android:layout_width="wrap_content"
@@ -79,10 +92,10 @@
     <EditText
         android:id="@+id/minAmountEditText3"
         android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginStart="84dp"
         android:layout_marginTop="20dp"
-        android:hint="Min: 500"
+        android:hint="Min: 0"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/amountCriteriaTextView3" />
@@ -90,9 +103,9 @@
     <EditText
         android:id="@+id/maxAmountEditText3"
         android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginStart="222dp"
-        android:hint="Max: 2000"
+        android:hint="Max"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/minAmountEditText3" />
@@ -111,7 +124,7 @@
     <EditText
         android:id="@+id/minSlotsEditText3"
         android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginStart="84dp"
         android:layout_marginTop="20dp"
         android:hint="Min: 1"
@@ -122,9 +135,9 @@
     <EditText
         android:id="@+id/maxSlotsEditText3"
         android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginStart="222dp"
-        android:hint="Max: 2"
+        android:hint="Max"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/minSlotsEditText3" />
@@ -141,43 +154,15 @@
         app:layout_constraintTop_toBottomOf="@id/maxSlotsEditText3" />
 
     <EditText
-        android:id="@+id/maxSlotsEditText2"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="222dp"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/minSlotsEditText3" />
-
-    <EditText
-        android:id="@+id/minSlotsEditText3a"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:id="@+id/dateline"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
         android:layout_marginStart="84dp"
         android:layout_marginTop="20dp"
-        android:hint="Min: 1"
+        android:hint="Date: DD/MM/YYYY"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/datelineCriteriaTextView3" />
-
-    <EditText
-        android:id="@+id/maxSlotsEditText3a"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="222dp"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/minSlotsEditText3a" />
-
-    <EditText
-        android:id="@+id/NameEditText3"
-        android:layout_width="240dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="12dp"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nameCriteriaTextView3" />
 
     <Button
         android:id="@+id/applyButton"
@@ -190,6 +175,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view3" />
+        app:layout_constraintTop_toBottomOf="@id/view3"
+        android:onClick="navigateToMainActivity2"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

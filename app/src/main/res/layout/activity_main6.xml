@@ -44,10 +44,11 @@
         android:id="@+id/view"
         android:layout_width="300dp"
         android:layout_height="450dp"
+        android:layout_marginTop="180dp"
         android:background="@drawable/border8dpblue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="180dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Expenses and Income Values -->
 
@@ -110,9 +111,11 @@
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="123dp"
-        android:layout_height="24dp"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="254dp" />
+        android:layout_height="48dp"
+        android:layout_marginTop="254dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/detailsButton"
@@ -120,8 +123,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Details"
-        app:layout_constraintTop_toBottomOf="@id/expenses_value"
-        tools:layout_editor_absoluteX="92dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.297"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/expenses_value" />
 
     <Button
         android:id="@+id/trendsButton"
@@ -137,9 +142,10 @@
         android:id="@+id/calendarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="652dp"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="655dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
