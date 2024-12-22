@@ -53,4 +53,9 @@
     <string name="DFAP_Back">Back</string>
     <string name="DFAP_Sort">Sort</string>
     <string name="DFAP_Select">Select</string>
+    <string name="financialaidname">FinancialAidName</string>
+    <string name="financialaidamount">FinancialAidAmount</string>
+    <string name="financialaidslots">FinancialAidSlots</string>
+    <string name="financialaiddateline">FinancialAidDateline</string>
+    <string name="financialaidimage">FinancialAidImage</string>
 </resources>

@@ -11,7 +11,7 @@ public class P5_Homepage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.p5_homepage);
 
         Button buttonDFAP = findViewById(R.id.DFAP);
         Button buttonFMT = findViewById(R.id.FMT);

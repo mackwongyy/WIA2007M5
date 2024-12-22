@@ -23,7 +23,7 @@ public class P5_DFAP extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.p5_dfap);
 
         // Bind views
         Button backButton = findViewById(R.id.backButton);

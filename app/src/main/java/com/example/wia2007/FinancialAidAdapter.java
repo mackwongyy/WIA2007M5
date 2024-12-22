@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +15,7 @@ public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapte
     private final ArrayList<FinancialAid> financialAidList;
     private int selectedPosition = -1;
     private int textSize;
+    private String colour;
 
     public FinancialAidAdapter(ArrayList<FinancialAid> financialAidList) {
         this.financialAidList = financialAidList;
@@ -31,8 +33,8 @@ public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapte
         FinancialAid aid = financialAidList.get(position);
         holder.nameTextView.setText(aid.getAidName());
         holder.amountTextView.setText("Amount: RM" + aid.getAidAmount());
-        holder.typeTextView.setText("Type: " + aid.getAidSlots());
-        holder.deadlineTextView.setText("Deadline: " + aid.getAidDateline());
+        holder.slotsTextView.setText("Type: " + aid.getAidSlots());
+        holder.datelineTextView.setText("Deadline: " + aid.getAidDateline());
 
         // Change background color if selected
         holder.itemView.setBackgroundColor(selectedPosition == position ? Color.GREEN : Color.TRANSPARENT);
@@ -59,14 +61,16 @@ public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapte
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView, amountTextView, typeTextView, deadlineTextView;
+        ImageView imageView;
+        TextView nameTextView, amountTextView, slotsTextView, datelineTextView;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.nameTextView);
-            amountTextView = itemView.findViewById(R.id.amountTextView);
-            typeTextView = itemView.findViewById(R.id.typeTextView);
-            deadlineTextView = itemView.findViewById(R.id.deadlineTextView);
+            imageView = itemView.findViewById(R.id.FinancialAidImage);
+            nameTextView = itemView.findViewById(R.id.FinancialAidName);
+            amountTextView = itemView.findViewById(R.id.FinancialAidAmount);
+            slotsTextView = itemView.findViewById(R.id.FinancialAidSlots);
+            datelineTextView = itemView.findViewById(R.id.FinancialAidDateline);
         }
     }
 }
