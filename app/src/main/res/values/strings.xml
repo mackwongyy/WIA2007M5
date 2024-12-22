@@ -43,4 +43,9 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="homepage_pass">PASS</string>
+    <string name="homepage_prosperity_assistance_and_support_service">Prosperity Assistance and Support Service</string>
+    <string name="homepage_direct_financial_aid_platform">Direct Financial Aid Platform</string>
+    <string name="homepage_finance_management_tools">Finance Management Tools</string>
+    <string name="homepage_food_bank_and_shelter_location">Food Bank and Shelter Location</string>
 </resources>

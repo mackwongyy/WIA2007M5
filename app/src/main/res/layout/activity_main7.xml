@@ -142,28 +142,56 @@
 
     <!-- Detailed Expense Sources -->
 
+    <!-- Add more expense and income sources as needed -->
+
+    <!-- Back Button -->
+
     <TextView
         android:id="@+id/expense_efb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="16dp"
-        android:text="Food and Beverages: RM0"
+        android:layout_marginTop="36dp"
+        android:text="Food and Beverages:"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/expenses_label" />
+        app:layout_constraintTop_toTopOf="@+id/expenses_label" />
 
-    <!-- Add more expense and income sources as needed -->
+    <TextView
+        android:id="@+id/expense_efb_value"
+        android:layout_width="34dp"
+        android:layout_height="22dp"
+        android:text="RM0"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/expense_efb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/expense_efb" />
 
-    <!-- Back Button -->
+    <TextView
+        android:id="@+id/expense_efb_value2"
+        android:layout_width="34dp"
+        android:layout_height="22dp"
+        android:text="RM0"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/expense_eutilities"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/expense_eutilities"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="8dp"
-        android:text="Utilities: RM0"
+        android:text="Utilities:"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"

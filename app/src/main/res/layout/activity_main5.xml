@@ -19,6 +19,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/expenses_value"
+        android:layout_width="72dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="44dp"
+        android:text="RM0"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toEndOf="@+id/expenses_label"
+        app:layout_constraintTop_toTopOf="@+id/financial_dashboard" />
+
+    <TextView
         android:id="@+id/financial_management_tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,42 +49,68 @@
         android:id="@+id/financial_dashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Financial Dashboard"
         android:layout_marginTop="140dp"
+        android:text="Financial Dashboard"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.735"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/expenses_value"
+        android:id="@+id/net_profit_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Income: RM650"
+        android:layout_marginTop="24dp"
+        android:text="Income:"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintHorizontal_bias="0.299"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/expenses_label" />
+
+    <TextView
+        android:id="@+id/income_value"
+        android:layout_width="72dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="88dp"
+        android:text="RM0"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toEndOf="@+id/expenses_label"
+        app:layout_constraintTop_toTopOf="@+id/financial_dashboard" />
+
+    <TextView
+        android:id="@+id/net_profit_value"
+        android:layout_width="72dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="48dp"
+        android:text="RM0"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toEndOf="@+id/expenses_label"
+        app:layout_constraintTop_toTopOf="@+id/income_value" />
 
     <TextView
         android:id="@+id/expenses_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Expenses: RM350"
+        android:layout_marginTop="24dp"
+        android:text="Expenses:"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.689"
+        app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/financial_dashboard" />
 
@@ -79,13 +118,13 @@
         android:id="@+id/income_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Net Profit: RM300"
+        android:layout_marginTop="68dp"
+        android:text="Net Profit:"
         android:textAlignment="center"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/expenses_label" />
 

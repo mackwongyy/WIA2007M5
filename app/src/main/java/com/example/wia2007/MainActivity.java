@@ -23,25 +23,37 @@ public class MainActivity extends AppCompatActivity {
         buttonDFAP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                startActivity(intent);
+                navigationFromHomepageToDFAP(v);
             }
         });
 
         buttonFMT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainActivity5.class);
-                startActivity(intent);
+                navigationFromHomepageToFMT(v);
             }
         });
 
         buttonFBSL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainActivity9.class);
-                startActivity(intent);
+                navigationFromHomepageToFBSL(v);
             }
         });
+    }
+
+    public void navigationFromHomepageToDFAP(View view) {
+        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        startActivity(intent);
+    }
+
+    public void navigationFromHomepageToFMT(View view) {
+        Intent intent = new Intent(MainActivity.this, MainActivity5.class);
+        startActivity(intent);
+    }
+
+    public void navigationFromHomepageToFBSL(View view) {
+        Intent intent = new Intent(MainActivity.this, MainActivity9.class);
+        startActivity(intent);
     }
 }
