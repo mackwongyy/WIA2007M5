@@ -1,20 +1,19 @@
 package com.example.wia2007;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
+import android.content.*;
+import android.os.*;
+import android.view.*;
+import android.widget.*;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity2 extends AppCompatActivity {
     private Button selectButton, sortButton, backButton;
-    private ListView locationListView;
+    private RecyclerView recyclerView;
     private ArrayList<FinancialAid> financialAidList = new ArrayList<>();
 
     // Initialize financial aid list
@@ -35,15 +34,18 @@ public class MainActivity2 extends AppCompatActivity {
         backButton = findViewById(R.id.backButton);
         sortButton = findViewById(R.id.sortButton);
         selectButton = findViewById(R.id.selectButton);
-        locationListView = findViewById(R.id.locationRecyclerView);
+        recyclerView = findViewById(R.id.locationRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity2.this));
 
         // Populate ListView with financial aid data
-        List<String> financialAidStrings = new ArrayList<>();
+        /*List<String> financialAidStrings = new ArrayList<>();
         for (FinancialAid aid : financialAidList) {
             financialAidStrings.add(aid.getAidName() + " - RM " + aid.getAidAmount());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, financialAidStrings);
-        locationListView.setAdapter(adapter);
+        RecyclerView.Adapter<String> adapter = new RecyclerView<>(this, android.R.layout.simple_list_item_1, financialAidStrings);
+        recyclerView.setAdapter(adapter);*/
+        FinancialAidAdapter adapter = new FinancialAidAdapter(financialAidList);
+        recyclerView.setAdapter(adapter);
 
         // Button functionality for Back navigation
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -71,19 +73,19 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     // Method to navigate to MainActivity1
-    public void navigateBackToMainActivity(View view) {
+    private void navigateBackToMainActivity(View view) {
         Intent intent = new Intent(MainActivity2.this, MainActivity.class);
         startActivity(intent);
     }
 
     // Method to navigate to MainActivity3
-    public void navigateToMainActivity3(View view) {
+    private void navigateToMainActivity3(View view) {
         Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
         startActivity(intent);
     }
 
     // Method to navigate to MainActivity3A
-    public void navigateToMainActivity3A(View view) {
+    private void navigateToMainActivity3A(View view) {
         Intent intent = new Intent(MainActivity2.this, MainActivity3A.class);
         startActivity(intent);
     }

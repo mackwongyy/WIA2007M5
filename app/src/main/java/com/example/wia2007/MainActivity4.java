@@ -42,17 +42,17 @@ public class MainActivity4 extends AppCompatActivity {
     }
 
     // Method to handle navigation back to MainActivity
-    public void navigateBackToMainActivity(View view) {
+    private void navigateBackToMainActivity(View view) {
         Intent intent = new Intent(MainActivity4.this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void navigateToMainActivity3(View view) {
+    private void navigateToMainActivity3(View view) {
         Intent intent = new Intent(MainActivity4.this, MainActivity3A.class);
         startActivity(intent);
     }
 
-    public void navigateToMainActivity3A(View view) {
+    private void navigateToMainActivity3A(View view) {
         Intent intent = new Intent(MainActivity4.this, MainActivity3A.class);
         startActivity(intent);
     }

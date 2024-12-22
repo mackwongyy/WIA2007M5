@@ -6,11 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity6">
 
-    <!-- Financial Management Tools TextView -->
-
-    <!-- Financial Dashboard TextView -->
-
-    <!-- Date TextView -->
     <TextView
         android:id="@+id/financial_management_tools"
         android:layout_width="wrap_content"
@@ -38,8 +33,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/financial_management_tools" />
 
-    <!-- Expenses and Income Labels -->
-
     <View
         android:id="@+id/view"
         android:layout_width="300dp"
@@ -50,63 +43,81 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Expenses and Income Values -->
-
     <TextView
         android:id="@+id/expenses_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="200dp"
-        android:text="Expenses"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="148dp"
+        android:text="Expenses:"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinner" />
-
-    <!-- Sort, Details, Trends Buttons -->
+        app:layout_constraintTop_toBottomOf="@id/financial_dashboard" />
 
     <TextView
         android:id="@+id/income_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="112dp"
-        android:layout_marginTop="200dp"
-        android:text="Income"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="20dp"
+        android:text="Income:"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinner" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/expenses_label" />
 
     <TextView
         android:id="@+id/expenses_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="32dp"
-        android:text="RM350"
+        android:layout_marginStart="10dp"
+        android:text="RM0"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/expenses_label" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/expenses_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.376"
+        app:layout_constraintStart_toEndOf="@id/expenses_label" />
 
     <TextView
         android:id="@+id/income_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="112dp"
-        android:layout_marginTop="32dp"
-        android:text="RM650"
+        android:layout_marginStart="10dp"
+        android:text="RM0"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/income_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/income_label" />
+        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintStart_toEndOf="@id/income_label" />
 
-    <!-- Date Labels -->
+    <TextView
+        android:id="@+id/net_profit_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="20dp"
+        android:text="Net Profit:"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/income_label" />
 
-    <!-- Calendar Button -->
+    <TextView
+        android:id="@+id/net_profit_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:text="RM0"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/net_profit_label"
+        app:layout_constraintStart_toEndOf="@id/net_profit_label" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -118,32 +129,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/detailsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Details"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.297"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expenses_value" />
-
-    <Button
-        android:id="@+id/trendsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="24dp"
-        android:text="Trends"
-        app:layout_constraintStart_toEndOf="@id/detailsButton"
-        app:layout_constraintTop_toBottomOf="@id/expenses_value" />
-
-    <Button
         android:id="@+id/calendarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="652dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="648dp"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

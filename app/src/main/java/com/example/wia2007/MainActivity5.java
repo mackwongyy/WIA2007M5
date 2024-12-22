@@ -21,8 +21,7 @@ public class MainActivity5 extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity5.this, MainActivity.class);
-                startActivity(intent);
+                navigateToMainActivity(v);
             }
         });
 
@@ -30,9 +29,18 @@ public class MainActivity5 extends AppCompatActivity {
         discoverMoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity5.this, MainActivity6.class);
-                startActivity(intent);
+                navigateToMainActivity6(v);
             }
         });
+    }
+
+    public void navigateToMainActivity(View view) {
+        Intent intent = new Intent(MainActivity5.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void navigateToMainActivity6(View view) {
+        Intent intent = new Intent(MainActivity5.this, MainActivity6.class);
+        startActivity(intent);
     }
 }

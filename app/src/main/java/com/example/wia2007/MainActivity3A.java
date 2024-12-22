@@ -33,12 +33,12 @@ public class MainActivity3A extends AppCompatActivity {
         });
     }
 
-    public void navigateToMainActivity(View view) {
+    private void navigateToMainActivity(View view) {
         Intent intent = new Intent(MainActivity3A.this, MainActivity.class);
         startActivity(intent);
     }
 
-    public void navigateToMainActivity2(View view) {
+    private void navigateToMainActivity2(View view) {
         Intent intent = new Intent(MainActivity3A.this, MainActivity2.class);
         startActivity(intent);
     }

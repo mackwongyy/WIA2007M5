@@ -29,7 +29,7 @@ public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         FinancialAid aid = financialAidList.get(position);
         holder.nameTextView.setText(aid.getAidName());
-        holder.amountTextView.setText("Amount: $" + aid.getAidAmount());
+        holder.amountTextView.setText("Amount: RM" + aid.getAidAmount());
         holder.typeTextView.setText("Type: " + aid.getAidSlots());
         holder.deadlineTextView.setText("Deadline: " + aid.getAidDateline());
 

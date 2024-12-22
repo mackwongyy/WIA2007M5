@@ -18,12 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Expenses TextView -->
-
-    <!-- Financial Dashboard TextView -->
-
-    <!-- Expenses Value TextView -->
-
     <TextView
         android:id="@+id/financial_management_tools"
         android:layout_width="wrap_content"
@@ -53,9 +47,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Income Value TextView -->
-
-    <!-- Net Profit Value TextView -->
     <TextView
         android:id="@+id/expenses_value"
         android:layout_width="wrap_content"
@@ -69,10 +60,6 @@
         app:layout_constraintHorizontal_bias="0.652"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/expenses_label" />
-
-    <!-- Expenses Label TextView -->
-
-    <!-- Income Label TextView -->
 
     <TextView
         android:id="@+id/expenses_label"
@@ -88,9 +75,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/financial_dashboard" />
 
-    <!-- Net Profit Label TextView -->
-
-    <!-- Date Labels -->
     <TextView
         android:id="@+id/income_label"
         android:layout_width="wrap_content"
@@ -114,7 +98,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.719"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        app:layout_constraintTop_toTopOf="@+id/view"
+        android:onClick="navigateToMainActivity6" />
 
     <Button
         android:id="@+id/backButton"
@@ -125,6 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        android:onClick="navigateToMainActivity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

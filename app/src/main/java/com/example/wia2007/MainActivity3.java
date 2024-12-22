@@ -68,7 +68,7 @@ public class MainActivity3 extends AppCompatActivity {
                 }
 
                 // Navigate to the next activity if needed
-                Intent intent = new Intent(MainActivity3.this, MainActivity4.class);
+                Intent intent = new Intent(MainActivity3.this, MainActivity2.class);
                 startActivity(intent);
             }
         });
