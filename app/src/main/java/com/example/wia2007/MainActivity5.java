@@ -66,7 +66,7 @@ public class MainActivity5 extends AppCompatActivity {
     }
 
     public void navigateToMainActivity(View view) {
-        Intent intent = new Intent(MainActivity5.this, MainActivity.class);
+        Intent intent = new Intent(MainActivity5.this, P5_Homepage.class);
         startActivity(intent);
     }
 

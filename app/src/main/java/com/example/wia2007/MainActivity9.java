@@ -36,7 +36,7 @@ public class MainActivity9 extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity9.this, MainActivity.class);
+                Intent intent = new Intent(MainActivity9.this, P5_Homepage.class);
                 startActivity(intent);
             }
         });

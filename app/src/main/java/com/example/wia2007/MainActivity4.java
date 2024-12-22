@@ -3,9 +3,8 @@ package com.example.wia2007;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity4 extends AppCompatActivity {
@@ -43,7 +42,7 @@ public class MainActivity4 extends AppCompatActivity {
 
     // Method to handle navigation back to MainActivity
     private void navigateBackToMainActivity(View view) {
-        Intent intent = new Intent(MainActivity4.this, MainActivity.class);
+        Intent intent = new Intent(MainActivity4.this, P5_Homepage.class);
         startActivity(intent);
     }
 

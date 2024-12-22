@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapter.ViewHolder> {
     private final ArrayList<FinancialAid> financialAidList;
     private int selectedPosition = -1;
+    private int textSize;
 
     public FinancialAidAdapter(ArrayList<FinancialAid> financialAidList) {
         this.financialAidList = financialAidList;
@@ -45,6 +46,16 @@ public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapte
     @Override
     public int getItemCount() {
         return financialAidList.size();
+    }
+
+    public void setTextSizes(int textSize) {
+        this.textSize = textSize;
+        notifyDataSetChanged();
+    }
+
+    public void setTextColour(String colour) {
+        this.colour = colour;
+        notifyDataSetChanged();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

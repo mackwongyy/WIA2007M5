@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
+    tools:context=".P5_DFAP"
+    android:background="@drawable/background_image">
 
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
-        android:text="Direct Financial Aid Platform"
+        android:text="@string/DFAP_direct_financial_aid_platform"
+        android:textColor="#014565"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -35,7 +37,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Offerings of Financial Aid"
+        android:text="@string/DFAP_offerings_of_financial_aid"
+        android:textColor="#014565"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,30 +51,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Back"
+        android:text="@string/DFAP_Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/sortButton"
-        android:onClick="navigateBackToMainActivity" />
+        android:onClick="navigateFromDFAPToHomepage" />
 
     <Button
         android:id="@+id/sortButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Sort"
+        android:text="@string/DFAP_Sort"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/selectButton"
         app:layout_constraintHorizontal_bias="0.763"
         app:layout_constraintStart_toStartOf="parent"
-        android:onClick="navigateToMainActivity3"/>
+        android:onClick="navigateFromDFAPToSortDFAP"/>
 
     <Button
         android:id="@+id/selectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="Select"
+        android:text="@string/DFAP_Select"
         app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="navigateFromDFAPToConfirmationDFAP"
         app:layout_constraintTop_toTopOf="@id/sortButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

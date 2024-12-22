@@ -48,4 +48,9 @@
     <string name="homepage_direct_financial_aid_platform">Direct Financial Aid Platform</string>
     <string name="homepage_finance_management_tools">Finance Management Tools</string>
     <string name="homepage_food_bank_and_shelter_location">Food Bank and Shelter Location</string>
+    <string name="DFAP_direct_financial_aid_platform">Direct Financial Aid Platform</string>
+    <string name="DFAP_offerings_of_financial_aid">Offerings of Financial Aid</string>
+    <string name="DFAP_Back">Back</string>
+    <string name="DFAP_Sort">Sort</string>
+    <string name="DFAP_Select">Select</string>
 </resources>

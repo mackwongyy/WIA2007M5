@@ -4,17 +4,12 @@ import android.content.*;
 import android.os.*;
 import android.view.*;
 import android.widget.*;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.*;
-
 import java.util.ArrayList;
-import java.util.List;
 
-public class MainActivity2 extends AppCompatActivity {
-    private Button selectButton, sortButton, backButton;
-    private RecyclerView recyclerView;
-    private ArrayList<FinancialAid> financialAidList = new ArrayList<>();
+public class P5_DFAP extends AppCompatActivity {
+    private final ArrayList<FinancialAid> financialAidList = new ArrayList<>();
 
     // Initialize financial aid list
     {
@@ -31,27 +26,22 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         // Bind views
-        backButton = findViewById(R.id.backButton);
-        sortButton = findViewById(R.id.sortButton);
-        selectButton = findViewById(R.id.selectButton);
-        recyclerView = findViewById(R.id.locationRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity2.this));
+        Button backButton = findViewById(R.id.backButton);
+        Button sortButton = findViewById(R.id.sortButton);
+        Button selectButton = findViewById(R.id.selectButton);
+        RecyclerView recyclerView = findViewById(R.id.locationRecyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(P5_DFAP.this));
 
-        // Populate ListView with financial aid data
-        /*List<String> financialAidStrings = new ArrayList<>();
-        for (FinancialAid aid : financialAidList) {
-            financialAidStrings.add(aid.getAidName() + " - RM " + aid.getAidAmount());
-        }
-        RecyclerView.Adapter<String> adapter = new RecyclerView<>(this, android.R.layout.simple_list_item_1, financialAidStrings);
-        recyclerView.setAdapter(adapter);*/
         FinancialAidAdapter adapter = new FinancialAidAdapter(financialAidList);
         recyclerView.setAdapter(adapter);
+        adapter.setTextSizes(24);
+        adapter.setTextColour("#014565");
 
         // Button functionality for Back navigation
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateBackToMainActivity(v);
+                navigateFromDFAPToHomepage(v);
             }
         });
 
@@ -59,7 +49,7 @@ public class MainActivity2 extends AppCompatActivity {
         sortButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToMainActivity3(v);
+                navigateFromDFAPToSortDFAP(v);
             }
         });
 
@@ -67,26 +57,26 @@ public class MainActivity2 extends AppCompatActivity {
         selectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToMainActivity3A(v);
+                navigateFromDFAPToConfirmationDFAP(v);
             }
         });
     }
 
     // Method to navigate to MainActivity1
-    private void navigateBackToMainActivity(View view) {
-        Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+    private void navigateFromDFAPToHomepage(View view) {
+        Intent intent = new Intent(P5_DFAP.this, P5_Homepage.class);
         startActivity(intent);
     }
 
     // Method to navigate to MainActivity3
-    private void navigateToMainActivity3(View view) {
-        Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+    private void navigateFromDFAPToSortDFAP(View view) {
+        Intent intent = new Intent(P5_DFAP.this, MainActivity3.class);
         startActivity(intent);
     }
 
     // Method to navigate to MainActivity3A
-    private void navigateToMainActivity3A(View view) {
-        Intent intent = new Intent(MainActivity2.this, MainActivity3A.class);
+    private void navigateFromDFAPToConfirmationDFAP(View view) {
+        Intent intent = new Intent(P5_DFAP.this, MainActivity3A.class);
         startActivity(intent);
     }
 }

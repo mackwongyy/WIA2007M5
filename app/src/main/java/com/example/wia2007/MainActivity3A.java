@@ -34,12 +34,12 @@ public class MainActivity3A extends AppCompatActivity {
     }
 
     private void navigateToMainActivity(View view) {
-        Intent intent = new Intent(MainActivity3A.this, MainActivity.class);
+        Intent intent = new Intent(MainActivity3A.this, P5_Homepage.class);
         startActivity(intent);
     }
 
     private void navigateToMainActivity2(View view) {
-        Intent intent = new Intent(MainActivity3A.this, MainActivity2.class);
+        Intent intent = new Intent(MainActivity3A.this, P5_DFAP.class);
         startActivity(intent);
     }
 }

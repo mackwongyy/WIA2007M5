@@ -6,19 +6,16 @@ import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
-    private Button buttonDFAP;
-    private Button buttonFMT;
-    private Button buttonFBSL;
+public class P5_Homepage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        buttonDFAP = findViewById(R.id.DFAP);
-        buttonFMT = findViewById(R.id.FMT);
-        buttonFBSL = findViewById(R.id.FBSL);
+        Button buttonDFAP = findViewById(R.id.DFAP);
+        Button buttonFMT = findViewById(R.id.FMT);
+        Button buttonFBSL = findViewById(R.id.FBSL);
 
         buttonDFAP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,17 +40,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void navigationFromHomepageToDFAP(View view) {
-        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        Intent intent = new Intent(P5_Homepage.this, P5_DFAP.class);
         startActivity(intent);
     }
 
     public void navigationFromHomepageToFMT(View view) {
-        Intent intent = new Intent(MainActivity.this, MainActivity5.class);
+        Intent intent = new Intent(P5_Homepage.this, MainActivity5.class);
         startActivity(intent);
     }
 
     public void navigationFromHomepageToFBSL(View view) {
-        Intent intent = new Intent(MainActivity.this, MainActivity9.class);
+        Intent intent = new Intent(P5_Homepage.this, MainActivity9.class);
         startActivity(intent);
     }
 }
