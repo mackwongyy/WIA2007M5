@@ -28,7 +28,7 @@
             android:name=".MainActivity5"
             android:exported="false" />
         <activity
-            android:name=".MainActivity3A"
+            android:name=".P5_ConfirmationDFAP"
             android:exported="false" />
         <activity
             android:name=".P5_SortDFAP"

@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,10 +34,11 @@ public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         FinancialAid aid = financialAidList.get(position);
+        holder.imageView.setImageResource(aid.getImageID());
         holder.nameTextView.setText(aid.getAidName());
         holder.amountTextView.setText("Amount: RM" + aid.getAidAmount());
         holder.slotsTextView.setText("Type: " + aid.getAidSlots());
-        holder.datelineTextView.setText("Deadline: " + aid.getAidDateline());
+        holder.datelineTextView.setText("Dateline: " + aid.getAidDateline());
 
         holder.itemView.setBackgroundColor(selectedPosition == position ? Color.GREEN : Color.TRANSPARENT);
 
@@ -44,6 +46,13 @@ public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapte
             selectedPosition = position;
             listener.onItemClick(position);
             notifyDataSetChanged();
+        });
+
+        holder.imageView.post(() -> {
+            int imageHeight = holder.imageView.getHeight() + 50;
+            ViewGroup.LayoutParams layoutParams = holder.itemView.getLayoutParams();
+            layoutParams.height = imageHeight;
+            holder.itemView.setLayoutParams(layoutParams);
         });
     }
 
@@ -53,10 +62,12 @@ public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapte
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
         TextView nameTextView, amountTextView, slotsTextView, datelineTextView;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
+            imageView = itemView.findViewById(R.id.FinancialAidImage);
             nameTextView = itemView.findViewById(R.id.FinancialAidName);
             amountTextView = itemView.findViewById(R.id.FinancialAidAmount);
             slotsTextView = itemView.findViewById(R.id.FinancialAidSlots);

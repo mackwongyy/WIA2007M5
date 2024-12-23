@@ -8,13 +8,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity3A extends AppCompatActivity {
+public class P5_ConfirmationDFAP extends AppCompatActivity {
     private String selectedAid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3a);
+        setContentView(R.layout.p5_confirmationdfap);
 
         // Safely retrieve the selected aid name
         selectedAid = getIntent().getStringExtra("selectedAid");
@@ -37,12 +37,12 @@ public class MainActivity3A extends AppCompatActivity {
     }
 
     public void navigationFromConfirmationToHomepage(View view) {
-        Intent intent = new Intent(MainActivity3A.this, P5_Homepage.class);
+        Intent intent = new Intent(P5_ConfirmationDFAP.this, P5_Homepage.class);
         startActivity(intent);
     }
 
     public void navigationFromConfirmationToDFAP(View view) {
-        Intent intent = new Intent(MainActivity3A.this, P5_DFAP.class);
+        Intent intent = new Intent(P5_ConfirmationDFAP.this, P5_DFAP.class);
         startActivity(intent);
     }
 }

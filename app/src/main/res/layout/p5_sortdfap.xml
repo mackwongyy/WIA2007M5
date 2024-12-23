@@ -178,7 +178,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:hint="Date: DD/MM/YYYY"
-        android:inputType="number"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -197,7 +197,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view3"
-        android:onClick="navigationFromSortDFAPToDFAP"/>
+        app:layout_constraintTop_toBottomOf="@id/view3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,12 +46,12 @@ public class MainActivity4 extends AppCompatActivity {
     }
 
     private void navigateToMainActivity3(View view) {
-        Intent intent = new Intent(MainActivity4.this, MainActivity3A.class);
+        Intent intent = new Intent(MainActivity4.this, P5_ConfirmationDFAP.class);
         startActivity(intent);
     }
 
     private void navigateToMainActivity3A(View view) {
-        Intent intent = new Intent(MainActivity4.this, MainActivity3A.class);
+        Intent intent = new Intent(MainActivity4.this, P5_ConfirmationDFAP.class);
         startActivity(intent);
     }
 }
