@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".P5_SortDFAP"
+    android:background="@drawable/background_image">
+
+    <TextView
+        android:id="@+id/SelectionAmountTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/DFAP_direct_financial_aid_platform"
+        android:textAlignment="center"
+        android:textColor="#014565"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <View
+        android:id="@+id/SelectionAmountSubtitleBorder"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@drawable/border4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18" />
+
+    <TextView
+        android:id="@+id/SelectionAmountSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/DFAP_Amount_Of_Slots_Selected_For_Financial_Aid"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.186" />
+
+    <View
+        android:id="@+id/SelectionAmountView"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:background="@drawable/border8dp"
+        android:fadingEdgeLength="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/SelectionAmountAmountOfSlots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/Amount_Of_Slots"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/SelectionAmountView"
+        app:layout_constraintHorizontal_bias="0.19"
+        app:layout_constraintStart_toStartOf="@+id/SelectionAmountView"
+        app:layout_constraintTop_toTopOf="@+id/SelectionAmountView" />
+
+    <EditText
+        android:id="@+id/Amount_Of_Slots"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="Max: 1"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/SelectionAmountView"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/SelectionAmountView"
+        app:layout_constraintTop_toBottomOf="@+id/SelectionAmountAmountOfSlots" />
+
+    <TextView
+        android:id="@+id/SelectionAmountTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="108dp"
+        android:text="@string/Total_Amount"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/SelectionAmountAmountOfSlots" />
+
+    <TextView
+        android:id="@+id/Total_Amount"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/RM0"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="@+id/SelectionAmountView"
+        app:layout_constraintStart_toStartOf="@+id/SelectionAmountView"
+        app:layout_constraintTop_toBottomOf="@+id/SelectionAmountTotalAmount" />
+
+    <Button
+        android:id="@+id/applyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/Apply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SelectionAmountView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

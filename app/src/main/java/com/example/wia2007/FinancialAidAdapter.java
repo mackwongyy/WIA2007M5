@@ -1,26 +1,35 @@
 package com.example.wia2007;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 
 public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapter.ViewHolder> {
     private final ArrayList<FinancialAid> financialAidList;
-    private final OnItemClickListener listener;
+    private OnItemClickListener listener;
     private int selectedPosition = -1;
+    private Context context;
 
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
-    public FinancialAidAdapter(ArrayList<FinancialAid> financialAidList, OnItemClickListener listener) {
+    public FinancialAidAdapter(ArrayList<FinancialAid> financialAidList, OnItemClickListener listener, Context context) {
         this.financialAidList = financialAidList;
+        this.listener = listener;
+        this.context = context;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
 
@@ -37,7 +46,7 @@ public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapte
         holder.imageView.setImageResource(aid.getImageID());
         holder.nameTextView.setText(aid.getAidName());
         holder.amountTextView.setText("Amount: RM" + aid.getAidAmount());
-        holder.slotsTextView.setText("Type: " + aid.getAidSlots());
+        holder.slotsTextView.setText("Slots: " + aid.getAidSlots());
         holder.datelineTextView.setText("Dateline: " + aid.getAidDateline());
 
         holder.itemView.setBackgroundColor(selectedPosition == position ? Color.GREEN : Color.TRANSPARENT);

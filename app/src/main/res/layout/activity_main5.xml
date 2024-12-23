@@ -8,66 +8,69 @@
 
     <!-- Financial Management Tools TextView -->
 
+    <TextView
+        android:id="@+id/financial_management_tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/FMT_Financial_Management_Tools"
+        android:textAlignment="center"
+        android:textColor="#014565"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.068" />
+
     <View
         android:id="@+id/view"
         android:layout_width="300dp"
         android:layout_height="450dp"
-        android:layout_marginTop="120dp"
         android:background="@drawable/border8dpblue"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.409" />
 
     <TextView
         android:id="@+id/expenses_value"
         android:layout_width="72dp"
         android:layout_height="24dp"
-        android:layout_marginTop="44dp"
-        android:text="RM0"
-        android:textColor="@android:color/holo_blue_dark"
+        android:text="@string/RM0"
         android:textAlignment="textEnd"
+        android:textColor="#014565"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toEndOf="@+id/expenses_label"
-        app:layout_constraintTop_toTopOf="@+id/financial_dashboard" />
-
-    <TextView
-        android:id="@+id/financial_management_tools"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="Financial Management Tools"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/expenses_label" />
 
     <TextView
         android:id="@+id/financial_dashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:text="Financial Dashboard"
+        android:layout_marginTop="24dp"
+        android:text="@string/FMT_Financial_Dashboard"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="#014565"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/view" />
 
     <TextView
         android:id="@+id/net_profit_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Income:"
+        android:text="@string/FMT_Income"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="#014565"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.299"
@@ -78,36 +81,34 @@
         android:id="@+id/income_value"
         android:layout_width="72dp"
         android:layout_height="24dp"
-        android:layout_marginTop="88dp"
-        android:text="RM0"
-        android:textColor="@android:color/holo_blue_dark"
+        android:text="@string/RM0"
         android:textAlignment="textEnd"
+        android:textColor="#014565"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toEndOf="@+id/expenses_label"
-        app:layout_constraintTop_toTopOf="@+id/financial_dashboard" />
+        app:layout_constraintTop_toTopOf="@+id/net_profit_label" />
 
     <TextView
         android:id="@+id/net_profit_value"
         android:layout_width="72dp"
         android:layout_height="24dp"
-        android:layout_marginTop="48dp"
-        android:text="RM0"
-        android:textColor="@android:color/holo_blue_dark"
+        android:text="@string/RM0"
         android:textAlignment="textEnd"
+        android:textColor="#014565"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toEndOf="@+id/expenses_label"
-        app:layout_constraintTop_toTopOf="@+id/income_value" />
+        app:layout_constraintTop_toTopOf="@+id/income_label" />
 
     <TextView
         android:id="@+id/expenses_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Expenses:"
+        android:text="@string/FMT_Expenses"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="#014565"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.312"
@@ -119,9 +120,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
-        android:text="Net Profit:"
+        android:text="@string/FMT_Net_Profit"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="#014565"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.312"
@@ -132,24 +133,27 @@
         android:id="@+id/discoverMoreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="376dp"
-        android:text="Discover More"
+        android:onClick="navigateToMainActivity6"
+        android:text="@string/Discover_More"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.719"
+        app:layout_constraintHorizontal_bias="0.712"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view"
-        android:onClick="navigateToMainActivity6" />
+        app:layout_constraintVertical_bias="0.937" />
 
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Back"
+        android:onClick="navigateToMainActivity"
+        android:text="@string/Back"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.173"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        android:onClick="navigateToMainActivity" />
+        app:layout_constraintVertical_bias="0.032" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

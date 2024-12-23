@@ -11,7 +11,7 @@
         android:layout_width="144dp"
         android:layout_height="144dp"
         android:layout_marginEnd="10dp"
-        android:contentDescription="@string/financialaidimage" />
+        android:contentDescription="@string/DFAP_Financial_Aid_Image" />
 
     <TextView
         android:id="@+id/FinancialAidName"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:layout_marginEnd="10dp"
-        android:text="@string/financialaidname" />
+        android:text="@string/DFAP_Financial_Aid_Name" />
 
     <TextView
         android:id="@+id/FinancialAidAmount"
@@ -31,7 +31,7 @@
         android:textSize="18sp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="10dp"
-        android:text="@string/financialaidamount" />
+        android:text="@string/DFAP_Financial_Aid_Amount" />
 
     <TextView
         android:id="@+id/FinancialAidSlots"
@@ -42,7 +42,7 @@
         android:textSize="18sp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="10dp"
-        android:text="@string/financialaidslots" />
+        android:text="@string/DFAP_Financial_Aid_Slots" />
 
     <TextView
         android:id="@+id/FinancialAidDateline"
@@ -53,6 +53,6 @@
         android:textSize="18sp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="10dp"
-        android:text="@string/financialaiddateline" />
+        android:text="@string/DFAP_Financial_Aid_Dateline" />
 
 </RelativeLayout>

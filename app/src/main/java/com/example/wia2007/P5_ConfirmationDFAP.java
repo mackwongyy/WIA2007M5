@@ -5,44 +5,58 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class P5_ConfirmationDFAP extends AppCompatActivity {
-    private String selectedAid;
+
+    private FinancialAid selectedAid;
+    private int numberOfSlots;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_confirmationdfap);
 
-        // Safely retrieve the selected aid name
-        selectedAid = getIntent().getStringExtra("selectedAid");
-        if (selectedAid == null) {
-            selectedAid = "Unknown Financial Aid";
-        }
+        // Retrieve the selected FinancialAid object and number of slots from the intent
+        selectedAid = getIntent().getParcelableExtra("selectedAid");
+        numberOfSlots = getIntent().getIntExtra("numberOfSlots", 0);
 
-        TextView textView = findViewById(R.id.textView);
-        textView.setText("Do you wish to apply for " + selectedAid + "?");
-
+        // Initialize UI elements
+        TextView confirmationMessageTextView = findViewById(R.id.ConfirmationDFAP_Question);
         Button yesButton = findViewById(R.id.yesButton);
         Button noButton = findViewById(R.id.noButton);
 
-        yesButton.setOnClickListener(v -> {
-            Toast.makeText(this, "Congratulations, you have applied for " + selectedAid + ".", Toast.LENGTH_LONG).show();
-            navigationFromConfirmationToHomepage(v);
+        // Set the confirmation message
+        confirmationMessageTextView.setText("Are you sure you want to apply for " + numberOfSlots + " slots?");
+
+        yesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Update the aid slots by subtracting the number of slots
+                selectedAid.setAidSlots(selectedAid.getAidSlots() - numberOfSlots);
+
+                // If the aid slots reach 0, remove the entry from the list
+                if (selectedAid.getAidSlots() <= 0) {
+                    FinancialAidManager.removeFinancialAid(selectedAid.getAidID());
+                }
+
+                // Navigate back to P5_DFAP.java
+                Intent intent = new Intent(P5_ConfirmationDFAP.this, P5_DFAP.class);
+                intent.putExtra("updatedAid", selectedAid);
+                startActivity(intent);
+                finish();
+            }
         });
 
-        noButton.setOnClickListener(this::navigationFromConfirmationToDFAP);
-    }
-
-    public void navigationFromConfirmationToHomepage(View view) {
-        Intent intent = new Intent(P5_ConfirmationDFAP.this, P5_Homepage.class);
-        startActivity(intent);
-    }
-
-    public void navigationFromConfirmationToDFAP(View view) {
-        Intent intent = new Intent(P5_ConfirmationDFAP.this, P5_DFAP.class);
-        startActivity(intent);
+        noButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate back to P5_DFAP.java without making any changes
+                Intent intent = new Intent(P5_ConfirmationDFAP.this, P5_DFAP.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

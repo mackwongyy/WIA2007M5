@@ -8,7 +8,7 @@
     android:background="@drawable/background_image">
 
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/SelectionAmountTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
@@ -22,6 +22,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/SelectionAmountSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/DFAP_offerings_of_financial_aid"
+        android:textAlignment="center"
+        android:textColor="#014565"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SelectionAmountTitle" />
+
+    <TextView
+        android:id="@+id/number_of_listings"
+        android:layout_width="357dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/DFAP_Listings_Of_Financial_Aid_Found"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SelectionAmountSubtitle" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/locationRecyclerView"
         android:layout_width="400dp"
@@ -29,29 +54,17 @@
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@id/sortButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subtitleTextView" />
-
-    <TextView
-        android:id="@+id/subtitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/DFAP_offerings_of_financial_aid"
-        android:textColor="#014565"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/SelectionAmountSubtitle"
+        app:layout_constraintVertical_bias="0.644" />
 
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="@string/DFAP_Back"
+        android:text="@string/Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/sortButton"
         android:onClick="navigationFromDFAPToHomepage" />
@@ -61,19 +74,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="@string/DFAP_Sort"
+        android:layout_marginBottom="24dp"
+        android:onClick="navigationFromDFAPToSortDFAP"
+        android:text="@string/Sort"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/selectButton"
         app:layout_constraintHorizontal_bias="0.763"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="navigationFromDFAPToSortDFAP"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/selectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="@string/DFAP_Select"
+        android:text="@string/Select"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/sortButton" />
 

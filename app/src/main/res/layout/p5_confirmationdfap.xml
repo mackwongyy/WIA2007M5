@@ -18,66 +18,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/view4"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="150dp"
-        android:background="#03A9F4"
-        app:layout_constraintEnd_toEndOf="@+id/view3Unclear"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="@+id/view3Unclear"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/ConfirmationDFAP_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="Direct Financial Aid Platform"
+        android:textColor="#014565"
+        android:text="@string/Direct_Financial_Aid_Platform"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view3Unclear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.091"
+        app:layout_editor_absoluteY="81dp"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/ConfirmationDFAP_Question"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="150dp"
-        android:background="#03A9F4"
+        android:background="#014565"
         android:fontFamily="sans-serif-black"
-        android:text="Do you wish to apply\nfor the financial aid?"
+        android:text="@string/DFAP_Question_do_you_wish_to_apply_nfor_the_financial_aid"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#000000"
-        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/view5"
         app:layout_constraintEnd_toEndOf="@+id/view3Unclear"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/view3Unclear"
-        app:layout_constraintTop_toTopOf="@+id/view3Unclear" />
+        app:layout_constraintTop_toTopOf="@+id/ConfirmationDFAP_Title"
+        app:layout_constraintVertical_bias="0.688" />
 
     <View
         android:id="@+id/view5"
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_marginTop="240dp"
-        android:background="@drawable/view_ffffff_colour"
+        android:background="@drawable/view_014565_colour"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/view3Unclear"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/view3Unclear"
-        app:layout_constraintTop_toTopOf="@+id/view3Unclear" />
+        app:layout_constraintTop_toTopOf="@+id/view3Unclear"
+        app:layout_constraintVertical_bias="0.085" />
 
     <Button
         android:id="@+id/yesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Yes"
+        android:layout_marginTop="40dp"
+        android:text="@string/DFAP_Yes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/view3Unclear"
@@ -89,10 +84,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
         android:onClick="navigationFromConfirmationToDFAP"
-        android:text="No"
+        android:text="@string/DFAP_No"
         app:layout_constraintBottom_toBottomOf="@+id/view5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/view3Unclear" />
+        app:layout_constraintStart_toStartOf="@+id/view3Unclear"
+        app:layout_constraintTop_toBottomOf="@+id/yesButton"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@ public class P5_SortDFAP extends AppCompatActivity {
 
         // Initialize UI elements
         Button applyButton = findViewById(R.id.applyButton);
-        EditText nameEditText = findViewById(R.id.NameEditText3);
+        EditText nameEditText = findViewById(R.id.Amount_Of_Slots);
         EditText minAmountEditText = findViewById(R.id.minAmountEditText3);
         EditText maxAmountEditText = findViewById(R.id.maxAmountEditText3);
         EditText minSlotsEditText = findViewById(R.id.minSlotsEditText3);
@@ -70,13 +70,8 @@ public class P5_SortDFAP extends AppCompatActivity {
                     // Normalize the dateline input to remove any slashes
                     String normalizedDatelineInput = dateline.replace("/", "");
 
-                    // Create a list of FinancialAid objects for comparison
-                    List<FinancialAid> financialAidList = new ArrayList<>();
-                    financialAidList.add(new FinancialAid(1, "Mani Group Financial Aid", 500, 2, "02/12/2024", R.drawable.workspace1));
-                    financialAidList.add(new FinancialAid(2, "Wesley Foundation Aid", 10000, 1, "15/12/2024", R.drawable.workspace2));
-                    financialAidList.add(new FinancialAid(3, "Hua Chai Aid", 15000, 2, "13/12/2024", R.drawable.workspace3));
-                    financialAidList.add(new FinancialAid(4, "Ahmad and Co Fund", 20000, 2, "06/12/2024", R.drawable.workspace4));
-                    financialAidList.add(new FinancialAid(5, "Rodrigo Corporation Fund", 1500, 1, "01/01/2025", R.drawable.workspace5));
+                    // Get the current state of the financialAidList from FinancialAidManager
+                    List<FinancialAid> financialAidList = FinancialAidManager.getFinancialAidList();
 
                     // Filter the financial aid list based on the criteria
                     List<FinancialAid> filteredList = new ArrayList<>();
