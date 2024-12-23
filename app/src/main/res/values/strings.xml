@@ -75,6 +75,6 @@
     <string name="DFAP_Yes">Yes</string>
     <string name="DFAP_No">No</string>
     <string name="Total_Amount">Total Amount</string>
-    <string name="DFAP_Amount_Of_Slots_Selected_For_Financial_Aid">Amount of Slots\nSelected for Financial Aid</string>
     <string name="Amount_Of_Slots">Amount of Slots</string>
+    <string name="Select_Amount_Slots_Text">Select the amount of slots.</string>
 </resources>

@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SelectionDFAP extends AppCompatActivity {
+public class P5_SelectionDFAP extends AppCompatActivity {
 
     private FinancialAid selectedAid;
     private EditText numberOfSlotsEditText;
@@ -20,7 +20,7 @@ public class SelectionDFAP extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.selection_dfap);
+        setContentView(R.layout.p5_selection_dfap);
 
         // Retrieve the selected FinancialAid object from the intent
         selectedAid = getIntent().getParcelableExtra("selectedAid");
@@ -49,7 +49,7 @@ public class SelectionDFAP extends AppCompatActivity {
 
                     // Check if the number of slots is valid
                     if (numberOfSlots > selectedAid.getAidSlots()) {
-                        Toast.makeText(SelectionDFAP.this, "Not enough slots available!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(P5_SelectionDFAP.this, "Not enough slots available!", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
@@ -60,18 +60,18 @@ public class SelectionDFAP extends AppCompatActivity {
                     totalAmountTextView.setText(numberOfSlots + " × " + selectedAid.getAidAmount() + " = " + totalAmount);
 
                     // Show a toast message for 5 seconds
-                    Toast.makeText(SelectionDFAP.this, "Total Amount: " + totalAmount, Toast.LENGTH_LONG).show();
+                    Toast.makeText(P5_SelectionDFAP.this, "Total Amount: " + totalAmount, Toast.LENGTH_LONG).show();
 
                     // Delay the navigation to ConfirmationDFAP.java by 5 seconds
                     new Handler().postDelayed(() -> {
-                        Intent intent = new Intent(SelectionDFAP.this, P5_ConfirmationDFAP.class);
+                        Intent intent = new Intent(P5_SelectionDFAP.this, P5_ConfirmationDFAP.class);
                         intent.putExtra("selectedAid", selectedAid);
                         intent.putExtra("numberOfSlots", numberOfSlots);
                         startActivity(intent);
                     }, 5000); // 5000 milliseconds = 5 seconds
 
                 } catch (NumberFormatException e) {
-                    Toast.makeText(SelectionDFAP.this, "Please enter a valid number for slots", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(P5_SelectionDFAP.this, "Please enter a valid number for slots", Toast.LENGTH_SHORT).show();
                 }
             }
         });

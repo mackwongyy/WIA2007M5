@@ -101,7 +101,7 @@ public class P5_DFAP extends AppCompatActivity {
                 Toast.makeText(P5_DFAP.this, "Please select a financial aid first!", Toast.LENGTH_SHORT).show();
             } else {
                 // Navigate to SelectionDFAP.java with the selected aid
-                Intent intent = new Intent(P5_DFAP.this, SelectionDFAP.class);
+                Intent intent = new Intent(P5_DFAP.this, P5_SelectionDFAP.class);
                 intent.putExtra("selectedAid", financialAidList.get(selectedPosition));
                 startActivity(intent);
             }

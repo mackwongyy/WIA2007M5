@@ -28,7 +28,7 @@
             android:name=".MainActivity5"
             android:exported="false" />
         <activity
-            android:name=".SelectionDFAP"
+            android:name=".P5_SelectionDFAP"
             android:exported="false" />
         <activity
             android:name=".P5_ConfirmationDFAP"
