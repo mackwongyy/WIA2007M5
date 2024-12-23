@@ -18,10 +18,10 @@ public class P5_DFAP extends AppCompatActivity {
 
     {
         financialAidList.add(new FinancialAid(1, "Mani Group Financial Aid", 500, 2, "02/12/2024"));
-        financialAidList.add(new FinancialAid(2, "Wesley Foundation Scholarship", 10000, 1, "15/12/2024"));
-        financialAidList.add(new FinancialAid(3, "Hua Chai Scholarship", 15000, 2, "13/12/2024"));
+        financialAidList.add(new FinancialAid(2, "Wesley Foundation Aid", 10000, 1, "15/12/2024"));
+        financialAidList.add(new FinancialAid(3, "Hua Chai Aid", 15000, 2, "13/12/2024"));
         financialAidList.add(new FinancialAid(4, "Ahmad and Co Fund", 20000, 2, "06/12/2024"));
-        financialAidList.add(new FinancialAid(5, "Rodrigo Corporation Scholarship", 1500, 1, "01/01/2025"));
+        financialAidList.add(new FinancialAid(5, "Rodrigo Corporation Fund", 1500, 1, "01/01/2025"));
     }
 
     @Override
@@ -72,7 +72,7 @@ public class P5_DFAP extends AppCompatActivity {
     }
 
     public void navigationFromDFAPToSortDFAP(View view) {
-        Intent intent = new Intent(P5_DFAP.this, MainActivity3.class);
+        Intent intent = new Intent(P5_DFAP.this, P5_SortDFAP.class);
         startActivity(intent);
     }
 }

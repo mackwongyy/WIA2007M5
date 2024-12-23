@@ -31,7 +31,7 @@
             android:name=".MainActivity3A"
             android:exported="false" />
         <activity
-            android:name=".MainActivity3"
+            android:name=".P5_SortDFAP"
             android:exported="false" />
         <activity
             android:name=".P5_DFAP"

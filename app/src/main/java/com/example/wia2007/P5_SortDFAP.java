@@ -11,7 +11,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity3 extends AppCompatActivity {
+public class P5_SortDFAP extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +41,10 @@ public class MainActivity3 extends AppCompatActivity {
                 // Create a list of FinancialAid objects for comparison
                 List<FinancialAid> financialAidList = new ArrayList<>();
                 financialAidList.add(new FinancialAid(1, "Mani Group Financial Aid", 500, 2, "02/12/2024"));
-                financialAidList.add(new FinancialAid(2, "Wesley Foundation Scholarship", 10000, 1, "15/12/2024"));
-                financialAidList.add(new FinancialAid(3, "Hua Chai Scholarship", 15000, 2, "13/12/2024"));
+                financialAidList.add(new FinancialAid(2, "Wesley Foundation Aid", 10000, 1, "15/12/2024"));
+                financialAidList.add(new FinancialAid(3, "Hua Chai Aid", 15000, 2, "13/12/2024"));
                 financialAidList.add(new FinancialAid(4, "Ahmad and Co Fund", 20000, 2, "06/12/2024"));
-                financialAidList.add(new FinancialAid(5, "Rodrigo Corporation Scholarship", 1500, 1, "01/01/2025"));
+                financialAidList.add(new FinancialAid(5, "Rodrigo Corporation Fund", 1500, 1, "01/01/2025"));
 
                 // Compare user inputs with FinancialAid objects
                 boolean matchFound = false;
@@ -60,19 +60,19 @@ public class MainActivity3 extends AppCompatActivity {
 
                 //Show result to the user
                 if (matchFound) {
-                    Toast.makeText(MainActivity3.this, "Match found!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(P5_SortDFAP.this, "Match found!", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(MainActivity3.this, "No match found.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(P5_SortDFAP.this, "No match found.", Toast.LENGTH_LONG).show();
                 }
 
                 // Navigate to the next activity if needed
-                navigationFromSortToDFAP(v);
+                navigationFromSortDFAPToDFAP(v);
             }
         });
     }
 
-    public void navigationFromSortToDFAP(View view) {
-        Intent intent = new Intent(MainActivity3.this, P5_DFAP.class);
+    public void navigationFromSortDFAPToDFAP(View view) {
+        Intent intent = new Intent(P5_SortDFAP.this, P5_DFAP.class);
         startActivity(intent);
     }
 }
