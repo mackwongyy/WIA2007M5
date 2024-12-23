@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity3 extends AppCompatActivity {
-    private Button applyButton;
-    private EditText nameEditText, minAmountEditText, maxAmountEditText, minSlotsEditText, maxSlotsEditText, datelineEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +19,13 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
 
         // Initialize UI elements
-        applyButton = findViewById(R.id.applyButton);
-        nameEditText = findViewById(R.id.NameEditText3);
-        minAmountEditText = findViewById(R.id.minAmountEditText3);
-        maxAmountEditText = findViewById(R.id.maxAmountEditText3);
-        minSlotsEditText = findViewById(R.id.minSlotsEditText3);
-        maxSlotsEditText = findViewById(R.id.maxSlotsEditText3);
-        datelineEditText = findViewById(R.id.dateline);
+        Button applyButton = findViewById(R.id.applyButton);
+        EditText nameEditText = findViewById(R.id.NameEditText3);
+        EditText minAmountEditText = findViewById(R.id.minAmountEditText3);
+        EditText maxAmountEditText = findViewById(R.id.maxAmountEditText3);
+        EditText minSlotsEditText = findViewById(R.id.minSlotsEditText3);
+        EditText maxSlotsEditText = findViewById(R.id.maxSlotsEditText3);
+        EditText datelineEditText = findViewById(R.id.dateline);
 
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,8 +49,8 @@ public class MainActivity3 extends AppCompatActivity {
                 // Compare user inputs with FinancialAid objects
                 boolean matchFound = false;
                 for (FinancialAid aid : financialAidList) {
-                    if (aid.getAidName().equals(name) &&
-                            aid.getAidAmount() >= minAmount && aid.getAidAmount() <= maxAmount &&
+                    if (aid.getAidName().equals(name) && aid.getAidAmount() >= minAmount &&
+                            aid.getAidAmount() <= maxAmount &&
                             aid.getAidSlots() >= minSlots && aid.getAidSlots() <= maxSlots &&
                             aid.getAidDateline().equals(dateline)) {
                         matchFound = true;
@@ -60,7 +58,7 @@ public class MainActivity3 extends AppCompatActivity {
                     }
                 }
 
-                // Show result to the user
+                //Show result to the user
                 if (matchFound) {
                     Toast.makeText(MainActivity3.this, "Match found!", Toast.LENGTH_LONG).show();
                 } else {
@@ -68,9 +66,13 @@ public class MainActivity3 extends AppCompatActivity {
                 }
 
                 // Navigate to the next activity if needed
-                Intent intent = new Intent(MainActivity3.this, P5_DFAP.class);
-                startActivity(intent);
+                navigationFromSortToDFAP(v);
             }
         });
+    }
+
+    public void navigationFromSortToDFAP(View view) {
+        Intent intent = new Intent(MainActivity3.this, P5_DFAP.class);
+        startActivity(intent);
     }
 }

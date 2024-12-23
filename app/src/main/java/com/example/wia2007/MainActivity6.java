@@ -46,7 +46,7 @@ public class MainActivity6 extends AppCompatActivity {
         });
 
         // Find the Calendar button
-        Button backButton = findViewById(R.id.calendarButton);
+        Button backButton = findViewById(R.id.backButton);
 
         // Set OnClickListener for Calendar button to navigate back to MainActivity5
         backButton.setOnClickListener(new View.OnClickListener() {

@@ -7,13 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity5 extends AppCompatActivity {
+import org.w3c.dom.Text;
 
-    // Declare TextViews for displaying financial data
-    private TextView financialDashboardTextView;
-    private TextView expensesValueTextView;
-    private TextView incomeValueTextView;
-    private TextView netProfitValueTextView;
+public class MainActivity5 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +17,10 @@ public class MainActivity5 extends AppCompatActivity {
         setContentView(R.layout.activity_main5);
 
         // Initialize TextViews
-        financialDashboardTextView = findViewById(R.id.financial_dashboard);
-        expensesValueTextView = findViewById(R.id.expenses_value);
-        incomeValueTextView = findViewById(R.id.income_value);
-        netProfitValueTextView = findViewById(R.id.net_profit_value);
+        TextView financialDashboardTextView = findViewById(R.id.financial_dashboard);
+        TextView expensesValueTextView = findViewById(R.id.expenses_value);
+        TextView incomeValueTextView = findViewById(R.id.income_value);
+        TextView netProfitValueTextView = findViewById(R.id.net_profit_value);
 
         // Fetch the current month's financial data (e.g., "11/2024")
         String currentMonthID = "11/2024"; // Replace with dynamic logic if needed

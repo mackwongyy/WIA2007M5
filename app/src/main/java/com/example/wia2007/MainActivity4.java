@@ -8,14 +8,13 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity4 extends AppCompatActivity {
-    private Button selectButton, sortButton, backButton;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
-        selectButton = findViewById(R.id.selectButton);
-        sortButton = findViewById(R.id.sortButton);
-        backButton = findViewById(R.id.backButton);
+        Button selectButton = findViewById(R.id.selectButton);
+        Button sortButton = findViewById(R.id.sortButton);
+        Button backButton = findViewById(R.id.backButton);
 
         // Button functionality for Back navigation
         backButton.setOnClickListener(new View.OnClickListener() {

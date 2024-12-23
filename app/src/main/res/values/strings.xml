@@ -58,4 +58,15 @@
     <string name="financialaidslots">FinancialAidSlots</string>
     <string name="financialaiddateline">FinancialAidDateline</string>
     <string name="financialaidimage">FinancialAidImage</string>
+    <string name="FinancialManagementTools">FinancialAidImage</string>
+    <string name="RM0">FinancialAidImage</string>
+    <string name="FMT_financial_dashboard">Financial Dashboard</string>
+    <string name="FMT_expenses">Expenses:</string>
+    <string name="FMT_income">Income:</string>
+    <string name="FMT_net_profit">Net Profit:</string>
+    <string name="FMT_RM0_1">RM0</string>
+    <string name="FMT_RM0_2">RM0</string>
+    <string name="FMT_RM0_3">RM0</string>
+    <string name="FMT_Back">Back</string>
+    <string name="FinancialDashboard_FinancialManagementTools">Financial Management Tools</string>
 </resources>

@@ -1,11 +1,9 @@
 package com.example.wia2007;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,12 +11,16 @@ import java.util.ArrayList;
 
 public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapter.ViewHolder> {
     private final ArrayList<FinancialAid> financialAidList;
+    private final OnItemClickListener listener;
     private int selectedPosition = -1;
-    private int textSize;
-    private String colour;
 
-    public FinancialAidAdapter(ArrayList<FinancialAid> financialAidList) {
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public FinancialAidAdapter(ArrayList<FinancialAid> financialAidList, OnItemClickListener listener) {
         this.financialAidList = financialAidList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -36,11 +38,11 @@ public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapte
         holder.slotsTextView.setText("Type: " + aid.getAidSlots());
         holder.datelineTextView.setText("Deadline: " + aid.getAidDateline());
 
-        // Change background color if selected
         holder.itemView.setBackgroundColor(selectedPosition == position ? Color.GREEN : Color.TRANSPARENT);
 
         holder.itemView.setOnClickListener(v -> {
             selectedPosition = position;
+            listener.onItemClick(position);
             notifyDataSetChanged();
         });
     }
@@ -50,23 +52,11 @@ public class FinancialAidAdapter extends RecyclerView.Adapter<FinancialAidAdapte
         return financialAidList.size();
     }
 
-    public void setTextSizes(int textSize) {
-        this.textSize = textSize;
-        notifyDataSetChanged();
-    }
-
-    public void setTextColour(String colour) {
-        this.colour = colour;
-        notifyDataSetChanged();
-    }
-
     static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
         TextView nameTextView, amountTextView, slotsTextView, datelineTextView;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.FinancialAidImage);
             nameTextView = itemView.findViewById(R.id.FinancialAidName);
             amountTextView = itemView.findViewById(R.id.FinancialAidAmount);
             slotsTextView = itemView.findViewById(R.id.FinancialAidSlots);

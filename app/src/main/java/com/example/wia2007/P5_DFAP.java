@@ -1,17 +1,21 @@
 package com.example.wia2007;
 
-import android.content.*;
-import android.os.*;
-import android.view.*;
-import android.widget.*;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.*;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class P5_DFAP extends AppCompatActivity {
     private final ArrayList<FinancialAid> financialAidList = new ArrayList<>();
+    private int selectedPosition = -1;
 
-    // Initialize financial aid list
     {
         financialAidList.add(new FinancialAid(1, "Mani Group Financial Aid", 500, 2, "02/12/2024"));
         financialAidList.add(new FinancialAid(2, "Wesley Foundation Scholarship", 10000, 1, "15/12/2024"));
@@ -25,58 +29,50 @@ public class P5_DFAP extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_dfap);
 
-        // Bind views
         Button backButton = findViewById(R.id.backButton);
         Button sortButton = findViewById(R.id.sortButton);
         Button selectButton = findViewById(R.id.selectButton);
         RecyclerView recyclerView = findViewById(R.id.locationRecyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(P5_DFAP.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        FinancialAidAdapter adapter = new FinancialAidAdapter(financialAidList);
+        FinancialAidAdapter adapter = new FinancialAidAdapter(financialAidList, new FinancialAidAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                selectedPosition = position;
+            }
+        });
+
         recyclerView.setAdapter(adapter);
-        adapter.setTextSizes(24);
-        adapter.setTextColour("#014565");
 
-        // Button functionality for Back navigation
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateFromDFAPToHomepage(v);
-            }
+        backButton.setOnClickListener(v -> {
+            navigationFromDFAPToHomepage(v);
         });
 
-        // Button functionality for Sort navigation
-        sortButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateFromDFAPToSortDFAP(v);
-            }
+        sortButton.setOnClickListener(v -> {
+            navigationFromDFAPToSortDFAP(v);
         });
 
-        // Button functionality for Select navigation
-        selectButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateFromDFAPToConfirmationDFAP(v);
+        selectButton.setOnClickListener(v -> {
+            if (selectedPosition == -1) {
+                Toast.makeText(P5_DFAP.this, "Please select a financial aid first!", Toast.LENGTH_SHORT).show();
+            } else {
+                // Debugging log
+                Log.d("P5_DFAP", "Selected position: " + selectedPosition + ", Aid: " + financialAidList.get(selectedPosition).getAidName());
+
+                Intent intent = new Intent(P5_DFAP.this, MainActivity3A.class);
+                intent.putExtra("selectedAid", financialAidList.get(selectedPosition).getAidName());
+                startActivity(intent);
             }
         });
     }
 
-    // Method to navigate to MainActivity1
-    private void navigateFromDFAPToHomepage(View view) {
+    public void navigationFromDFAPToHomepage(View view) {
         Intent intent = new Intent(P5_DFAP.this, P5_Homepage.class);
         startActivity(intent);
     }
 
-    // Method to navigate to MainActivity3
-    private void navigateFromDFAPToSortDFAP(View view) {
+    public void navigationFromDFAPToSortDFAP(View view) {
         Intent intent = new Intent(P5_DFAP.this, MainActivity3.class);
-        startActivity(intent);
-    }
-
-    // Method to navigate to MainActivity3A
-    private void navigateFromDFAPToConfirmationDFAP(View view) {
-        Intent intent = new Intent(P5_DFAP.this, MainActivity3A.class);
         startActivity(intent);
     }
 }

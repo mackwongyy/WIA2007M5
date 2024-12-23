@@ -162,13 +162,14 @@
         android:id="@+id/expense_efb_value"
         android:layout_width="34dp"
         android:layout_height="22dp"
+        android:layout_marginTop="308dp"
         android:text="RM0"
         android:textAlignment="textEnd"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@id/expense_efb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.853"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/expense_efb" />
 
@@ -181,8 +182,8 @@
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/expense_eutilities"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.853"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -201,7 +202,8 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="656dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="652dp"
         android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
