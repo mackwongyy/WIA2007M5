@@ -45,7 +45,7 @@ public class P5_Homepage extends AppCompatActivity {
     }
 
     public void navigationFromHomepageToFMT(View view) {
-        Intent intent = new Intent(P5_Homepage.this, MainActivity5.class);
+        Intent intent = new Intent(P5_Homepage.this, P5_AI_Finance_Chatbot.class);
         startActivity(intent);
     }
 

@@ -67,7 +67,7 @@
         android:id="@+id/net_profit_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         android:text="@string/FMT_Income"
         android:textAlignment="center"
         android:textColor="#014565"
@@ -105,7 +105,7 @@
         android:id="@+id/expenses_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         android:text="@string/FMT_Expenses"
         android:textAlignment="center"
         android:textColor="#014565"
@@ -119,7 +119,7 @@
         android:id="@+id/income_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="48dp"
         android:text="@string/FMT_Net_Profit"
         android:textAlignment="center"
         android:textColor="#014565"
@@ -127,7 +127,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expenses_label" />
+        app:layout_constraintTop_toBottomOf="@+id/net_profit_label" />
 
     <Button
         android:id="@+id/discoverMoreButton"
