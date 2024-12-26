@@ -21,7 +21,7 @@ public class P5_SortDFAP extends AppCompatActivity {
         setContentView(R.layout.p5_sortdfap);
 
         // Initialize UI elements
-        Button applyButton = findViewById(R.id.applyButton);
+        Button applyButton = findViewById(R.id.homeButton);
         EditText nameEditText = findViewById(R.id.Amount_Of_Slots);
         EditText minAmountEditText = findViewById(R.id.minAmountEditText3);
         EditText maxAmountEditText = findViewById(R.id.maxAmountEditText3);

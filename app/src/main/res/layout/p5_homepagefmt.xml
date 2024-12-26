@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity6">
+    tools:context=".P5_HomepageFMT"
+    android:background="@drawable/background_image">
 
     <TextView
         android:id="@+id/financial_management_tools"
@@ -28,7 +29,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/FMTHomepageView"
         app:layout_constraintTop_toTopOf="@+id/FMTHomepageView"
-        app:srcCompat="@drawable/zerohunger_hub_900px_x_300px" />
+        app:srcCompat="@drawable/zerohunger_hub_900px_x_300px"
+        android:contentDescription="@string/ZeroHungerHub_Logo"/>
 
     <View
         android:id="@+id/FMTHomepageView"
@@ -41,23 +43,193 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:text="Button"
-        app:corner_radius="0dp"
+        android:id="@+id/taxButton"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:backgroundTint="#016595"
+        android:textSize="16sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/FMTHomepageView"
+        app:layout_constraintEnd_toEndOf="@+id/FMTHomepageView"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/FMTHomepageView"
+        app:layout_constraintTop_toBottomOf="@+id/ZeroHungerHubLogo"
+        app:layout_constraintVertical_bias="0.2"
+        tools:contentDescription="Tax Button"
+        android:onClick="navigationFromHomepageFMTToTax"/>
 
-        tools:layout_editor_absoluteX="111dp"
-        tools:layout_editor_absoluteY="301dp" />
+    <ImageButton
+        android:id="@+id/taxImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/taxButton"
+        app:layout_constraintEnd_toEndOf="@+id/taxButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/taxButton"
+        app:layout_constraintTop_toTopOf="@+id/taxButton"
+        app:layout_constraintVertical_bias="0.2"
+        tools:srcCompat="@tools:sample/avatars"
+        tools:contentDescription="Tax Image" />
+
+    <TextView
+        android:id="@+id/taxText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Tax_Calculator"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/taxButton"
+        app:layout_constraintEnd_toEndOf="@+id/taxButton"
+        app:layout_constraintStart_toStartOf="@+id/taxButton"
+        app:layout_constraintTop_toBottomOf="@+id/taxImage" />
+
+    <Button
+        android:id="@+id/insuranceButton"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:backgroundTint="#016595"
+        android:textSize="16sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/FMTHomepageView"
+        app:layout_constraintEnd_toEndOf="@+id/FMTHomepageView"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/FMTHomepageView"
+        app:layout_constraintTop_toBottomOf="@+id/ZeroHungerHubLogo"
+        app:layout_constraintVertical_bias="0.2"
+        tools:contentDescription="Insurance Button"
+        android:onClick="navigationFromHomepageFMTToInsurance"/>
+
+    <ImageButton
+        android:id="@+id/insuranceImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/insuranceButton"
+        app:layout_constraintEnd_toEndOf="@+id/insuranceButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/insuranceButton"
+        app:layout_constraintTop_toTopOf="@+id/insuranceButton"
+        app:layout_constraintVertical_bias="0.2"
+        tools:contentDescription="Tax Image"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/insuranceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Insurance_Calculator"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/insuranceButton"
+        app:layout_constraintEnd_toEndOf="@+id/insuranceButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/insuranceButton"
+        app:layout_constraintTop_toTopOf="@+id/insuranceButton"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <Button
+        android:id="@+id/SavingsGuideButton"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:backgroundTint="#016595"
+        android:textSize="16sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/FMTHomepageView"
+        app:layout_constraintEnd_toEndOf="@+id/FMTHomepageView"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/FMTHomepageView"
+        app:layout_constraintTop_toBottomOf="@+id/ZeroHungerHubLogo"
+        app:layout_constraintVertical_bias="0.8"
+        tools:contentDescription="Savings Guide Button"
+        android:onClick="navigationFromHomepageFMTToSavingsGuide"/>
+
+    <ImageButton
+        android:id="@+id/savingsGuideImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/SavingsGuideButton"
+        app:layout_constraintEnd_toEndOf="@+id/SavingsGuideButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/SavingsGuideButton"
+        app:layout_constraintTop_toTopOf="@+id/SavingsGuideButton"
+        app:layout_constraintVertical_bias="0.2"
+        tools:contentDescription="Tax Image"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/savingsGuideText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Savings_Guide"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/SavingsGuideButton"
+        app:layout_constraintEnd_toEndOf="@+id/SavingsGuideButton"
+        app:layout_constraintStart_toStartOf="@+id/SavingsGuideButton"
+        app:layout_constraintTop_toBottomOf="@+id/taxButton"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <Button
+        android:id="@+id/AI_Financial_Chatbot"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:backgroundTint="#016595"
+        android:textSize="16sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/FMTHomepageView"
+        app:layout_constraintEnd_toEndOf="@+id/FMTHomepageView"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/FMTHomepageView"
+        app:layout_constraintTop_toBottomOf="@+id/ZeroHungerHubLogo"
+        app:layout_constraintVertical_bias="0.8"
+        tools:contentDescription="AI Finance Chatbot Button"
+        android:onClick="navigationFromHomepageFMTToAI_Financial_Chatbot"/>
+
+    <ImageButton
+        android:id="@+id/AIFinanceChatbotImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/AI_Financial_Chatbot"
+        app:layout_constraintEnd_toEndOf="@+id/AI_Financial_Chatbot"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/AI_Financial_Chatbot"
+        app:layout_constraintTop_toTopOf="@+id/AI_Financial_Chatbot"
+        app:layout_constraintVertical_bias="0.2"
+        tools:contentDescription="Tax Image"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/aiFinanceChatbotText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AI_Finance_nChatbot"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/AI_Financial_Chatbot"
+        app:layout_constraintEnd_toEndOf="@+id/AI_Financial_Chatbot"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/AI_Financial_Chatbot"
+        app:layout_constraintTop_toTopOf="@+id/AI_Financial_Chatbot"
+        app:layout_constraintVertical_bias="0.9" />
 
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="648dp"
         android:text="@string/Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.925"
+        android:onClick="navigationFromHomepageFMTToHomepage"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,13 +18,22 @@
             android:name=".MainActivity9"
             android:exported="false" />
         <activity
-            android:name=".MainActivity8"
+            android:name=".P5_Tax5FMT"
             android:exported="false" />
         <activity
-            android:name=".MainActivity7"
+            android:name=".P5_Tax4FMT"
             android:exported="false" />
         <activity
-            android:name=".MainActivity6"
+            android:name=".P5_Tax3FMT"
+            android:exported="false" />
+        <activity
+            android:name=".P5_Tax2FMT"
+            android:exported="false" />
+        <activity
+            android:name=".P5_Tax1FMT"
+            android:exported="false" />
+        <activity
+            android:name=".P5_HomepageFMT"
             android:exported="false" />
         <activity
             android:name=".P5_AI_Finance_Chatbot"

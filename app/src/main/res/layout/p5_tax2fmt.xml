@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".P5_Tax2FMT"
+    android:background="@drawable/background_image">
+
+    <TextView
+        android:id="@+id/FMTTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Financial Management Tool"
+        android:textAlignment="center"
+        android:textColor="#014565"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <View
+        android:id="@+id/TaxDashboardSubtitle"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:background="@drawable/border4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.122" />
+
+    <TextView
+        android:id="@+id/FMTTaxCalculatorTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tax Calculator"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125"
+        tools:contentDescription="Tax Calculator"/>
+
+    <View
+        android:id="@+id/Tax2FMTView"
+        android:layout_width="311dp"
+        android:layout_height="477dp"
+        android:background="@drawable/border8dp"
+        android:fadingEdgeLength="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/taxPayable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Income Tax (RM)"
+        android:textAlignment="viewStart"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
+        app:layout_constraintTop_toTopOf="@+id/Tax2FMTView" />
+
+    <TextView
+        android:id="@+id/taxPayableLevel"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="textStart"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/taxPayable"
+        tools:contentDescription="Chargeable Income" />
+
+    <TextView
+        android:id="@+id/balanceIncomeTax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Balance Income\nTax (RM)"
+        android:textAlignment="viewStart"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/taxRebateLabel" />
+
+    <TextView
+        android:id="@+id/balanceIncomeTaxLabel"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="textStart"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/balanceIncomeTax"
+        tools:contentDescription="Chargeable Income" />
+
+    <TextView
+        android:id="@+id/taxRebate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Tax Rebate (RM)"
+        android:textAlignment="viewStart"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/taxPayableLevel" />
+
+    <TextView
+        android:id="@+id/taxRebateLabel"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="textStart"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/taxRebate"
+        tools:contentDescription="Chargeable Income" />
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/Apply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Tax2FMTView"/>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/Back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Tax2FMTView"
+        android:onClick="navigationFromTax2FMTToTax1FMT"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

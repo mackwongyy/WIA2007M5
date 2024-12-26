@@ -78,4 +78,9 @@
     <string name="Amount_Of_Slots">Amount of Slots</string>
     <string name="Select_Amount_Slots_Text">Select the amount of slots.</string>
     <string name="Type_Your_Message">Type your message...</string>
+    <string name="Tax_Calculator">Tax\nCalculator</string>
+    <string name="Insurance_Calculator">Insurance\nCalculator</string>
+    <string name="Savings_Guide">Savings\nGuide</string>
+    <string name="AI_Finance_nChatbot">AI Finance\nChatbot</string>
+    <string name="ZeroHungerHub_Logo">ZeroHungerHub Logo</string>
 </resources>

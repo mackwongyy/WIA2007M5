@@ -8,7 +8,7 @@
     android:background="@drawable/background_image">
 
     <View
-        android:id="@+id/SelectionAmountView"
+        android:id="@+id/Tax2FMTView"
         android:layout_width="311dp"
         android:layout_height="477dp"
         android:background="@drawable/border8dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/SelectionAmountSubtitleBorder"
+        android:id="@+id/TaxDashboardSubtitle"
         android:layout_width="300dp"
         android:layout_height="30dp"
         android:background="@drawable/border4dp"
@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.057" />
 
     <TextView
-        android:id="@+id/SelectionAmountSubtitle"
+        android:id="@+id/FMTTaxCalculatorTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sort Criteria for Financial Aid"
@@ -61,16 +61,16 @@
         app:layout_constraintVertical_bias="0.121" />
 
     <TextView
-        android:id="@+id/SelectionAmountAmountOfSlots"
+        android:id="@+id/roadTax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Name"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/SelectionAmountView"
+        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
         app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toStartOf="@+id/SelectionAmountView"
-        app:layout_constraintTop_toTopOf="@+id/SelectionAmountView" />
+        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
+        app:layout_constraintTop_toTopOf="@+id/Tax2FMTView" />
 
     <EditText
         android:id="@+id/Amount_Of_Slots"
@@ -79,10 +79,10 @@
         android:layout_marginTop="32dp"
         android:hint="Type the name..."
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/SelectionAmountView"
+        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
         app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="@+id/SelectionAmountView"
-        app:layout_constraintTop_toTopOf="@+id/SelectionAmountAmountOfSlots" />
+        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
+        app:layout_constraintTop_toTopOf="@+id/roadTax" />
 
     <TextView
         android:id="@+id/SelectionAmountTotalAmount"
@@ -93,7 +93,7 @@
         android:text="Amount"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/SelectionAmountAmountOfSlots" />
+        app:layout_constraintTop_toTopOf="@+id/roadTax" />
 
     <EditText
         android:id="@+id/minAmountEditText3"
@@ -113,10 +113,10 @@
         android:layout_marginStart="-190dp"
         android:hint="Max"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/SelectionAmountView"
-        app:layout_constraintEnd_toEndOf="@+id/SelectionAmountView"
+        app:layout_constraintBottom_toBottomOf="@+id/Tax2FMTView"
+        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
         app:layout_constraintHorizontal_bias="0.907"
-        app:layout_constraintStart_toStartOf="@+id/SelectionAmountView"
+        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
         app:layout_constraintTop_toTopOf="@+id/minAmountEditText3"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -126,10 +126,10 @@
         android:layout_height="wrap_content"
         android:text="Available Slots"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/SelectionAmountView"
-        app:layout_constraintEnd_toEndOf="@+id/SelectionAmountView"
+        app:layout_constraintBottom_toBottomOf="@+id/Tax2FMTView"
+        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
         app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="@+id/SelectionAmountView"
+        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
         app:layout_constraintTop_toTopOf="@+id/SelectionAmountTotalAmount"
         app:layout_constraintVertical_bias="0.346" />
 
@@ -140,7 +140,7 @@
         android:layout_marginTop="20dp"
         android:hint="Min: 1"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/SelectionAmountView"
+        app:layout_constraintBottom_toBottomOf="@+id/Tax2FMTView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.27"
         app:layout_constraintStart_toStartOf="parent"
@@ -153,7 +153,7 @@
         android:layout_height="48dp"
         android:hint="Max"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="@+id/SelectionAmountView"
+        app:layout_constraintBottom_toBottomOf="@+id/Tax2FMTView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.713"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,7 +179,7 @@
         android:layout_marginTop="20dp"
         android:hint="Date: DD/MM/YYYY"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/SelectionAmountView"
+        app:layout_constraintBottom_toBottomOf="@+id/Tax2FMTView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -187,7 +187,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/applyButton"
+        android:id="@+id/homeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -197,6 +197,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/SelectionAmountView" />
+        app:layout_constraintTop_toBottomOf="@id/Tax2FMTView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

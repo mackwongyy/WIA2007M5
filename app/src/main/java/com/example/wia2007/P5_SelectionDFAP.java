@@ -27,12 +27,12 @@ public class P5_SelectionDFAP extends AppCompatActivity {
 
         // Initialize UI elements
         TextView titleTextView = findViewById(R.id.SelectionAmountTitle);
-        TextView subtitleTextView = findViewById(R.id.SelectionAmountSubtitle);
-        TextView amountOfSlotsTextView = findViewById(R.id.SelectionAmountAmountOfSlots);
+        TextView subtitleTextView = findViewById(R.id.FMTTaxCalculatorTitle);
+        TextView amountOfSlotsTextView = findViewById(R.id.roadTax);
         numberOfSlotsEditText = findViewById(R.id.Amount_Of_Slots);
         TextView totalAmountLabelTextView = findViewById(R.id.SelectionAmountTotalAmount);
         totalAmountTextView = findViewById(R.id.Total_Amount);
-        Button applyButton = findViewById(R.id.applyButton);
+        Button applyButton = findViewById(R.id.homeButton);
 
         // Set the UI elements with the selected aid details
         titleTextView.setText("Selection for Financial Aid");

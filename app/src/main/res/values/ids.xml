@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="applyButton" type="id" />
+    <item name="homeButton" type="id" />
     <item name="financial_management_tools" type="id" />
     <item name="expenses" type="id" />
     <item name="financial_dashboard" type="id" />
