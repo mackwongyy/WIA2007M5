@@ -61,7 +61,7 @@ public class P5_HomepageFMT extends AppCompatActivity {
     }
 
     public void navigationFromHomepageFMTToInsurance(View view) {
-        Intent intent = new Intent(P5_HomepageFMT.this, P5_InsuranceFMT.class);
+        Intent intent = new Intent(P5_HomepageFMT.this, P5_Insurance1FMT.class);
         startActivity(intent);
     }
 
@@ -71,7 +71,7 @@ public class P5_HomepageFMT extends AppCompatActivity {
     }
 
     public void navigationFromHomepageFMTToAI_Financial_Chatbot(View view) {
-        Intent intent = new Intent(P5_HomepageFMT.this, P5_AI_Financial_ChatbotFMT.class);
+        Intent intent = new Intent(P5_HomepageFMT.this, P5_AI_Finance_Chatbot.class);
         startActivity(intent);
     }
 

@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.122" />
 
     <View
-        android:id="@+id/Tax2FMTView"
+        android:id="@+id/Insurance1FMTView"
         android:layout_width="311dp"
         android:layout_height="477dp"
         android:background="@drawable/border8dp"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/FMTTaxCalculatorTitle"
+        android:id="@+id/FMTInsuranceCostCalculator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tax Calculator"
@@ -63,59 +63,59 @@
         tools:contentDescription="Tax Calculator"/>
 
     <TextView
-        android:id="@+id/roadTax"
+        android:id="@+id/medicalInsurance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Monthly Tax\nDeduction (RM)"
         android:textAlignment="viewStart"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.215"
-        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
-        app:layout_constraintTop_toTopOf="@+id/Tax2FMTView" />
+        app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
+        app:layout_constraintTop_toTopOf="@+id/Insurance1FMTView" />
 
     <EditText
-        android:id="@+id/roadTaxLabel"
+        android:id="@+id/medicalInsuranceDeductiblesLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:hint="Type a number..."
         android:inputType="number"
         android:textAlignment="textStart"
-        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.436"
-        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/roadTax" />
+        app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/medicalInsurance" />
 
     <TextView
-        android:id="@+id/TaxSummary"
+        android:id="@+id/lifeInsuranceDeductible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Takaful/Zakat (RM)"
         android:textAlignment="viewStart"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/roadTaxLabel" />
+        app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/medicalInsuranceDeductiblesLabel" />
 
     <EditText
-        android:id="@+id/incomeTaxLabel"
+        android:id="@+id/lifeInsuranceDeductiblesLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:hint="Type a number..."
         android:inputType="number"
         android:textAlignment="textStart"
-        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.436"
-        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/TaxSummary" />
+        app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/lifeInsuranceDeductible" />
 
     <TextView
-        android:id="@+id/taxPayable"
+        android:id="@+id/insurancePayable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -123,22 +123,22 @@
         android:textAlignment="viewStart"
         android:textStyle="bold"
         android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/incomeTaxLabel" />
+        app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/lifeInsuranceDeductiblesLabel" />
 
     <TextView
-        android:id="@+id/taxPayableLevel"
+        android:id="@+id/insurancePayableLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:textAlignment="textStart"
         android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.42"
-        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/taxPayable"
+        app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/insurancePayable"
         tools:contentDescription="Chargeable Income" />
 
     <Button
@@ -152,7 +152,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Tax2FMTView" />
+        app:layout_constraintTop_toBottomOf="@id/Insurance1FMTView" />
 
     <Button
         android:id="@+id/backButton"
@@ -165,7 +165,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Tax2FMTView"
+        app:layout_constraintTop_toBottomOf="@id/Insurance1FMTView"
         android:onClick="navigationFromTax3FMTToTax2FMT"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

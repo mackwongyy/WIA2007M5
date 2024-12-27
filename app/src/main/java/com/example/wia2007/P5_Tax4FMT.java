@@ -23,10 +23,10 @@ public class P5_Tax4FMT extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_tax4fmt);
 
-        roadTaxLabel = findViewById(R.id.roadTaxLabel);
-        propertyTaxLabel = findViewById(R.id.incomeTaxLabel);
-        quitRentLabel = findViewById(R.id.quitRentLabel);
-        otherTaxLabel = findViewById(R.id.otherTaxLabel);
+        roadTaxLabel = findViewById(R.id.medicalInsuranceDeductiblesLabel);
+        propertyTaxLabel = findViewById(R.id.lifeInsuranceDeductiblesLabel);
+        quitRentLabel = findViewById(R.id.otherInsuranceDeductiblesLabel);
+        otherTaxLabel = findViewById(R.id.totalDeductiblesLabel);
         backButton = findViewById(R.id.backButton);
         applyButton = findViewById(R.id.homeButton);
 
@@ -55,10 +55,10 @@ public class P5_Tax4FMT extends AppCompatActivity {
         String quitRentStr = quitRentLabel.getText().toString();
         String otherTaxStr = otherTaxLabel.getText().toString();
 
-        if (roadTaxStr.isEmpty() || propertyTaxStr.isEmpty() || quitRentStr.isEmpty() || otherTaxStr.isEmpty()) {
+        /*if (roadTaxStr.isEmpty() || propertyTaxStr.isEmpty() || quitRentStr.isEmpty() || otherTaxStr.isEmpty()) {
             Toast.makeText(this, "Please enter all tax values.", Toast.LENGTH_SHORT).show();
             return;
-        }
+        }*/
 
         double roadTax = Double.parseDouble(roadTaxStr);
         double propertyTax = Double.parseDouble(propertyTaxStr);
@@ -72,7 +72,7 @@ public class P5_Tax4FMT extends AppCompatActivity {
         userIncome.setOtherTax(otherTax);
 
         // Display a success message
-        Toast.makeText(this, "Additional taxes saved successfully.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "All taxes saved successfully.", Toast.LENGTH_SHORT).show();
     }
 
     public void navigationFromTax4FMTToTax3FMT(View view) {

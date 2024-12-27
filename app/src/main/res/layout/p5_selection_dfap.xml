@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.18" />
 
     <TextView
-        android:id="@+id/FMTTaxCalculatorTitle"
+        android:id="@+id/FMTInsuranceCostCalculator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Select_Amount_Slots_Text"
@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="0.472" />
 
     <View
-        android:id="@+id/Tax2FMTView"
+        android:id="@+id/Insurance1FMTView"
         android:layout_width="320dp"
         android:layout_height="320dp"
         android:background="@drawable/border8dp"
@@ -61,16 +61,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/roadTax"
+        android:id="@+id/medicalInsurance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/Amount_Of_Slots"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.19"
-        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
-        app:layout_constraintTop_toTopOf="@+id/Tax2FMTView" />
+        app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
+        app:layout_constraintTop_toTopOf="@+id/Insurance1FMTView" />
 
     <EditText
         android:id="@+id/Amount_Of_Slots"
@@ -79,10 +79,10 @@
         android:layout_marginTop="20dp"
         android:hint="Max: 1"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
+        app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/roadTax" />
+        app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/medicalInsurance" />
 
     <TextView
         android:id="@+id/SelectionAmountTotalAmount"
@@ -93,7 +93,7 @@
         android:text="@string/Total_Amount"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/roadTax" />
+        app:layout_constraintTop_toTopOf="@+id/medicalInsurance" />
 
     <TextView
         android:id="@+id/Total_Amount"
@@ -104,8 +104,8 @@
         android:text="@string/RM0"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/Tax2FMTView"
-        app:layout_constraintStart_toStartOf="@+id/Tax2FMTView"
+        app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
+        app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
         app:layout_constraintTop_toBottomOf="@+id/SelectionAmountTotalAmount" />
 
     <Button
@@ -119,6 +119,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Tax2FMTView" />
+        app:layout_constraintTop_toBottomOf="@id/Insurance1FMTView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

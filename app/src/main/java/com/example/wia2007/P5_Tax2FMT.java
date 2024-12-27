@@ -29,7 +29,7 @@ public class P5_Tax2FMT extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_tax2fmt);
 
-        incomeTaxLabel = findViewById(R.id.taxPayableLevel);
+        incomeTaxLabel = findViewById(R.id.insurancePayableLabel);
         taxRebateLabel = findViewById(R.id.taxRebateLabel);
         balanceIncomeTaxLabel = findViewById(R.id.balanceIncomeTaxLabel);
         backButton = findViewById(R.id.backButton);

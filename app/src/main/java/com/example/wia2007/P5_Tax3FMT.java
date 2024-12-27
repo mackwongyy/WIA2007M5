@@ -23,9 +23,9 @@ public class P5_Tax3FMT extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_tax3fmt);
 
-        monthlyTaxDeductionLabel = findViewById(R.id.roadTaxLabel);
-        takafulZakatLabel = findViewById(R.id.incomeTaxLabel);
-        incomeTaxPayableLabel = findViewById(R.id.taxPayableLevel);
+        monthlyTaxDeductionLabel = findViewById(R.id.medicalInsuranceDeductiblesLabel);
+        takafulZakatLabel = findViewById(R.id.lifeInsuranceDeductiblesLabel);
+        incomeTaxPayableLabel = findViewById(R.id.insurancePayableLabel);
         backButton = findViewById(R.id.backButton);
         applyButton = findViewById(R.id.homeButton);
 
@@ -52,10 +52,10 @@ public class P5_Tax3FMT extends AppCompatActivity {
         String monthlyTaxDeductionStr = monthlyTaxDeductionLabel.getText().toString();
         String takafulZakatStr = takafulZakatLabel.getText().toString();
 
-        if (monthlyTaxDeductionStr.isEmpty() || takafulZakatStr.isEmpty()) {
+        /*if (monthlyTaxDeductionStr.isEmpty() || takafulZakatStr.isEmpty()) {
             Toast.makeText(this, "Please enter both monthly tax deduction and takaful/zakat.", Toast.LENGTH_SHORT).show();
             return;
-        }
+        }*/
 
         double monthlyTaxDeduction = Double.parseDouble(monthlyTaxDeductionStr);
         double takafulZakat = Double.parseDouble(takafulZakatStr);

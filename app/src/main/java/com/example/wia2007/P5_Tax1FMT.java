@@ -27,9 +27,9 @@ public class P5_Tax1FMT extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_tax1fmt);
 
-        income = findViewById(R.id.roadTaxLabel);
-        taxRelief = findViewById(R.id.incomeTaxLabel);
-        chargeableIncome = findViewById(R.id.taxPayableLevel);
+        income = findViewById(R.id.totalIncomeLabel);
+        taxRelief = findViewById(R.id.taxReliefLabel);
+        chargeableIncome = findViewById(R.id.chargeableIncomeLabel);
         backButton = findViewById(R.id.backButton);
         applyButton = findViewById(R.id.homeButton);
 
@@ -69,11 +69,10 @@ public class P5_Tax1FMT extends AppCompatActivity {
     private void calculateChargeableIncome() {
         String totalIncomeStr = income.getText().toString();
         String taxReliefStr = taxRelief.getText().toString();
-
-        if (totalIncomeStr.isEmpty() || taxReliefStr.isEmpty()) {
+        /*if (totalIncomeStr.isEmpty() || taxReliefStr.isEmpty()) {
             Toast.makeText(this, "Please enter both total income and tax relief.", Toast.LENGTH_SHORT).show();
             return;
-        }
+        }*/
 
         double totalIncome = Double.parseDouble(totalIncomeStr);
         double taxReliefAmount = Double.parseDouble(taxReliefStr);
