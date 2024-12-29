@@ -29,13 +29,13 @@ public class P5_Tax5FMT extends AppCompatActivity {
 
         // Initialize TextViews
         taxPayableLabel = findViewById(R.id.insurancePayableLabel);
-        incomeTaxLabel = findViewById(R.id.lifeInsuranceDeductiblesLabel);
+        incomeTaxLabel = findViewById(R.id.incomeTaxLabel);
         taxRebateReliefLabel = findViewById(R.id.taxRebateReliefLabel);
-        taxDeductionAnnualLabel = findViewById(R.id.motorInsuranceDeductiblesLabel);
-        takafulZakatLabel = findViewById(R.id.personalInsuranceDeductiblesLabel);
-        roadTaxLabel = findViewById(R.id.medicalInsuranceDeductiblesLabel);
-        propertyTaxLabel = findViewById(R.id.travelInsuranceDeductiblesLabel);
-        quitRentLabel = findViewById(R.id.otherInsuranceDeductiblesLabel);
+        taxDeductionAnnualLabel = findViewById(R.id.lifeInusranceDeductiblesLabel);
+        takafulZakatLabel = findViewById(R.id.takafulZakatLabel);
+        roadTaxLabel = findViewById(R.id.roadTaxLabel);
+        propertyTaxLabel = findViewById(R.id.propertyTaxLabel);
+        quitRentLabel = findViewById(R.id.quitRentLabel);
         otherTaxLabel = findViewById(R.id.totalDeductiblesLabel);
 
         // Initialize Buttons

@@ -76,7 +76,7 @@
         app:layout_constraintTop_toTopOf="@+id/Insurance1FMTView" />
 
     <EditText
-        android:id="@+id/medicalInsuranceDeductiblesLabel"
+        android:id="@+id/roadTaxLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/medicalInsurance" />
 
     <TextView
-        android:id="@+id/lifeInsuranceDeductible"
+        android:id="@+id/insuranceSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -99,10 +99,10 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/medicalInsuranceDeductiblesLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/roadTaxLabel" />
 
     <EditText
-        android:id="@+id/lifeInsuranceDeductiblesLabel"
+        android:id="@+id/lifeInusranceDeductiblesLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -112,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/lifeInsuranceDeductible" />
+        app:layout_constraintTop_toBottomOf="@+id/insuranceSummary" />
 
     <TextView
         android:id="@+id/insurancePayable"
@@ -126,7 +126,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/lifeInsuranceDeductiblesLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/lifeInusranceDeductiblesLabel" />
 
     <TextView
         android:id="@+id/insurancePayableLabel"

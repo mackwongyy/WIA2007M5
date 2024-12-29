@@ -14,58 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WIA2007"
         tools:targetApi="31">
-        <activity
-            android:name=".P5_Insurance5FMT"
-            android:exported="false"/>
-        <activity
-            android:name=".P5_Insurance4FMT"
-            android:exported="false" />
-        <activity
-            android:name=".P5_Insurance3FMT"
-            android:exported="false" />
-        <activity
-            android:name=".P5_Insurance2FMT"
-            android:exported="false" />
-        <activity
-            android:name=".P5_Insurance1FMT"
-            android:exported="false" />
-        <activity
-            android:name=".P5_Tax5FMT"
-            android:exported="false" />
-        <activity
-            android:name=".P5_Tax4FMT"
-            android:exported="false" />
-        <activity
-            android:name=".P5_Tax3FMT"
-            android:exported="false" />
-        <activity
-            android:name=".P5_Tax2FMT"
-            android:exported="false" />
-        <activity
-            android:name=".P5_Tax1FMT"
-            android:exported="false" />
-        <activity
-            android:name=".P5_HomepageFMT"
-            android:exported="false" />
-        <activity
-            android:name=".P5_AI_Finance_Chatbot"
-            android:exported="false" />
-        <activity
-            android:name=".P5_SelectionDFAP"
-            android:exported="false" />
-        <activity
-            android:name=".P5_ConfirmationDFAP"
-            android:exported="false" />
-        <activity
-            android:name=".P5_SortDFAP"
-            android:exported="false" />
-        <activity
-            android:name=".P5_DFAP"
-            android:exported="false" />
-        <activity
-            android:name=".P5_Homepage"
-            android:exported="true"
-            android:theme="@style/Theme.WIA2007">
+        <activity android:name=".P5_Insurance5FMT" android:exported="false" />
+        <activity android:name=".P5_Insurance4FMT" android:exported="false" />
+        <activity android:name=".P5_Insurance3FMT" android:exported="false" />
+        <activity android:name=".P5_Insurance2FMT" android:exported="false" />
+        <activity android:name=".P5_Insurance1FMT" android:exported="false" />
+        <activity android:name=".P5_Tax5FMT" android:exported="false" />
+        <activity android:name=".P5_Tax4FMT" android:exported="false" />
+        <activity android:name=".P5_Tax3FMT" android:exported="false" />
+        <activity android:name=".P5_Tax2FMT" android:exported="false" />
+        <activity android:name=".P5_Tax1FMT" android:exported="false" />
+        <activity android:name=".P5_HomepageFMT" android:exported="false" />
+        <activity android:name=".P5_AI_Finance_Chatbot" android:exported="false" />
+        <activity android:name=".P5_SelectionDFAP" android:exported="false" />
+        <activity android:name=".P5_ConfirmationDFAP" android:exported="false" />
+        <activity android:name=".P5_SortDFAP" android:exported="false" />
+        <activity android:name=".P5_DFAP" android:exported="false" />
+        <activity android:name=".P5_Homepage" android:exported="true" android:theme="@style/Theme.WIA2007">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

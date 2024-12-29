@@ -23,9 +23,9 @@ public class P5_Tax4FMT extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_tax4fmt);
 
-        roadTaxLabel = findViewById(R.id.medicalInsuranceDeductiblesLabel);
-        propertyTaxLabel = findViewById(R.id.lifeInsuranceDeductiblesLabel);
-        quitRentLabel = findViewById(R.id.otherInsuranceDeductiblesLabel);
+        roadTaxLabel = findViewById(R.id.roadTaxLabel);
+        propertyTaxLabel = findViewById(R.id.roadTaxLabel);
+        quitRentLabel = findViewById(R.id.quitRentLabel);
         otherTaxLabel = findViewById(R.id.totalDeductiblesLabel);
         backButton = findViewById(R.id.backButton);
         applyButton = findViewById(R.id.homeButton);

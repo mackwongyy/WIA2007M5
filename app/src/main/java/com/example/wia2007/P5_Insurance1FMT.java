@@ -1,6 +1,7 @@
 package com.example.wia2007;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,30 +15,43 @@ public class P5_Insurance1FMT extends AppCompatActivity {
     private EditText personalInsuranceDeductibleLabel;
     private Button applyButton;
     private Button backButton;
+    private SharedPreferences sharedPreferences;
+    private static final String PREFS_NAME = "InsurancePrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_insurance1fmt);
 
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
         // Initialize views
-        lifeInsuranceDeductibleLabel = findViewById(R.id.medicalInsuranceDeductiblesLabel);
-        motorInsuranceDeductibleLabel = findViewById(R.id.lifeInsuranceDeductiblesLabel);
+        lifeInsuranceDeductibleLabel = findViewById(R.id.roadTaxLabel);
+        motorInsuranceDeductibleLabel = findViewById(R.id.lifeInusranceDeductiblesLabel);
         personalInsuranceDeductibleLabel = findViewById(R.id.personalInsuranceDeductibleLabel);
         applyButton = findViewById(R.id.homeButton);
         backButton = findViewById(R.id.backButton);
+
+        // Load saved data
+        lifeInsuranceDeductibleLabel.setText(sharedPreferences.getString("lifeInsurance", ""));
+        motorInsuranceDeductibleLabel.setText(sharedPreferences.getString("motorInsurance", ""));
+        personalInsuranceDeductibleLabel.setText(sharedPreferences.getString("personalInsurance", ""));
 
         // Set click listener for the Apply button
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get values from EditText fields
-                double lifeInsurance = parseDouble(lifeInsuranceDeductibleLabel.getText().toString());
-                double motorInsurance = parseDouble(motorInsuranceDeductibleLabel.getText().toString());
-                double personalInsurance = parseDouble(personalInsuranceDeductibleLabel.getText().toString());
+                // Save data to SharedPreferences
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("lifeInsurance", lifeInsuranceDeductibleLabel.getText().toString());
+                editor.putString("motorInsurance", motorInsuranceDeductibleLabel.getText().toString());
+                editor.putString("personalInsurance", personalInsuranceDeductibleLabel.getText().toString());
+                editor.apply();
 
-                // Navigate to P5_Insurance2FMT and pass the values
-                navigationFromInsurance1FMTToInsurance2FMT(lifeInsurance, motorInsurance, personalInsurance);
+                // Navigate to the next activity
+                Intent intent = new Intent(P5_Insurance1FMT.this, P5_Insurance2FMT.class);
+                startActivity(intent);
             }
         });
 
@@ -45,28 +59,9 @@ public class P5_Insurance1FMT extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate back to the homepage
                 Intent intent = new Intent(P5_Insurance1FMT.this, P5_HomepageFMT.class);
                 startActivity(intent);
             }
         });
-    }
-
-    // Method to navigate to P5_Insurance2FMT and pass data
-    private void navigationFromInsurance1FMTToInsurance2FMT(double lifeInsurance, double motorInsurance, double personalInsurance) {
-        Intent intent = new Intent(P5_Insurance1FMT.this, P5_Insurance2FMT.class);
-        intent.putExtra("LIFE_INSURANCE_DEDUCTIBLE", lifeInsurance);
-        intent.putExtra("MOTOR_INSURANCE_DEDUCTIBLE", motorInsurance);
-        intent.putExtra("PERSONAL_INSURANCE_DEDUCTIBLE", personalInsurance);
-        startActivity(intent);
-    }
-
-    // Utility method to parse double values
-    private double parseDouble(String value) {
-        try {
-            return Double.parseDouble(value);
-        } catch (NumberFormatException e) {
-            return 0.0;
-        }
     }
 }

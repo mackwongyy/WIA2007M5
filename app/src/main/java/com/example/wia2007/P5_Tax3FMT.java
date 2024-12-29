@@ -23,8 +23,8 @@ public class P5_Tax3FMT extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_tax3fmt);
 
-        monthlyTaxDeductionLabel = findViewById(R.id.medicalInsuranceDeductiblesLabel);
-        takafulZakatLabel = findViewById(R.id.lifeInsuranceDeductiblesLabel);
+        monthlyTaxDeductionLabel = findViewById(R.id.roadTaxLabel);
+        takafulZakatLabel = findViewById(R.id.roadTaxLabel);
         incomeTaxPayableLabel = findViewById(R.id.insurancePayableLabel);
         backButton = findViewById(R.id.backButton);
         applyButton = findViewById(R.id.homeButton);

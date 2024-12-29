@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".P5_Tax3FMT"
+    tools:context=".P5_Tax5FMT"
     android:background="@drawable/background_image">
 
     <TextView
@@ -91,7 +91,7 @@
         tools:contentDescription="Chargeable Income" />
 
     <TextView
-        android:id="@+id/lifeInsuranceDeductible"
+        android:id="@+id/insuranceSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -113,10 +113,10 @@
         android:text="Income Tax"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/lifeInsuranceDeductible" />
+        app:layout_constraintTop_toBottomOf="@+id/insuranceSummary" />
 
     <TextView
-        android:id="@+id/lifeInsuranceDeductiblesLabel"
+        android:id="@+id/incomeTaxLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -162,7 +162,7 @@
         app:layout_constraintTop_toBottomOf="@+id/taxRebateRelief" />
 
     <TextView
-        android:id="@+id/motorInsuranceDeductiblesLabel"
+        android:id="@+id/lifeInusranceDeductiblesLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -185,7 +185,7 @@
         app:layout_constraintTop_toBottomOf="@+id/MotorInsurance" />
 
     <TextView
-        android:id="@+id/personalInsuranceDeductiblesLabel"
+        android:id="@+id/takafulZakatLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -208,7 +208,7 @@
         app:layout_constraintTop_toBottomOf="@+id/PersonalInsurance" />
 
     <TextView
-        android:id="@+id/medicalInsuranceDeductiblesLabel"
+        android:id="@+id/roadTaxLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -231,7 +231,7 @@
         app:layout_constraintTop_toBottomOf="@+id/medicalInsurance" />
 
     <TextView
-        android:id="@+id/travelInsuranceDeductiblesLabel"
+        android:id="@+id/propertyTaxLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -254,7 +254,7 @@
         app:layout_constraintTop_toBottomOf="@+id/travelInsurance" />
 
     <TextView
-        android:id="@+id/otherInsuranceDeductiblesLabel"
+        android:id="@+id/quitRentLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -313,7 +313,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Insurance1FMTView"
-        android:onClick="navigationFromTax3FMTToTax2FMT"/>
+        app:layout_constraintTop_toBottomOf="@id/Insurance1FMTView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

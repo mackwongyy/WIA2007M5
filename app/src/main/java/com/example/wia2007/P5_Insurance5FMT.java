@@ -1,6 +1,7 @@
 package com.example.wia2007;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,74 +15,61 @@ public class P5_Insurance5FMT extends AppCompatActivity {
     private TextView totalInsuranceCostLabel;
     private Button backButton;
     private Button homeButton;
-
-    private double lifeInsuranceDeductible;
-    private double motorInsuranceDeductible;
-    private double personalInsuranceDeductible;
-    private double medicalInsuranceDeductible;
-    private double travelInsuranceDeductible;
-    private double otherInsuranceDeductible;
-
-    private double lifeInsuranceCost;
-    private double motorInsuranceCost;
-    private double personalInsuranceCost;
-    private double medicalInsuranceCost;
-    private double travelInsuranceCost;
-    private double otherInsuranceCost;
+    private SharedPreferences sharedPreferences;
+    private static final String PREFS_NAME = "InsurancePrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_insurance5fmt);
 
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+
         // Initialize TextViews
         insurancePayableLabel = findViewById(R.id.insurancePayableLabel);
         totalDeductiblesLabel = findViewById(R.id.totalDeductiblesLabel);
-        totalInsuranceCostLabel = findViewById(R.id.otherInsuranceCostLabel);
+        totalInsuranceCostLabel = findViewById(R.id.totalInsuranceCostLabel);
 
         // Initialize Buttons
         backButton = findViewById(R.id.backButton);
         homeButton = findViewById(R.id.homeButton);
 
-        // Retrieve data passed from previous activities
-        Intent intent = getIntent();
-        lifeInsuranceDeductible = intent.getDoubleExtra("LIFE_INSURANCE_DEDUCTIBLE", lifeInsuranceDeductible);
-        motorInsuranceDeductible = intent.getDoubleExtra("MOTOR_INSURANCE_DEDUCTIBLE", motorInsuranceDeductible);
-        personalInsuranceDeductible = intent.getDoubleExtra("PERSONAL_INSURANCE_DEDUCTIBLE", personalInsuranceDeductible);
-        medicalInsuranceDeductible = intent.getDoubleExtra("MEDICAL_INSURANCE_DEDUCTIBLE", medicalInsuranceDeductible);
-        travelInsuranceDeductible = intent.getDoubleExtra("TRAVEL_INSURANCE_DEDUCTIBLE", travelInsuranceDeductible);
-        otherInsuranceDeductible = intent.getDoubleExtra("OTHER_INSURANCE_DEDUCTIBLE", otherInsuranceDeductible);
-
-        lifeInsuranceCost = intent.getDoubleExtra("LIFE_INSURANCE_COST", lifeInsuranceCost);
-        motorInsuranceCost = intent.getDoubleExtra("MOTOR_INSURANCE_COST", motorInsuranceCost);
-        personalInsuranceCost = intent.getDoubleExtra("PERSONAL_INSURANCE_COST", personalInsuranceCost);
-        medicalInsuranceCost = intent.getDoubleExtra("MEDICAL_INSURANCE_COST", medicalInsuranceCost);
-        travelInsuranceCost = intent.getDoubleExtra("TRAVEL_INSURANCE_COST", travelInsuranceCost);
-        otherInsuranceCost = intent.getDoubleExtra("OTHER_INSURANCE_COST", otherInsuranceCost);
-
-        // Calculate and display the results
+        // Retrieve and display data from SharedPreferences
         displayInsuranceSummary();
 
         // Set up button click listeners
         backButton.setOnClickListener(v -> {
-            navigationFromInsurance5FMTToInsurance4FMT(v);
+            Intent intent = new Intent(P5_Insurance5FMT.this, P5_Insurance4FMT.class);
+            startActivity(intent);
         });
 
         homeButton.setOnClickListener(v -> {
-            navigationFromInsurance5FMTToHomepage(v);
+            Intent intent = new Intent(P5_Insurance5FMT.this, P5_HomepageFMT.class);
+            startActivity(intent);
         });
     }
 
     private void displayInsuranceSummary() {
-        // Calculate total deductibles
+        // Retrieve values from SharedPreferences
+        double lifeInsuranceDeductible = parseDouble(sharedPreferences.getString("lifeInsurance", "0.0"));
+        double motorInsuranceDeductible = parseDouble(sharedPreferences.getString("motorInsurance", "0.0"));
+        double personalInsuranceDeductible = parseDouble(sharedPreferences.getString("personalInsurance", "0.0"));
+        double medicalInsuranceDeductible = parseDouble(sharedPreferences.getString("medicalInsurance", "0.0"));
+        double travelInsuranceDeductible = parseDouble(sharedPreferences.getString("travelInsurance", "0.0"));
+        double otherInsuranceDeductible = parseDouble(sharedPreferences.getString("otherInsurance", "0.0"));
+        double lifeInsuranceCost = parseDouble(sharedPreferences.getString("lifeInsuranceCost", "0.0"));
+        double motorInsuranceCost = parseDouble(sharedPreferences.getString("motorInsuranceCost", "0.0"));
+        double personalInsuranceCost = parseDouble(sharedPreferences.getString("personalInsuranceCost", "0.0"));
+        double medicalInsuranceCost = parseDouble(sharedPreferences.getString("medicalInsuranceCost", "0.0"));
+        double travelInsuranceCost = parseDouble(sharedPreferences.getString("travelInsuranceCost", "0.0"));
+        double otherInsuranceCost = parseDouble(sharedPreferences.getString("otherInsuranceCost", "0.0"));
+
+        // Calculate totals
         double totalDeductibles = lifeInsuranceDeductible + motorInsuranceDeductible + personalInsuranceDeductible +
                 medicalInsuranceDeductible + travelInsuranceDeductible + otherInsuranceDeductible;
-
-        // Calculate total insurance cost
         double totalInsuranceCost = lifeInsuranceCost + motorInsuranceCost + personalInsuranceCost +
                 medicalInsuranceCost + travelInsuranceCost + otherInsuranceCost;
-
-        // Calculate insurance payable
         double insurancePayable = totalDeductibles + totalInsuranceCost;
 
         // Display the results
@@ -90,30 +78,26 @@ public class P5_Insurance5FMT extends AppCompatActivity {
         insurancePayableLabel.setText(String.format("RM %.2f", insurancePayable));
 
         // Display individual deductibles and insurance costs
-        ((TextView) findViewById(R.id.lifeInsuranceDeductiblesLabel)).setText(String.format("RM %.2f", lifeInsuranceDeductible));
+        ((TextView) findViewById(R.id.lifeInusranceDeductiblesLabel)).setText(String.format("RM %.2f", lifeInsuranceDeductible));
         ((TextView) findViewById(R.id.motorInsuranceDeductiblesLabel)).setText(String.format("RM %.2f", motorInsuranceDeductible));
-        ((TextView) findViewById(R.id.personalInsuranceDeductiblesLabel)).setText(String.format("RM %.2f", personalInsuranceDeductible));
+        ((TextView) findViewById(R.id.personalInsuranceDeductibleLabel)).setText(String.format("RM %.2f", personalInsuranceDeductible));
         ((TextView) findViewById(R.id.medicalInsuranceDeductiblesLabel)).setText(String.format("RM %.2f", medicalInsuranceDeductible));
         ((TextView) findViewById(R.id.travelInsuranceDeductiblesLabel)).setText(String.format("RM %.2f", travelInsuranceDeductible));
         ((TextView) findViewById(R.id.otherInsuranceDeductiblesLabel)).setText(String.format("RM %.2f", otherInsuranceDeductible));
-        ((TextView) findViewById(R.id.totalDeductiblesLabel)).setText(String.format("RM %.2f", totalDeductibles));
-
         ((TextView) findViewById(R.id.lifeInsuranceCostLabel)).setText(String.format("RM %.2f", lifeInsuranceCost));
         ((TextView) findViewById(R.id.motorInsuranceCostLabel)).setText(String.format("RM %.2f", motorInsuranceCost));
         ((TextView) findViewById(R.id.personalInsuranceCostLabel)).setText(String.format("RM %.2f", personalInsuranceCost));
         ((TextView) findViewById(R.id.medicalInsuranceCostLabel)).setText(String.format("RM %.2f", medicalInsuranceCost));
         ((TextView) findViewById(R.id.travelInsuranceCostLabel)).setText(String.format("RM %.2f", travelInsuranceCost));
         ((TextView) findViewById(R.id.otherInsuranceCostLabel)).setText(String.format("RM %.2f", otherInsuranceCost));
-        ((TextView) findViewById(R.id.totalInsuranceLabel)).setText(String.format("RM %.2f", totalInsuranceCost));
     }
 
-    public void navigationFromInsurance5FMTToInsurance4FMT(View view) {
-        Intent intent = new Intent(P5_Insurance5FMT.this, P5_Insurance4FMT.class);
-        startActivity(intent);
-    }
-
-    public void navigationFromInsurance5FMTToHomepage(View view) {
-        Intent intent = new Intent(P5_Insurance5FMT.this, P5_HomepageFMT.class);
-        startActivity(intent);
+    // Utility method to parse double values
+    private double parseDouble(String value) {
+        try {
+            return Double.parseDouble(value);
+        } catch (NumberFormatException e) {
+            return 0.0;
+        }
     }
 }

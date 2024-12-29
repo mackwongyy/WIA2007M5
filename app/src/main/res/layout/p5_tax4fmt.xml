@@ -73,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.206"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/otherInsuranceDeductiblesLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/quitRentLabel" />
 
     <TextView
         android:id="@+id/medicalInsurance"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toTopOf="@+id/Insurance1FMTView" />
 
     <EditText
-        android:id="@+id/medicalInsuranceDeductiblesLabel"
+        android:id="@+id/roadTaxLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
@@ -102,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/medicalInsurance" />
 
     <TextView
-        android:id="@+id/lifeInsuranceDeductible"
+        android:id="@+id/insuranceSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -112,10 +112,10 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.2625"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/medicalInsuranceDeductiblesLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/roadTaxLabel" />
 
     <EditText
-        android:id="@+id/lifeInsuranceDeductiblesLabel"
+        android:id="@+id/lifeInusranceDeductiblesLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
@@ -125,10 +125,10 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/lifeInsuranceDeductible" />
+        app:layout_constraintTop_toBottomOf="@+id/insuranceSummary" />
 
     <EditText
-        android:id="@+id/otherInsuranceDeductiblesLabel"
+        android:id="@+id/quitRentLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
@@ -164,7 +164,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/lifeInsuranceDeductiblesLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/lifeInusranceDeductiblesLabel" />
 
     <Button
         android:id="@+id/homeButton"
