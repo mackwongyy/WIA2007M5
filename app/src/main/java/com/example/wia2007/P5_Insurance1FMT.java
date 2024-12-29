@@ -17,11 +17,14 @@ public class P5_Insurance1FMT extends AppCompatActivity {
     private Button backButton;
     private SharedPreferences sharedPreferences;
     private static final String PREFS_NAME = "InsurancePrefs";
+    private InsuranceDatabaseHelper insuranceDatabaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_insurance1fmt);
+
+        insuranceDatabaseHelper = new InsuranceDatabaseHelper(this);
 
         // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -49,9 +52,17 @@ public class P5_Insurance1FMT extends AppCompatActivity {
                 editor.putString("personalInsurance", personalInsuranceDeductibleLabel.getText().toString());
                 editor.apply();
 
+                double lifeInsuranceDeductible = parseDouble(lifeInsuranceDeductibleLabel.getText().toString());
+                double motorInsuranceDeductible = parseDouble(motorInsuranceDeductibleLabel.getText().toString());
+                double personalInsuranceDeductible = parseDouble(personalInsuranceDeductibleLabel.getText().toString());
+
+                // Insert data into the database
+                insuranceDatabaseHelper.insertInsuranceData(lifeInsuranceDeductible, motorInsuranceDeductible, personalInsuranceDeductible, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
                 // Navigate to the next activity
                 Intent intent = new Intent(P5_Insurance1FMT.this, P5_Insurance2FMT.class);
                 startActivity(intent);
+                finish(); // Close the current activity
             }
         });
 
@@ -61,7 +72,16 @@ public class P5_Insurance1FMT extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(P5_Insurance1FMT.this, P5_HomepageFMT.class);
                 startActivity(intent);
+                finish(); // Close the current activity
             }
         });
+    }
+
+    private double parseDouble(String value) {
+        try {
+            return Double.parseDouble(value);
+        } catch (NumberFormatException e) {
+            return 0.0;
+        }
     }
 }

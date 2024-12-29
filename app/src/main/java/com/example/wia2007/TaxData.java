@@ -18,6 +18,10 @@ public class TaxData implements Serializable {
     private double otherTax;
     private double totalAdditionalTax;
 
+    public TaxData() {
+
+    }
+
     public TaxData(double totalIncome, double taxRelief) {
         this.totalIncome = totalIncome;
         this.taxRelief = taxRelief;
@@ -130,6 +134,10 @@ public class TaxData implements Serializable {
 
     public double getMonthlyTaxDeduction() {
         return monthlyTaxDeduction;
+    }
+
+    public double getAnnualTaxDeduction() {
+        return monthlyTaxDeduction * 12;
     }
 
     public double getTakafulZakat() {

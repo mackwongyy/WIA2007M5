@@ -17,11 +17,14 @@ public class P5_Insurance3FMT extends AppCompatActivity {
     private Button backButton;
     private SharedPreferences sharedPreferences;
     private static final String PREFS_NAME = "InsurancePrefs";
+    private InsuranceDatabaseHelper insuranceDatabaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_insurance3fmt);
+
+        insuranceDatabaseHelper = new InsuranceDatabaseHelper(this);
 
         // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -30,7 +33,7 @@ public class P5_Insurance3FMT extends AppCompatActivity {
         lifeInsuranceLabel = findViewById(R.id.lifeInsuranceLabel);
         motorInsuranceLabel = findViewById(R.id.motorInsuranceLabel);
         personalInsuranceLabel = findViewById(R.id.personalInsuranceLabel);
-        applyButton = findViewById(R.id.homeButton);
+        applyButton = findViewById(R.id.applyButton);
         backButton = findViewById(R.id.backButton);
 
         // Load saved data
@@ -49,9 +52,17 @@ public class P5_Insurance3FMT extends AppCompatActivity {
                 editor.putString("personalInsuranceCost", personalInsuranceLabel.getText().toString());
                 editor.apply();
 
+                double lifeInsurance = parseDouble(lifeInsuranceLabel.getText().toString());
+                double motorInsurance = parseDouble(motorInsuranceLabel.getText().toString());
+                double personalInsurance = parseDouble(personalInsuranceLabel.getText().toString());
+
+                // Insert data into the database
+                insuranceDatabaseHelper.insertInsuranceData(0, 0, 0, 0, 0, 0, lifeInsurance, motorInsurance, personalInsurance, 0, 0, 0);
+
                 // Navigate to the next activity
                 Intent intent = new Intent(P5_Insurance3FMT.this, P5_Insurance4FMT.class);
                 startActivity(intent);
+                finish(); // Close the current activity
             }
         });
 
@@ -61,7 +72,16 @@ public class P5_Insurance3FMT extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(P5_Insurance3FMT.this, P5_Insurance2FMT.class);
                 startActivity(intent);
+                finish(); // Close the current activity
             }
         });
+    }
+
+    private double parseDouble(String value) {
+        try {
+            return Double.parseDouble(value);
+        } catch (NumberFormatException e) {
+            return 0.0;
+        }
     }
 }

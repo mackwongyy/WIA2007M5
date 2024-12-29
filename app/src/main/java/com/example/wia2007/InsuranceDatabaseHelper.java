@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class InsuranceDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "InsuranceDatabase.db";
     private static final int DATABASE_VERSION = 1;
@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_TRAVEL_INSURANCE_COST = "travel_insurance_cost";
     private static final String COLUMN_OTHER_INSURANCE_COST = "other_insurance_cost";
 
-    public DatabaseHelper(Context context) {
+    public InsuranceDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

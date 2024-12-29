@@ -3,7 +3,6 @@ package com.example.wia2007;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,11 +19,14 @@ public class P5_Insurance4FMT extends AppCompatActivity {
     private Button applyButton;
     private SharedPreferences sharedPreferences;
     private static final String PREFS_NAME = "InsurancePrefs";
+    private InsuranceDatabaseHelper insuranceDatabaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_insurance4fmt);
+
+        insuranceDatabaseHelper = new InsuranceDatabaseHelper(this);
 
         // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -35,7 +37,7 @@ public class P5_Insurance4FMT extends AppCompatActivity {
         otherInsuranceLabel = findViewById(R.id.otherInsuranceLabel);
         totalInsuranceLabel = findViewById(R.id.totalInsuranceLabel);
         backButton = findViewById(R.id.backButton);
-        applyButton = findViewById(R.id.homeButton);
+        applyButton = findViewById(R.id.applyButton);
 
         // Load saved data
         medicalInsuranceLabel.setText(sharedPreferences.getString("medicalInsuranceCost", ""));
@@ -46,8 +48,24 @@ public class P5_Insurance4FMT extends AppCompatActivity {
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Navigation", "Apply button clicked");
-                calculateTotalInsurance();
+                // Save data to SharedPreferences
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("medicalInsuranceCost", medicalInsuranceLabel.getText().toString());
+                editor.putString("travelInsuranceCost", travelInsuranceLabel.getText().toString());
+                editor.putString("otherInsuranceCost", otherInsuranceLabel.getText().toString());
+                editor.apply();
+
+                double medicalInsurance = parseDouble(medicalInsuranceLabel.getText().toString());
+                double travelInsurance = parseDouble(travelInsuranceLabel.getText().toString());
+                double otherInsurance = parseDouble(otherInsuranceLabel.getText().toString());
+
+                // Insert data into the database
+                insuranceDatabaseHelper.insertInsuranceData(0, 0, 0, 0, 0, 0, 0, 0, 0, medicalInsurance, travelInsurance, otherInsurance);
+
+                // Navigate to the next activity
+                Intent intent = new Intent(P5_Insurance4FMT.this, P5_Insurance5FMT.class);
+                startActivity(intent);
+                finish(); // Close the current activity
             }
         });
 
@@ -55,46 +73,13 @@ public class P5_Insurance4FMT extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Navigation", "Back button clicked");
                 Intent intent = new Intent(P5_Insurance4FMT.this, P5_Insurance3FMT.class);
                 startActivity(intent);
+                finish(); // Close the current activity
             }
         });
     }
 
-    // Method to calculate total insurance
-    private void calculateTotalInsurance() {
-        Log.d("Navigation", "calculateTotalInsurance called");
-
-        // Get values from EditText fields
-        double lifeInsuranceCost = parseDouble(sharedPreferences.getString("lifeInsuranceCost", "0.0"));
-        double motorInsuranceCost = parseDouble(sharedPreferences.getString("motorInsuranceCost", "0.0"));
-        double personalInsuranceCost = parseDouble(sharedPreferences.getString("personalInsuranceCost", "0.0"));
-        double medicalInsurance = parseDouble(medicalInsuranceLabel.getText().toString());
-        double travelInsurance = parseDouble(travelInsuranceLabel.getText().toString());
-        double otherInsurance = parseDouble(otherInsuranceLabel.getText().toString());
-
-        // Calculate total insurance costs
-        double totalInsurance = lifeInsuranceCost + motorInsuranceCost + personalInsuranceCost +
-                medicalInsurance + travelInsurance + otherInsurance;
-
-        // Display the result
-        totalInsuranceLabel.setText(String.format("RM %.2f", totalInsurance));
-
-        // Save data to SharedPreferences
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("medicalInsuranceCost", medicalInsuranceLabel.getText().toString());
-        editor.putString("travelInsuranceCost", travelInsuranceLabel.getText().toString());
-        editor.putString("otherInsuranceCost", otherInsuranceLabel.getText().toString());
-        editor.apply();
-
-        // Navigate to the next activity
-        Log.d("Navigation", "Starting P5_Insurance5FMT activity");
-        Intent intent = new Intent(P5_Insurance4FMT.this, P5_Insurance5FMT.class);
-        startActivity(intent);
-    }
-
-    // Utility method to parse double values
     private double parseDouble(String value) {
         try {
             return Double.parseDouble(value);

@@ -1,13 +1,11 @@
 package com.example.wia2007;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import java.lang.Math;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class P5_Tax2FMT extends AppCompatActivity {
     private TextView incomeTaxLabel;
@@ -15,70 +13,45 @@ public class P5_Tax2FMT extends AppCompatActivity {
     private TextView balanceIncomeTaxLabel;
     private Button backButton;
     private Button applyButton;
-
-    private SharedPreferences sharedPreferences;
-    private static final String PREFS_NAME = "TaxPrefs";
-    private static final String KEY_TOTAL_INCOME = "totalIncome";
-    private static final String KEY_TAX_RELIEF = "taxRelief";
-    private double incomeTax;
-    private double taxRebate;
-    private double balanceIncomeTax;
+    private TaxDatabaseHelper taxDatabaseHelper;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_tax2fmt);
+
+        taxDatabaseHelper = new TaxDatabaseHelper(this);
 
         incomeTaxLabel = findViewById(R.id.insurancePayableLabel);
         taxRebateLabel = findViewById(R.id.taxRebateLabel);
         balanceIncomeTaxLabel = findViewById(R.id.balanceIncomeTaxLabel);
         backButton = findViewById(R.id.backButton);
-        applyButton = findViewById(R.id.homeButton);
+        applyButton = findViewById(R.id.applyButton);
 
-        // Initialize SharedPreferences
-        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-
-        backButton.setOnClickListener(v -> {
-            navigationFromTax2FMTToTax1FMT(v);
-        });
-
-        // Retrieve the values from the previous activity or SharedPreferences
+        // Retrieve the values from the previous activity
         Intent intent = getIntent();
         double totalIncome = intent.getDoubleExtra("totalIncome", 0);
         double taxRelief = intent.getDoubleExtra("taxRelief", 0);
-        double chargeableIncome = intent.getDoubleExtra("chargeableIncome", 0);
-
-        // If no new values are passed, retrieve from SharedPreferences
-        if (totalIncome == 0 && taxRelief == 0) {
-            String totalIncomeStr = sharedPreferences.getString(KEY_TOTAL_INCOME, "0");
-            String taxReliefStr = sharedPreferences.getString(KEY_TAX_RELIEF, "0");
-            totalIncome = Double.parseDouble(totalIncomeStr);
-            taxRelief = Double.parseDouble(taxReliefStr);
-            chargeableIncome = totalIncome - taxRelief;
-        }
+        double chargeableIncome = totalIncome - taxRelief;
 
         // Calculate the tax details
-        incomeTax = calculateIncomeTax(chargeableIncome);
-        taxRebate = (chargeableIncome <= 35000) ? 400 : 0;
-        balanceIncomeTax = Math.max(incomeTax - taxRebate, 0);
+        double incomeTax = calculateIncomeTax(chargeableIncome);
+        double taxRebate = (chargeableIncome <= 35000) ? 400 : 0;
+        double balanceIncomeTax = Math.max(incomeTax - taxRebate, 0);
 
         // Display the results
         incomeTaxLabel.setText(String.format("%.2f", incomeTax));
         taxRebateLabel.setText(String.format("%.2f", taxRebate));
         balanceIncomeTaxLabel.setText(String.format("%.2f", balanceIncomeTax));
 
-        double finalTotalIncome = totalIncome;
-        double finalTaxRelief = taxRelief;
         applyButton.setOnClickListener(v -> {
-            // Create a UserIncomeCalculation object with the current values
-            TaxData userIncome = new TaxData(finalTotalIncome, finalTaxRelief);
-            userIncome.setMonthlyTaxDeduction(0); // Initialize with default value
-            userIncome.setTakafulZakat(0); // Initialize with default value
-
-            // Pass the UserIncomeCalculation object to the next activity
+            // Navigate to the next activity
             Intent tax3Intent = new Intent(P5_Tax2FMT.this, P5_Tax3FMT.class);
-            tax3Intent.putExtra("userIncome", userIncome);
             startActivity(tax3Intent);
+        });
+
+        backButton.setOnClickListener(v -> {
+            navigationFromTax2FMTToTax1FMT(v);
         });
     }
 

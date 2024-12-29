@@ -14,16 +14,19 @@ public class P5_Insurance2FMT extends AppCompatActivity {
     private EditText medicalInsuranceDeductibleLabel;
     private EditText travelInsuranceDeductibleLabel;
     private EditText otherInsuranceDeductibleLabel;
-    private TextView totalDeductiblesLabel;
+    private TextView totalInsuranceDeductibleLabel;
     private Button applyButton;
     private Button backButton;
     private SharedPreferences sharedPreferences;
     private static final String PREFS_NAME = "InsurancePrefs";
+    private InsuranceDatabaseHelper insuranceDatabaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_insurance2fmt);
+
+        insuranceDatabaseHelper = new InsuranceDatabaseHelper(this);
 
         // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -32,7 +35,7 @@ public class P5_Insurance2FMT extends AppCompatActivity {
         medicalInsuranceDeductibleLabel = findViewById(R.id.medicalInsuranceDeductibleLabel);
         travelInsuranceDeductibleLabel = findViewById(R.id.travelInsuranceDeductibleLabel);
         otherInsuranceDeductibleLabel = findViewById(R.id.otherInsuranceDeductibleLabel);
-        totalDeductiblesLabel = findViewById(R.id.totalDeductiblesLabel);
+        totalInsuranceDeductibleLabel = findViewById(R.id.totalDeductiblesLabel);
         applyButton = findViewById(R.id.homeButton);
         backButton = findViewById(R.id.backButton);
 
@@ -41,25 +44,15 @@ public class P5_Insurance2FMT extends AppCompatActivity {
         travelInsuranceDeductibleLabel.setText(sharedPreferences.getString("travelInsurance", ""));
         otherInsuranceDeductibleLabel.setText(sharedPreferences.getString("otherInsurance", ""));
 
+        // Retrieve deductibles from SharedPreferences
+        double lifeInsuranceDeductible = Double.parseDouble(sharedPreferences.getString("lifeInsurance", "0.0"));
+        double motorInsuranceDeductible = Double.parseDouble(sharedPreferences.getString("motorInsurance", "0.0"));
+        double personalInsuranceDeductible = Double.parseDouble(sharedPreferences.getString("personalInsurance", "0.0"));
+
         // Set click listener for the Apply button
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get values from EditText fields
-                double lifeInsurance = parseDouble(sharedPreferences.getString("lifeInsurance", "0.0"));
-                double motorInsurance = parseDouble(sharedPreferences.getString("motorInsurance", "0.0"));
-                double personalInsurance = parseDouble(sharedPreferences.getString("personalInsurance", "0.0"));
-                double medicalInsurance = parseDouble(medicalInsuranceDeductibleLabel.getText().toString());
-                double travelInsurance = parseDouble(travelInsuranceDeductibleLabel.getText().toString());
-                double otherInsurance = parseDouble(otherInsuranceDeductibleLabel.getText().toString());
-
-                // Calculate total deductibles
-                double totalDeductibles = lifeInsurance + motorInsurance + personalInsurance +
-                        medicalInsurance + travelInsurance + otherInsurance;
-
-                // Display the result
-                totalDeductiblesLabel.setText(String.format("RM %.2f", totalDeductibles));
-
                 // Save data to SharedPreferences
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("medicalInsurance", medicalInsuranceDeductibleLabel.getText().toString());
@@ -67,9 +60,17 @@ public class P5_Insurance2FMT extends AppCompatActivity {
                 editor.putString("otherInsurance", otherInsuranceDeductibleLabel.getText().toString());
                 editor.apply();
 
+                double medicalInsuranceDeductible = parseDouble(medicalInsuranceDeductibleLabel.getText().toString());
+                double travelInsuranceDeductible = parseDouble(travelInsuranceDeductibleLabel.getText().toString());
+                double otherInsuranceDeductible = parseDouble(otherInsuranceDeductibleLabel.getText().toString());
+
+                // Insert data into the database
+                insuranceDatabaseHelper.insertInsuranceData(lifeInsuranceDeductible, motorInsuranceDeductible, personalInsuranceDeductible, medicalInsuranceDeductible, travelInsuranceDeductible, otherInsuranceDeductible, 0, 0, 0, 0, 0, 0);
+
                 // Navigate to the next activity
                 Intent intent = new Intent(P5_Insurance2FMT.this, P5_Insurance3FMT.class);
                 startActivity(intent);
+                finish(); // Close the current activity
             }
         });
 
@@ -79,11 +80,11 @@ public class P5_Insurance2FMT extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(P5_Insurance2FMT.this, P5_Insurance1FMT.class);
                 startActivity(intent);
+                finish(); // Close the current activity
             }
         });
     }
 
-    // Utility method to parse double values
     private double parseDouble(String value) {
         try {
             return Double.parseDouble(value);

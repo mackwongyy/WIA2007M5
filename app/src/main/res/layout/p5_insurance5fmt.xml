@@ -142,7 +142,7 @@
         app:layout_constraintTop_toBottomOf="@+id/insuranceSummary" />
 
     <TextView
-        android:id="@+id/lifeInusranceDeductiblesLabel"
+        android:id="@+id/lifeInsuranceDeductibleLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -164,7 +164,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/lifeInusranceDeductiblesLabel"
+        app:layout_constraintTop_toTopOf="@+id/lifeInsuranceDeductibleLabel"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -178,7 +178,7 @@
         app:layout_constraintTop_toBottomOf="@+id/LifeInsurance" />
 
     <TextView
-        android:id="@+id/motorInsuranceDeductiblesLabel"
+        android:id="@+id/motorInsuranceDeductibleLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -200,7 +200,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/motorInsuranceDeductiblesLabel"
+        app:layout_constraintTop_toTopOf="@+id/motorInsuranceDeductibleLabel"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -214,7 +214,7 @@
         app:layout_constraintTop_toBottomOf="@+id/MotorInsurance" />
 
     <TextView
-        android:id="@+id/personalInsuranceDeductiblesLabel"
+        android:id="@+id/personalInsuranceDeductibleLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -236,7 +236,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/personalInsuranceDeductiblesLabel"
+        app:layout_constraintTop_toTopOf="@+id/personalInsuranceDeductibleLabel"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -250,7 +250,7 @@
         app:layout_constraintTop_toBottomOf="@+id/PersonalInsurance" />
 
     <TextView
-        android:id="@+id/medicalInsuranceDeductiblesLabel"
+        android:id="@+id/medicalInsuranceDeductibleLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -272,7 +272,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/medicalInsuranceDeductiblesLabel"
+        app:layout_constraintTop_toTopOf="@+id/medicalInsuranceDeductibleLabel"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -286,7 +286,7 @@
         app:layout_constraintTop_toBottomOf="@+id/medicalInsurance" />
 
     <TextView
-        android:id="@+id/travelInsuranceDeductiblesLabel"
+        android:id="@+id/travelInsuranceDeductibleLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -308,7 +308,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/travelInsuranceDeductiblesLabel"
+        app:layout_constraintTop_toTopOf="@+id/travelInsuranceDeductibleLabel"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -322,7 +322,7 @@
         app:layout_constraintTop_toBottomOf="@+id/travelInsurance" />
 
     <TextView
-        android:id="@+id/otherInsuranceDeductiblesLabel"
+        android:id="@+id/otherInsuranceDeductibleLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -344,7 +344,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.834"
         app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/otherInsuranceDeductiblesLabel"
+        app:layout_constraintTop_toTopOf="@+id/otherInsuranceDeductibleLabel"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
