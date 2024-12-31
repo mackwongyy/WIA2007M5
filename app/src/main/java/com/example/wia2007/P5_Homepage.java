@@ -31,12 +31,12 @@ public class P5_Homepage extends AppCompatActivity {
             }
         });
 
-        buttonFBSL.setOnClickListener(new View.OnClickListener() {
+        /*buttonFBSL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navigationFromHomepageToFBSL(v);
             }
-        });
+        });*/
     }
 
     public void navigationFromHomepageToDFAP(View view) {
@@ -49,8 +49,8 @@ public class P5_Homepage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void navigationFromHomepageToFBSL(View view) {
+    /*public void navigationFromHomepageToFBSL(View view) {
         Intent intent = new Intent(P5_Homepage.this, MainActivity9.class);
         startActivity(intent);
-    }
+    }*/
 }

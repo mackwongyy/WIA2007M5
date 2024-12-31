@@ -66,7 +66,7 @@ public class P5_HomepageFMT extends AppCompatActivity {
     }
 
     public void navigationFromHomepageFMTToSavingsGuide(View view) {
-        Intent intent = new Intent(P5_HomepageFMT.this, P5_SavingsGuideFMT.class);
+        Intent intent = new Intent(P5_HomepageFMT.this, P5_SavingsGuide1FMT.class);
         startActivity(intent);
     }
 

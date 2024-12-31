@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".P5_SavingsGuide1FMT"
+    android:background="@drawable/background_image">
+
+    <TextView
+        android:id="@+id/FMTTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Financial Management Tool"
+        android:textAlignment="center"
+        android:textColor="#014565"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <View
+        android:id="@+id/SavingsGuideSubtitle"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:background="@drawable/border4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.122" />
+
+    <TextView
+        android:id="@+id/SavingsGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Savings Guide"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125"
+        tools:contentDescription="Tax Calculator"/>
+
+    <View
+        android:id="@+id/SavingsGuide1FMTView"
+        android:layout_width="311dp"
+        android:layout_height="477dp"
+        android:background="@drawable/border8dp"
+        android:fadingEdgeLength="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/expenses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Expenses (RM)"
+        android:textAlignment="viewStart"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintTop_toTopOf="@+id/SavingsGuide1FMTView" />
+
+    <EditText
+        android:id="@+id/expensesLabel"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:hint="Type a number..."
+        android:inputType="number"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/expenses" />
+
+    <TextView
+        android:id="@+id/income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Income (RM)"
+        android:textAlignment="viewStart"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/expensesLabel" />
+
+    <EditText
+        android:id="@+id/incomeLabel"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:hint="Type a number..."
+        android:inputType="number"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/income" />
+
+    <TextView
+        android:id="@+id/insurance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Insurance"
+        android:textAlignment="viewStart"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/incomeLabel" />
+
+    <TextView
+        android:id="@+id/insuranceLabel"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/insurance" />
+
+    <TextView
+        android:id="@+id/tax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Tax"
+        android:textAlignment="viewStart"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/insuranceLabel" />
+
+    <TextView
+        android:id="@+id/taxLabel"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"
+        app:layout_constraintTop_toBottomOf="@+id/tax" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/Back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SavingsGuide1FMTView" />
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/Apply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SavingsGuide1FMTView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
