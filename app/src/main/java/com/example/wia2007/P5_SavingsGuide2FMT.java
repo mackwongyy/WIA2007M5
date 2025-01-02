@@ -106,10 +106,11 @@ public class P5_SavingsGuide2FMT extends AppCompatActivity {
             return;
         }
 
-        // Save savingsTarget to SharedPreferences
+        // Save savingsTarget and aggressivenessValue to SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserInput", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putFloat("savingsTarget", (float) savingsTarget);
+        editor.putFloat("aggressivenessValue", aggressivenessValue);
         editor.apply();
 
         // Retrieve income and expenses from SharedPreferences
@@ -129,10 +130,13 @@ public class P5_SavingsGuide2FMT extends AppCompatActivity {
             startActivity(intent);
             finish(); // Close the current activity
         } else if (selectedCriterion.equals("Amount")) {
-            // Calculate the additional amount needed
-            double additionalAmount = savingsTarget - (aggressivenessValue / 0.01);
-            String result = "Additional amount to save: RM " + String.format("%.2f", additionalAmount);
-            aggressivenessDescription.setText(result); // Update the label
+            // Navigate to P5_SavingsGuide4FMT and pass the values
+            Intent intent = new Intent(P5_SavingsGuide2FMT.this, P5_SavingsGuide4FMT.class);
+            intent.putExtra("savingsTarget", savingsTarget);
+            intent.putExtra("positiveCashFlow", positiveCashFlow); // Pass positiveCashFlow
+            intent.putExtra("aggressivenessValue", aggressivenessValue); // Pass aggressivenessValue
+            startActivity(intent);
+            finish(); // Close the current activity
         }
     }
 }
