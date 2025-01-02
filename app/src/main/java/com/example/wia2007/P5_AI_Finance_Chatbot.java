@@ -33,7 +33,8 @@ import okhttp3.Response;
 
 public class P5_AI_Finance_Chatbot extends AppCompatActivity {
     private static final String TAG = "P5_AI_Finance_Chatbot";
-    private static final String OPENAI_API_KEY = "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";
+    private static P5_AI_Finance_Chatbot BuildConfig;
+    private static final String OPENAI_API_KEY = BuildConfig.OPENAI_API_KEY; // API key from BuildConfig
     private ArrayList<Message> messageList;
     private MessageAdapter messageAdapter;
     private RecyclerView recyclerView;
@@ -81,55 +82,74 @@ public class P5_AI_Finance_Chatbot extends AppCompatActivity {
     }
 
     void callAPI(String message) {
-        messageList.add(new Message("AI is typing...", Message.SENT_BY_AI_CHATBOT));
-        messageAdapter.notifyDataSetChanged();
+        // Add "AI is typing..." message
+        addToChat("AI is typing...", Message.SENT_BY_AI_CHATBOT);
 
+        // Create the JSON body for the API request
         JSONObject jsonBody = new JSONObject();
         try {
-            jsonBody.put("model", "gpt-3.5-turbo-instruct");
-            jsonBody.put("prompt", message);
-            jsonBody.put("max_tokens", 100000);
-            jsonBody.put("temperature", 0);
+            jsonBody.put("model", "gpt-3.5-turbo");
+            jsonBody.put("messages", new JSONArray()
+                    .put(new JSONObject().put("role", "user").put("content", message))
+            );
+            jsonBody.put("max_tokens", 1000);
+            jsonBody.put("temperature", 0.7);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
+        // Create the OkHttp client and request
+        OkHttpClient client = new OkHttpClient();
         RequestBody body = RequestBody.create(jsonBody.toString(), JSON);
         Request request = new Request.Builder()
-                .url("https://api.openai.com/v1/completions")
-                .header("Authorization", "Bearer " + OPENAI_API_KEY) // Ensure "Bearer " is prefixed
+                .url("https://api.openai.com/v1/chat/completions")
+                .header("Authorization", "Bearer " + OPENAI_API_KEY) // Use the API key from BuildConfig
                 .post(body)
                 .build();
 
-        OkHttpClient client = new OkHttpClient();
+        // Make the API call
         client.newCall(request).enqueue(new Callback() {
             @Override
-            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    JSONObject jsonObject = null;
-
-                    try {
-                        assert response.body() != null;
-                        jsonObject = new JSONObject(response.body().string());
-                        JSONArray jsonArray = jsonObject.getJSONArray("choices");
-                        String result = jsonArray.getJSONObject(0).getString("text");
-                        messageList.remove(messageList.size() - 1);
-                        addToChat(result.trim(), Message.SENT_BY_AI_CHATBOT);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    messageList.remove(messageList.size() - 1);
-                    addToChat("Failed to load response due to " + response.message(), Message.SENT_BY_AI_CHATBOT);
-                    Log.e(TAG, "API call failed: " + response.message());
-                }
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                runOnUiThread(() -> {
+                    messageList.remove(messageList.size() - 1); // Remove "AI is typing..." message
+                    addToChat("Failed to load response due to " + e.getMessage(), Message.SENT_BY_AI_CHATBOT);
+                    Log.e(TAG, "API call failed: " + e.getMessage());
+                });
             }
 
             @Override
-            public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                messageList.remove(messageList.size() - 1);
-                addToChat("Failed to load response due to " + e.getMessage(), Message.SENT_BY_AI_CHATBOT);
-                Log.e(TAG, "API call failed: " + e.getMessage());
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    try {
+                        assert response.body() != null;
+                        String responseBody = response.body().string();
+                        Log.d(TAG, "API response: " + responseBody); // Log the response
+                        JSONObject jsonObject = new JSONObject(responseBody);
+                        JSONArray jsonArray = jsonObject.getJSONArray("choices");
+                        String result = jsonArray.getJSONObject(0)
+                                .getJSONObject("message")
+                                .getString("content");
+
+                        runOnUiThread(() -> {
+                            messageList.remove(messageList.size() - 1); // Remove "AI is typing..." message
+                            addToChat(result.trim(), Message.SENT_BY_AI_CHATBOT);
+                        });
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        runOnUiThread(() -> {
+                            messageList.remove(messageList.size() - 1); // Remove "AI is typing..." message
+                            addToChat("Failed to parse response.", Message.SENT_BY_AI_CHATBOT);
+                        });
+                    }
+                } else {
+                    String errorBody = response.body() != null ? response.body().string() : "No error body";
+                    Log.e(TAG, "API call failed: " + response.message() + ", Code: " + response.code() + ", Body: " + errorBody); // Log the error
+                    runOnUiThread(() -> {
+                        messageList.remove(messageList.size() - 1); // Remove "AI is typing..." message
+                        addToChat("Failed to load response due to " + response.message(), Message.SENT_BY_AI_CHATBOT);
+                    });
+                }
             }
         });
     }
