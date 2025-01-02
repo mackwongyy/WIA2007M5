@@ -76,19 +76,19 @@ public class P5_Insurance5FMT extends AppCompatActivity {
     private void displayInsuranceSummary() {
         Cursor cursor = insuranceDatabaseHelper.getInsuranceData();
         if (cursor.moveToFirst()) {
-            // Retrieve column indices
-            int lifeInsuranceDeductibleIndex = cursor.getColumnIndex("life_insurance_deductible");
-            int motorInsuranceDeductibleIndex = cursor.getColumnIndex("motor_insurance_deductible");
-            int personalInsuranceDeductibleIndex = cursor.getColumnIndex("personal_insurance_deductible");
-            int medicalInsuranceDeductibleIndex = cursor.getColumnIndex("medical_insurance_deductible");
-            int travelInsuranceDeductibleIndex = cursor.getColumnIndex("travel_insurance_deductible");
-            int otherInsuranceDeductibleIndex = cursor.getColumnIndex("other_insurance_deductible");
-            int lifeInsuranceCostIndex = cursor.getColumnIndex("life_insurance_cost");
-            int motorInsuranceCostIndex = cursor.getColumnIndex("motor_insurance_cost");
-            int personalInsuranceCostIndex = cursor.getColumnIndex("personal_insurance_cost");
-            int medicalInsuranceCostIndex = cursor.getColumnIndex("medical_insurance_cost");
-            int travelInsuranceCostIndex = cursor.getColumnIndex("travel_insurance_cost");
-            int otherInsuranceCostIndex = cursor.getColumnIndex("other_insurance_cost");
+            // Retrieve column indices using the correct column names
+            int lifeInsuranceDeductibleIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_LIFE_INSURANCE_DEDUCTIBLE);
+            int motorInsuranceDeductibleIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_MOTOR_INSURANCE_DEDUCTIBLE);
+            int personalInsuranceDeductibleIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_PERSONAL_INSURANCE_DEDUCTIBLE);
+            int medicalInsuranceDeductibleIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_MEDICAL_INSURANCE_DEDUCTIBLE);
+            int travelInsuranceDeductibleIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_TRAVEL_INSURANCE_DEDUCTIBLE);
+            int otherInsuranceDeductibleIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_OTHER_INSURANCE_DEDUCTIBLE);
+            int lifeInsuranceCostIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_LIFE_INSURANCE_COST);
+            int motorInsuranceCostIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_MOTOR_INSURANCE_COST);
+            int personalInsuranceCostIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_PERSONAL_INSURANCE_COST);
+            int medicalInsuranceCostIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_MEDICAL_INSURANCE_COST);
+            int travelInsuranceCostIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_TRAVEL_INSURANCE_COST);
+            int otherInsuranceCostIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_OTHER_INSURANCE_COST);
 
             // Retrieve values from the cursor, defaulting to 0.0 if the column is not found
             double lifeInsuranceDeductible = lifeInsuranceDeductibleIndex != -1 ? cursor.getDouble(lifeInsuranceDeductibleIndex) : 0.0;

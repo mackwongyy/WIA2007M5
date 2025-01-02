@@ -12,22 +12,22 @@ public class InsuranceDatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Table name
-    private static final String TABLE_INSURANCE = "insurance";
+    // Inside InsuranceDatabaseHelper.java
+    public static final String TABLE_INSURANCE = "insurance";
 
     // Column names
-    private static final String COLUMN_ID = "id";
-    private static final String COLUMN_LIFE_INSURANCE_DEDUCTIBLE = "life_insurance_deductible";
-    private static final String COLUMN_MOTOR_INSURANCE_DEDUCTIBLE = "motor_insurance_deductible";
-    private static final String COLUMN_PERSONAL_INSURANCE_DEDUCTIBLE = "personal_insurance_deductible";
-    private static final String COLUMN_MEDICAL_INSURANCE_DEDUCTIBLE = "medical_insurance_deductible";
-    private static final String COLUMN_TRAVEL_INSURANCE_DEDUCTIBLE = "travel_insurance_deductible";
-    private static final String COLUMN_OTHER_INSURANCE_DEDUCTIBLE = "other_insurance_deductible";
-    private static final String COLUMN_LIFE_INSURANCE_COST = "life_insurance_cost";
-    private static final String COLUMN_MOTOR_INSURANCE_COST = "motor_insurance_cost";
-    private static final String COLUMN_PERSONAL_INSURANCE_COST = "personal_insurance_cost";
-    private static final String COLUMN_MEDICAL_INSURANCE_COST = "medical_insurance_cost";
-    private static final String COLUMN_TRAVEL_INSURANCE_COST = "travel_insurance_cost";
-    private static final String COLUMN_OTHER_INSURANCE_COST = "other_insurance_cost";
+    public static final String COLUMN_LIFE_INSURANCE_DEDUCTIBLE = "life_insurance_deductible";
+    public static final String COLUMN_MOTOR_INSURANCE_DEDUCTIBLE = "motor_insurance_deductible";
+    public static final String COLUMN_PERSONAL_INSURANCE_DEDUCTIBLE = "personal_insurance_deductible";
+    public static final String COLUMN_MEDICAL_INSURANCE_DEDUCTIBLE = "medical_insurance_deductible";
+    public static final String COLUMN_TRAVEL_INSURANCE_DEDUCTIBLE = "travel_insurance_deductible";
+    public static final String COLUMN_OTHER_INSURANCE_DEDUCTIBLE = "other_insurance_deductible";
+    public static final String COLUMN_LIFE_INSURANCE_COST = "life_insurance_cost";
+    public static final String COLUMN_MOTOR_INSURANCE_COST = "motor_insurance_cost";
+    public static final String COLUMN_PERSONAL_INSURANCE_COST = "personal_insurance_cost";
+    public static final String COLUMN_MEDICAL_INSURANCE_COST = "medical_insurance_cost";
+    public static final String COLUMN_TRAVEL_INSURANCE_COST = "travel_insurance_cost";
+    public static final String COLUMN_OTHER_INSURANCE_COST = "other_insurance_cost";
 
     public InsuranceDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -36,7 +36,6 @@ public class InsuranceDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_INSURANCE + "("
-                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_LIFE_INSURANCE_DEDUCTIBLE + " REAL,"
                 + COLUMN_MOTOR_INSURANCE_DEDUCTIBLE + " REAL,"
                 + COLUMN_PERSONAL_INSURANCE_DEDUCTIBLE + " REAL,"

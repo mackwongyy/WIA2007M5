@@ -42,28 +42,22 @@ public class P5_Insurance3FMT extends AppCompatActivity {
         personalInsuranceLabel.setText(sharedPreferences.getString("personalInsuranceCost", ""));
 
         // Set click listener for the Apply button
-        applyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Save data to SharedPreferences
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("lifeInsuranceCost", lifeInsuranceLabel.getText().toString());
-                editor.putString("motorInsuranceCost", motorInsuranceLabel.getText().toString());
-                editor.putString("personalInsuranceCost", personalInsuranceLabel.getText().toString());
-                editor.apply();
+        applyButton.setOnClickListener(v -> {
+            // Retrieve values from EditText fields
+            double lifeInsurance = parseDouble(lifeInsuranceLabel.getText().toString());
+            double motorInsurance = parseDouble(motorInsuranceLabel.getText().toString());
+            double personalInsurance = parseDouble(personalInsuranceLabel.getText().toString());
 
-                double lifeInsurance = parseDouble(lifeInsuranceLabel.getText().toString());
-                double motorInsurance = parseDouble(motorInsuranceLabel.getText().toString());
-                double personalInsurance = parseDouble(personalInsuranceLabel.getText().toString());
+            // Insert data into the database
+            insuranceDatabaseHelper.insertInsuranceData(0, 0, 0, 0, 0, 0, lifeInsurance, motorInsurance, personalInsurance, 0, 0, 0);
 
-                // Insert data into the database
-                insuranceDatabaseHelper.insertInsuranceData(0, 0, 0, 0, 0, 0, lifeInsurance, motorInsurance, personalInsurance, 0, 0, 0);
-
-                // Navigate to the next activity
-                Intent intent = new Intent(P5_Insurance3FMT.this, P5_Insurance4FMT.class);
-                startActivity(intent);
-                finish(); // Close the current activity
-            }
+            // Navigate to P5_Insurance4FMT and pass the values
+            Intent intent = new Intent(P5_Insurance3FMT.this, P5_Insurance4FMT.class);
+            intent.putExtra("lifeInsurance", lifeInsurance);
+            intent.putExtra("motorInsurance", motorInsurance);
+            intent.putExtra("personalInsurance", personalInsurance);
+            startActivity(intent);
+            finish(); // Close the current activity
         });
 
         // Set click listener for the Back button

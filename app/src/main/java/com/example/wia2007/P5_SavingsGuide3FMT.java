@@ -11,11 +11,14 @@ public class P5_SavingsGuide3FMT extends AppCompatActivity {
     private TextView numberOfMonthsTextView;
     private Button homeButton;
     private Button backButton;
+    private SavingsDatabaseHelper savingsDatabaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_savingsguide3fmt);
+
+        savingsDatabaseHelper = new SavingsDatabaseHelper(this);
 
         // Initialize UI elements
         numberOfMonthsTextView = findViewById(R.id.numberOfMonths);
@@ -34,6 +37,9 @@ public class P5_SavingsGuide3FMT extends AppCompatActivity {
 
             // Display the result
             numberOfMonthsTextView.setText(String.valueOf(numberOfMonths));
+
+            // Save the number of months to the database
+            savingsDatabaseHelper.insertSavingsData(0, 0, savingsTarget, aggressivenessValue, positiveCashFlow, numberOfMonths);
         }
 
         // Set up the home button listener

@@ -19,11 +19,14 @@ public class P5_SavingsGuide4FMT extends AppCompatActivity {
     private TextView amountDescription;
     private Button backButton;
     private Button homeButton;
+    private SavingsDatabaseHelper savingsDatabaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_savingsguide4fmt);
+
+        savingsDatabaseHelper = new SavingsDatabaseHelper(this);
 
         // Initialize UI elements
         numberOfMonthsSelectedLabel = findViewById(R.id.numberOfMonthsSelectedLabel);
@@ -110,5 +113,8 @@ public class P5_SavingsGuide4FMT extends AppCompatActivity {
                 amountDescription.setText(" more to reach your savings target! Keep it up and you can do it.");
             }
         }
+
+        // Save the additional amount to the database
+        savingsDatabaseHelper.insertSavingsData(income, expenses, savingsTarget, aggressivenessValue, positiveCashFlow, numberOfMonths);
     }
 }

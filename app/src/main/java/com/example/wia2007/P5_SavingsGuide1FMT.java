@@ -1,7 +1,6 @@
 package com.example.wia2007;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,11 +13,14 @@ public class P5_SavingsGuide1FMT extends AppCompatActivity {
     private EditText incomeLabel;
     private Button backButton;
     private Button applyButton;
+    private SavingsDatabaseHelper savingsDatabaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_savingsguide1fmt);
+
+        savingsDatabaseHelper = new SavingsDatabaseHelper(this);
 
         // Initialize UI elements
         expensesLabel = findViewById(R.id.expensesLabel);
@@ -58,12 +60,8 @@ public class P5_SavingsGuide1FMT extends AppCompatActivity {
         double income = Double.parseDouble(incomeStr);
         double expenses = Double.parseDouble(expensesStr);
 
-        // Save income and expenses to SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("UserInput", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putFloat("income", (float) income);
-        editor.putFloat("expenses", (float) expenses);
-        editor.apply();
+        // Save income and expenses to the database
+        savingsDatabaseHelper.insertSavingsData(income, expenses, 0, 0, 0, 0);
 
         // Navigate to P5_SavingsGuide2FMT
         Intent intent = new Intent(P5_SavingsGuide1FMT.this, P5_SavingsGuide2FMT.class);

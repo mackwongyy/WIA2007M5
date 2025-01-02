@@ -1,7 +1,7 @@
 package com.example.wia2007;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,14 +23,16 @@ public class P5_SavingsGuide2FMT extends AppCompatActivity {
     private Button backButton;
     private Button applyButton;
     private double savingsTarget;
-
-    private String selectedCriterion; // To store the selected spinner item
-    private float aggressivenessValue; // To store the slider value
+    private String selectedCriterion;
+    private float aggressivenessValue;
+    private SavingsDatabaseHelper savingsDatabaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.p5_savingsguide2fmt);
+
+        savingsDatabaseHelper = new SavingsDatabaseHelper(this);
 
         // Initialize UI elements
         aggressivenessDescription = findViewById(R.id.aggressivenessDescription);
@@ -39,11 +41,6 @@ public class P5_SavingsGuide2FMT extends AppCompatActivity {
         criterionChoiceSpinner = findViewById(R.id.criterionChoiceSpinner);
         backButton = findViewById(R.id.backButton);
         applyButton = findViewById(R.id.homeButton);
-
-        // Retrieve saved income and expenses from SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("UserInput", MODE_PRIVATE);
-        float income = sharedPreferences.getFloat("income", 0);
-        float expenses = sharedPreferences.getFloat("expenses", 0);
 
         // Set up the spinner with options
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -106,19 +103,21 @@ public class P5_SavingsGuide2FMT extends AppCompatActivity {
             return;
         }
 
-        // Save savingsTarget and aggressivenessValue to SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("UserInput", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putFloat("savingsTarget", (float) savingsTarget);
-        editor.putFloat("aggressivenessValue", aggressivenessValue);
-        editor.apply();
-
-        // Retrieve income and expenses from SharedPreferences
-        float income = sharedPreferences.getFloat("income", 0);
-        float expenses = sharedPreferences.getFloat("expenses", 0);
+        // Retrieve income and expenses from the database
+        Cursor cursor = savingsDatabaseHelper.getSavingsData();
+        double income = 0;
+        double expenses = 0;
+        if (cursor.moveToFirst()) {
+            income = cursor.getDouble(cursor.getColumnIndex("income"));
+            expenses = cursor.getDouble(cursor.getColumnIndex("expenses"));
+        }
+        cursor.close();
 
         // Calculate positive cash flow
         double positiveCashFlow = income - expenses;
+
+        // Save savings target and aggressiveness to the database
+        savingsDatabaseHelper.insertSavingsData(income, expenses, savingsTarget, aggressivenessValue, positiveCashFlow, 0);
 
         // Check the selected criterion
         if (selectedCriterion.equals("Months")) {

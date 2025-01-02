@@ -21,6 +21,11 @@ public class P5_Insurance4FMT extends AppCompatActivity {
     private static final String PREFS_NAME = "InsurancePrefs";
     private InsuranceDatabaseHelper insuranceDatabaseHelper;
 
+    // Variables to store insurance values
+    private double lifeInsurance;
+    private double motorInsurance;
+    private double personalInsurance;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,12 @@ public class P5_Insurance4FMT extends AppCompatActivity {
         backButton = findViewById(R.id.backButton);
         applyButton = findViewById(R.id.applyButton);
 
+        // Retrieve values from P5_Insurance3FMT
+        Intent intent = getIntent();
+        lifeInsurance = intent.getDoubleExtra("lifeInsurance", 0.0);
+        motorInsurance = intent.getDoubleExtra("motorInsurance", 0.0);
+        personalInsurance = intent.getDoubleExtra("personalInsurance", 0.0);
+
         // Load saved data
         medicalInsuranceLabel.setText(sharedPreferences.getString("medicalInsuranceCost", ""));
         travelInsuranceLabel.setText(sharedPreferences.getString("travelInsuranceCost", ""));
@@ -55,12 +66,17 @@ public class P5_Insurance4FMT extends AppCompatActivity {
                 editor.putString("otherInsuranceCost", otherInsuranceLabel.getText().toString());
                 editor.apply();
 
+                // Parse input values
                 double medicalInsurance = parseDouble(medicalInsuranceLabel.getText().toString());
                 double travelInsurance = parseDouble(travelInsuranceLabel.getText().toString());
                 double otherInsurance = parseDouble(otherInsuranceLabel.getText().toString());
 
+                // Calculate total insurance
+                double totalInsurance = lifeInsurance + motorInsurance + personalInsurance + medicalInsurance + travelInsurance + otherInsurance;
+                totalInsuranceLabel.setText(String.format("RM %.2f", totalInsurance));
+
                 // Insert data into the database
-                insuranceDatabaseHelper.insertInsuranceData(0, 0, 0, 0, 0, 0, 0, 0, 0, medicalInsurance, travelInsurance, otherInsurance);
+                insuranceDatabaseHelper.insertInsuranceData(lifeInsurance, motorInsurance, personalInsurance, 0, 0, 0, 0, 0, 0, medicalInsurance, travelInsurance, otherInsurance);
 
                 // Navigate to the next activity
                 Intent intent = new Intent(P5_Insurance4FMT.this, P5_Insurance5FMT.class);
