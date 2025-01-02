@@ -1,6 +1,7 @@
 package com.example.wia2007;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +37,7 @@ public class P5_AI_Finance_Chatbot extends AppCompatActivity {
     private static final String TAG = "P5_AI_Finance_Chatbot";
     private static P5_AI_Finance_Chatbot BuildConfig;
     private static final String OPENAI_API_KEY = BuildConfig.OPENAI_API_KEY; // API key from BuildConfig
+    private static Button backButton;
     private ArrayList<Message> messageList;
     private MessageAdapter messageAdapter;
     private RecyclerView recyclerView;
@@ -56,6 +59,7 @@ public class P5_AI_Finance_Chatbot extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(linearLayoutManager);
+        backButton = findViewById(R.id.backButton);
 
         sendButton.setOnClickListener((v) -> {
             String message = userMessage.getText().toString().trim();
@@ -69,6 +73,14 @@ public class P5_AI_Finance_Chatbot extends AppCompatActivity {
                     addToChat("No internet connection. Please check your network settings.", Message.SENT_BY_AI_CHATBOT);
                 }
                 welcomeMessage.setVisibility(View.GONE);
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(P5_AI_Finance_Chatbot.this, P5_HomepageFMT.class);
+                startActivity(intent);
             }
         });
     }

@@ -32,12 +32,14 @@
 
         <EditText
             android:id="@+id/AI_Chat_User_Message"
-            android:layout_width="280dp"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="3dp"
             android:layout_toStartOf="@+id/AI_Chatbot_Send_Button"
+            android:layout_toEndOf="@+id/backButton"
             android:background="@drawable/border_rounded_corners"
             android:hint="@string/Type_Your_Message"
             android:padding="16dp" />
@@ -54,17 +56,15 @@
             android:src="@drawable/baseline_send_24"
             android:background="?attr/selectableItemBackgroundBorderless"/>
 
-        <ImageButton
-            android:id="@+id/AI_Chatbot_Send_Button2"
+        <Button
+            android:id="@+id/backButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="320dp"
-            android:layout_marginBottom="6dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="AI Chatbot Image"
-            android:src="@drawable/baseline_send_24" />
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="1dp"
+            android:text="Back" />
 
     </RelativeLayout>
 
