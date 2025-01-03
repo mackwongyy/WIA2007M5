@@ -22,7 +22,7 @@ public class P5_Tax2FMT extends AppCompatActivity {
 
         taxDatabaseHelper = new TaxDatabaseHelper(this);
 
-        incomeTaxLabel = findViewById(R.id.insurancePayableLabel);
+        incomeTaxLabel = findViewById(R.id.incomeTaxLabel);
         taxRebateLabel = findViewById(R.id.taxRebateLabel);
         balanceIncomeTaxLabel = findViewById(R.id.balanceIncomeTaxLabel);
         backButton = findViewById(R.id.backButton);
@@ -32,7 +32,7 @@ public class P5_Tax2FMT extends AppCompatActivity {
         Intent intent = getIntent();
         double totalIncome = intent.getDoubleExtra("totalIncome", 0);
         double taxRelief = intent.getDoubleExtra("taxRelief", 0);
-        double chargeableIncome = totalIncome - taxRelief;
+        double chargeableIncome = intent.getDoubleExtra("chargeableIncome", 0); // Retrieve chargeableIncome directly
 
         // Calculate the tax details
         double incomeTax = calculateIncomeTax(chargeableIncome);
@@ -43,6 +43,9 @@ public class P5_Tax2FMT extends AppCompatActivity {
         incomeTaxLabel.setText(String.format("%.2f", incomeTax));
         taxRebateLabel.setText(String.format("%.2f", taxRebate));
         balanceIncomeTaxLabel.setText(String.format("%.2f", balanceIncomeTax));
+
+        // Save incomeTax in the database
+        taxDatabaseHelper.updateTaxData(null, null, null, null, null, null, null, null, incomeTax);
 
         applyButton.setOnClickListener(v -> {
             // Navigate to the next activity
@@ -56,30 +59,29 @@ public class P5_Tax2FMT extends AppCompatActivity {
     }
 
     private double calculateIncomeTax(double chargeableIncome) {
-        //Rates are accurate to LHDN Malaysia's tax rates as of 2024
         double tax = 0;
 
         if (chargeableIncome > 0) {
             if (chargeableIncome <= 5000) {
                 tax = 0;
             } else if (chargeableIncome <= 20000) {
-                tax = (chargeableIncome - 5000) * 0.08;
+                tax = (chargeableIncome - 5000) * 0.01;
             } else if (chargeableIncome <= 35000) {
-                tax = 150 + (chargeableIncome - 20000) * 0.14;
+                tax = 150 + (chargeableIncome - 20000) * 0.03;
             } else if (chargeableIncome <= 50000) {
-                tax = 600 + (chargeableIncome - 35000) * 0.21;
+                tax = 600 + (chargeableIncome - 35000) * 0.06;
             } else if (chargeableIncome <= 70000) {
-                tax = 1500 + (chargeableIncome - 50000) * 0.24;
+                tax = 1500 + (chargeableIncome - 50000) * 0.11;
             } else if (chargeableIncome <= 100000) {
-                tax = 3700 + (chargeableIncome - 70000) * 0.245;
+                tax = 3700 + (chargeableIncome - 70000) * 0.19;
             } else if (chargeableIncome <= 400000) {
                 tax = 9400 + (chargeableIncome - 100000) * 0.25;
             } else if (chargeableIncome <= 600000) {
                 tax = 84400 + (chargeableIncome - 400000) * 0.26;
             } else if (chargeableIncome <= 2000000) {
-                tax = 158400 + (chargeableIncome - 600000) * 0.28;
+                tax = 136400 + (chargeableIncome - 600000) * 0.28;
             } else {
-                tax = 578400 + (chargeableIncome - 2000000) * 0.3;
+                tax = 528400 + (chargeableIncome - 2000000) * 0.30;
             }
         }
 

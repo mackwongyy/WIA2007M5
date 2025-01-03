@@ -24,15 +24,15 @@ public class P5_Tax4FMT extends AppCompatActivity {
         taxDatabaseHelper = new TaxDatabaseHelper(this);
 
         roadTaxLabel = findViewById(R.id.roadTaxLabel);
-        propertyTaxLabel = findViewById(R.id.roadTaxLabel);
+        propertyTaxLabel = findViewById(R.id.propertyTaxLabel);
         quitRentLabel = findViewById(R.id.quitRentLabel);
-        otherTaxLabel = findViewById(R.id.totalDeductiblesLabel);
+        otherTaxLabel = findViewById(R.id.otherTaxLabel);
         backButton = findViewById(R.id.backButton);
         applyButton = findViewById(R.id.applyButton);
 
         applyButton.setOnClickListener(v -> {
             saveAdditionalTaxes();
-            navigationFromTax4FMTToTax5FMT(v);
+            navigationFromTax4FMTToTax5FMT(v); // Ensure this method is called
         });
 
         backButton.setOnClickListener(v -> {
@@ -56,7 +56,7 @@ public class P5_Tax4FMT extends AppCompatActivity {
         double otherTax = Double.parseDouble(otherTaxStr);
 
         // Update the database
-        taxDatabaseHelper.insertTaxData(0, 0, 0, 0, roadTax, propertyTax, quitRent, otherTax);
+        taxDatabaseHelper.updateTaxData(null, null, null, null, roadTax, propertyTax, quitRent, otherTax, null);
     }
 
     public void navigationFromTax4FMTToTax3FMT(View view) {

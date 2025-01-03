@@ -63,7 +63,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/insurancePayable"
+        android:id="@+id/taxPayable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -77,7 +77,7 @@
         app:layout_constraintTop_toTopOf="@+id/Insurance1FMTView" />
 
     <TextView
-        android:id="@+id/insurancePayableLabel"
+        android:id="@+id/taxPayableLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
@@ -87,7 +87,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.394"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/insurancePayable"
+        app:layout_constraintTop_toBottomOf="@+id/taxPayable"
         tools:contentDescription="Chargeable Income" />
 
     <TextView
@@ -102,10 +102,10 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/insurancePayableLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/taxPayableLabel" />
 
     <TextView
-        android:id="@+id/LifeInsurance"
+        android:id="@+id/incomeTax"
         android:layout_width="152dp"
         android:layout_height="24dp"
         android:layout_marginStart="28dp"
@@ -124,8 +124,8 @@
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/LifeInsurance"
+        app:layout_constraintStart_toEndOf="@+id/incomeTax"
+        app:layout_constraintTop_toTopOf="@+id/incomeTax"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -136,7 +136,7 @@
         android:text="\t\tTax Rebate, Relief"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/LifeInsurance" />
+        app:layout_constraintTop_toBottomOf="@+id/incomeTax" />
 
     <TextView
         android:id="@+id/taxRebateReliefLabel"
@@ -147,12 +147,12 @@
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
+        app:layout_constraintStart_toEndOf="@+id/taxRebateRelief"
         app:layout_constraintTop_toTopOf="@+id/taxRebateRelief"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/MotorInsurance"
+        android:id="@+id/taxDeductionAnnual"
         android:layout_width="152dp"
         android:layout_height="24dp"
         android:layout_marginStart="28dp"
@@ -162,7 +162,7 @@
         app:layout_constraintTop_toBottomOf="@+id/taxRebateRelief" />
 
     <TextView
-        android:id="@+id/lifeInusranceDeductiblesLabel"
+        android:id="@+id/taxDeductionAnnualLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -170,19 +170,19 @@
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/MotorInsurance"
+        app:layout_constraintStart_toEndOf="@+id/taxDeductionAnnual"
+        app:layout_constraintTop_toTopOf="@+id/taxDeductionAnnual"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/PersonalInsurance"
+        android:id="@+id/takafulZakat"
         android:layout_width="152dp"
         android:layout_height="24dp"
         android:layout_marginStart="28dp"
         android:text="Takaful/Zakat"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/MotorInsurance" />
+        app:layout_constraintTop_toBottomOf="@+id/taxDeductionAnnual" />
 
     <TextView
         android:id="@+id/takafulZakatLabel"
@@ -193,19 +193,19 @@
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/PersonalInsurance"
+        app:layout_constraintStart_toEndOf="@+id/takafulZakat"
+        app:layout_constraintTop_toTopOf="@+id/takafulZakat"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/medicalInsurance"
+        android:id="@+id/roadTax"
         android:layout_width="152dp"
         android:layout_height="24dp"
         android:layout_marginStart="28dp"
         android:text="Road Tax"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/PersonalInsurance" />
+        app:layout_constraintTop_toBottomOf="@+id/takafulZakat" />
 
     <TextView
         android:id="@+id/roadTaxLabel"
@@ -216,19 +216,19 @@
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/medicalInsurance"
+        app:layout_constraintStart_toEndOf="@+id/roadTax"
+        app:layout_constraintTop_toTopOf="@+id/roadTax"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/travelInsurance"
+        android:id="@+id/propertyTax"
         android:layout_width="152dp"
         android:layout_height="24dp"
         android:layout_marginStart="28dp"
         android:text="Property Tax"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/medicalInsurance" />
+        app:layout_constraintTop_toBottomOf="@+id/roadTax" />
 
     <TextView
         android:id="@+id/propertyTaxLabel"
@@ -239,19 +239,19 @@
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/travelInsurance"
+        app:layout_constraintStart_toEndOf="@+id/propertyTax"
+        app:layout_constraintTop_toTopOf="@+id/propertyTax"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/otherInsurance"
+        android:id="@+id/quitRent"
         android:layout_width="152dp"
         android:layout_height="24dp"
         android:layout_marginStart="28dp"
         android:text="Quit Rent"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/travelInsurance" />
+        app:layout_constraintTop_toBottomOf="@+id/propertyTax" />
 
     <TextView
         android:id="@+id/quitRentLabel"
@@ -262,22 +262,22 @@
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/otherInsurance"
+        app:layout_constraintStart_toEndOf="@+id/quitRent"
+        app:layout_constraintTop_toTopOf="@+id/quitRent"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/totalInsurance"
+        android:id="@+id/otherTax"
         android:layout_width="152dp"
         android:layout_height="24dp"
         android:layout_marginStart="28dp"
         android:text="Other Tax"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/otherInsurance" />
+        app:layout_constraintTop_toBottomOf="@+id/quitRent" />
 
     <TextView
-        android:id="@+id/totalDeductiblesLabel"
+        android:id="@+id/otherTaxLabel"
         android:layout_width="96dp"
         android:layout_height="24dp"
         android:inputType="number"
@@ -285,8 +285,8 @@
         android:textAlignment="textEnd"
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/LifeInsurance"
-        app:layout_constraintTop_toTopOf="@+id/totalInsurance"
+        app:layout_constraintStart_toEndOf="@+id/otherTax"
+        app:layout_constraintTop_toTopOf="@+id/otherTax"
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button

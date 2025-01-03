@@ -51,11 +51,14 @@ public class P5_Tax1FMT extends AppCompatActivity {
         double chargeable = totalIncome - taxReliefAmount;
         chargeableIncome.setText(String.format("%.2f", chargeable));
 
-        // Insert data into the database
-        taxDatabaseHelper.insertTaxData(totalIncome, taxReliefAmount, 0, 0, 0, 0, 0, 0);
+        // Update the database
+        taxDatabaseHelper.updateTaxData(totalIncome, taxReliefAmount, null, null, null, null, null, null, null);
 
-        // Navigate to the next activity
+        // Navigate to the next activity and pass the chargeable income
         Intent intent = new Intent(P5_Tax1FMT.this, P5_Tax2FMT.class);
+        intent.putExtra("totalIncome", totalIncome); // Pass totalIncome
+        intent.putExtra("taxRelief", taxReliefAmount); // Pass taxRelief
+        intent.putExtra("chargeableIncome", chargeable); // Pass chargeableIncome
         startActivity(intent);
     }
 

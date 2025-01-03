@@ -30,15 +30,15 @@ public class P5_Tax5FMT extends AppCompatActivity {
         taxDatabaseHelper = new TaxDatabaseHelper(this);
 
         // Initialize TextViews
-        taxPayableLabel = findViewById(R.id.insurancePayableLabel);
+        taxPayableLabel = findViewById(R.id.taxPayableLabel);
         incomeTaxLabel = findViewById(R.id.incomeTaxLabel);
         taxRebateReliefLabel = findViewById(R.id.taxRebateReliefLabel);
-        taxDeductionAnnualLabel = findViewById(R.id.lifeInusranceDeductiblesLabel);
+        taxDeductionAnnualLabel = findViewById(R.id.taxDeductionAnnualLabel);
         takafulZakatLabel = findViewById(R.id.takafulZakatLabel);
         roadTaxLabel = findViewById(R.id.roadTaxLabel);
         propertyTaxLabel = findViewById(R.id.propertyTaxLabel);
         quitRentLabel = findViewById(R.id.quitRentLabel);
-        otherTaxLabel = findViewById(R.id.totalDeductiblesLabel);
+        otherTaxLabel = findViewById(R.id.otherTaxLabel);
 
         // Initialize Buttons
         backButton = findViewById(R.id.backButton);
@@ -61,7 +61,7 @@ public class P5_Tax5FMT extends AppCompatActivity {
         Cursor cursor = taxDatabaseHelper.getTaxData();
         if (cursor.moveToFirst()) {
             // Retrieve column indices
-            int totalIncomeIndex = cursor.getColumnIndex(TaxDatabaseHelper.COLUMN_TOTAL_INCOME);
+            int incomeTaxIndex = cursor.getColumnIndex(TaxDatabaseHelper.COLUMN_INCOME_TAX);
             int taxReliefIndex = cursor.getColumnIndex(TaxDatabaseHelper.COLUMN_TAX_RELIEF);
             int monthlyTaxDeductionIndex = cursor.getColumnIndex(TaxDatabaseHelper.COLUMN_MONTHLY_TAX_DEDUCTION);
             int takafulZakatIndex = cursor.getColumnIndex(TaxDatabaseHelper.COLUMN_TAKAFUL_ZAKAT);
@@ -71,7 +71,7 @@ public class P5_Tax5FMT extends AppCompatActivity {
             int otherTaxIndex = cursor.getColumnIndex(TaxDatabaseHelper.COLUMN_OTHER_TAX);
 
             // Retrieve values from the cursor, defaulting to 0.0 if the column is not found
-            double totalIncome = totalIncomeIndex != -1 ? cursor.getDouble(totalIncomeIndex) : 0.0;
+            double incomeTax = incomeTaxIndex != -1 ? cursor.getDouble(incomeTaxIndex) : 0.0;
             double taxRelief = taxReliefIndex != -1 ? cursor.getDouble(taxReliefIndex) : 0.0;
             double monthlyTaxDeduction = monthlyTaxDeductionIndex != -1 ? cursor.getDouble(monthlyTaxDeductionIndex) : 0.0;
             double takafulZakat = takafulZakatIndex != -1 ? cursor.getDouble(takafulZakatIndex) : 0.0;
@@ -80,13 +80,13 @@ public class P5_Tax5FMT extends AppCompatActivity {
             double quitRent = quitRentIndex != -1 ? cursor.getDouble(quitRentIndex) : 0.0;
             double otherTax = otherTaxIndex != -1 ? cursor.getDouble(otherTaxIndex) : 0.0;
 
-            // Calculate totals
-            double incomeTax = totalIncome - taxRelief;
-            double totalTaxPayable = incomeTax - (monthlyTaxDeduction * 12) - takafulZakat - roadTax - propertyTax - quitRent - otherTax;
+            // Calculate total tax payable
+            double taxPayable = incomeTax - (monthlyTaxDeduction * 12) - takafulZakat - roadTax - propertyTax - quitRent - otherTax;
+            double totalTaxPayable = taxPayable < 0 ? 0 : taxPayable;
 
             // Display the results
             taxPayableLabel.setText(String.format("RM %.2f", totalTaxPayable));
-            incomeTaxLabel.setText(String.format("RM %.2f", incomeTax));
+            incomeTaxLabel.setText(String.format("RM %.2f", incomeTax)); // Display incomeTax
             taxRebateReliefLabel.setText(String.format("RM %.2f", taxRelief));
             taxDeductionAnnualLabel.setText(String.format("RM %.2f", monthlyTaxDeduction * 12));
             takafulZakatLabel.setText(String.format("RM %.2f", takafulZakat));

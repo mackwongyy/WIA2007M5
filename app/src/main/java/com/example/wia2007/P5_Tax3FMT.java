@@ -23,9 +23,9 @@ public class P5_Tax3FMT extends AppCompatActivity {
 
         taxDatabaseHelper = new TaxDatabaseHelper(this);
 
-        monthlyTaxDeductionLabel = findViewById(R.id.roadTaxLabel);
-        takafulZakatLabel = findViewById(R.id.roadTaxLabel);
-        incomeTaxPayableLabel = findViewById(R.id.insurancePayableLabel);
+        monthlyTaxDeductionLabel = findViewById(R.id.monthlyTaxDeductionLabel);
+        takafulZakatLabel = findViewById(R.id.takafulZakatLabel);
+        incomeTaxPayableLabel = findViewById(R.id.incomeTaxPayableLabel);
         backButton = findViewById(R.id.backButton);
         applyButton = findViewById(R.id.applyButton);
 
@@ -48,13 +48,14 @@ public class P5_Tax3FMT extends AppCompatActivity {
         }
 
         double monthlyTaxDeduction = Double.parseDouble(monthlyTaxDeductionStr);
+        double annualTaxDeduction = monthlyTaxDeduction * 12;
         double takafulZakat = Double.parseDouble(takafulZakatStr);
 
         // Update the database
-        taxDatabaseHelper.insertTaxData(0, 0, monthlyTaxDeduction, takafulZakat, 0, 0, 0, 0);
+        taxDatabaseHelper.updateTaxData(null, null, monthlyTaxDeduction, takafulZakat, null, null, null, null, null);
 
         // Display the income tax payable
-        incomeTaxPayableLabel.setText(String.format("%.2f", monthlyTaxDeduction + takafulZakat));
+        incomeTaxPayableLabel.setText(String.format("%.2f", annualTaxDeduction + takafulZakat));
     }
 
     public void navigationFromTax3FMTToTax2FMT(View view) {

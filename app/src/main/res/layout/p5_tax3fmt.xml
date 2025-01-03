@@ -63,7 +63,7 @@
         tools:contentDescription="Tax Calculator"/>
 
     <TextView
-        android:id="@+id/medicalInsurance"
+        android:id="@+id/monthlyTaxDeduction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toTopOf="@+id/Insurance1FMTView" />
 
     <EditText
-        android:id="@+id/roadTaxLabel"
+        android:id="@+id/monthlyTaxDeductionLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -86,10 +86,10 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/medicalInsurance" />
+        app:layout_constraintTop_toBottomOf="@+id/monthlyTaxDeduction" />
 
     <TextView
-        android:id="@+id/insuranceSummary"
+        android:id="@+id/takafulZakat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -99,10 +99,10 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/roadTaxLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/monthlyTaxDeductionLabel" />
 
     <EditText
-        android:id="@+id/lifeInusranceDeductiblesLabel"
+        android:id="@+id/takafulZakatLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
@@ -112,10 +112,10 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/insuranceSummary" />
+        app:layout_constraintTop_toBottomOf="@+id/takafulZakat" />
 
     <TextView
-        android:id="@+id/insurancePayable"
+        android:id="@+id/incomeTaxPayable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -126,10 +126,10 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/lifeInusranceDeductiblesLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/takafulZakatLabel" />
 
     <TextView
-        android:id="@+id/insurancePayableLabel"
+        android:id="@+id/incomeTaxPayableLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
@@ -138,7 +138,7 @@
         app:layout_constraintEnd_toEndOf="@+id/Insurance1FMTView"
         app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="@+id/Insurance1FMTView"
-        app:layout_constraintTop_toBottomOf="@+id/insurancePayable"
+        app:layout_constraintTop_toBottomOf="@+id/incomeTaxPayable"
         tools:contentDescription="Chargeable Income" />
 
     <Button
