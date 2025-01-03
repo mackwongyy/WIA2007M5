@@ -127,12 +127,12 @@
         app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"
         app:layout_constraintTop_toBottomOf="@+id/incomeLabel" />
 
-    <TextView
+    <EditText
         android:id="@+id/insuranceLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
-        android:textSize="32sp"
+        android:hint="Type a number..."
         app:layout_constraintEnd_toEndOf="@+id/SavingsGuide1FMTView"
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"
@@ -151,12 +151,12 @@
         app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"
         app:layout_constraintTop_toBottomOf="@+id/insuranceLabel" />
 
-    <TextView
+    <EditText
         android:id="@+id/taxLabel"
         android:layout_width="240dp"
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
-        android:textSize="32sp"
+        android:hint="Type a number..."
         app:layout_constraintEnd_toEndOf="@+id/SavingsGuide1FMTView"
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"

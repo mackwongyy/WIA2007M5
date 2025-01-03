@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class SavingsDatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "SavingsDatabase.db";
+    private static final String DATABASE_NAME = "SavingsDatabase1.db";
     private static final int DATABASE_VERSION = 1;
 
     // Table name
@@ -17,6 +17,8 @@ public class SavingsDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_INCOME = "income";
     private static final String COLUMN_EXPENSES = "expenses";
+    private static final String COLUMN_INSURANCE = "insurance";
+    private static final String COLUMN_TAX = "tax";
     private static final String COLUMN_SAVINGS_TARGET = "savings_target";
     private static final String COLUMN_AGGRESSIVENESS = "aggressiveness";
     private static final String COLUMN_POSITIVE_CASH_FLOW = "positive_cash_flow";
@@ -27,6 +29,8 @@ public class SavingsDatabaseHelper extends SQLiteOpenHelper {
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + COLUMN_INCOME + " REAL,"
             + COLUMN_EXPENSES + " REAL,"
+            + COLUMN_INSURANCE + " REAL,"
+            + COLUMN_TAX + " REAL,"
             + COLUMN_SAVINGS_TARGET + " REAL,"
             + COLUMN_AGGRESSIVENESS + " REAL,"
             + COLUMN_POSITIVE_CASH_FLOW + " REAL,"
@@ -49,16 +53,18 @@ public class SavingsDatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Insert savings data
-    public long insertSavingsData(double income, double expenses, double savingsTarget, float aggressiveness, double positiveCashFlow, int numberOfMonths) {
+    public void insertSavingsData(double income, double expenses, double insurance, double tax, double savingsTarget, float aggressiveness, double positiveCashFlow, int numberOfMonths) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_INCOME, income);
         values.put(COLUMN_EXPENSES, expenses);
+        values.put(COLUMN_INSURANCE, insurance);
+        values.put(COLUMN_TAX, tax);
         values.put(COLUMN_SAVINGS_TARGET, savingsTarget);
         values.put(COLUMN_AGGRESSIVENESS, aggressiveness);
         values.put(COLUMN_POSITIVE_CASH_FLOW, positiveCashFlow);
         values.put(COLUMN_NUMBER_OF_MONTHS, numberOfMonths);
-        return db.insert(TABLE_SAVINGS, null, values);
+        db.insert(TABLE_SAVINGS, null, values);
     }
 
     // Retrieve savings data

@@ -115,6 +115,6 @@ public class P5_SavingsGuide4FMT extends AppCompatActivity {
         }
 
         // Save the additional amount to the database
-        savingsDatabaseHelper.insertSavingsData(income, expenses, savingsTarget, aggressivenessValue, positiveCashFlow, numberOfMonths);
+        savingsDatabaseHelper.insertSavingsData(income, expenses, insurance, tax, savingsTarget, aggressivenessValue, positiveCashFlow, numberOfMonths);
     }
 }

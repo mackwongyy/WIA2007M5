@@ -107,17 +107,21 @@ public class P5_SavingsGuide2FMT extends AppCompatActivity {
         Cursor cursor = savingsDatabaseHelper.getSavingsData();
         double income = 0;
         double expenses = 0;
+        double insurance = 0;
+        double tax = 0;
         if (cursor.moveToFirst()) {
             income = cursor.getDouble(cursor.getColumnIndex("income"));
             expenses = cursor.getDouble(cursor.getColumnIndex("expenses"));
+            insurance = cursor.getDouble(cursor.getColumnIndex("insurance"));
+            tax = cursor.getDouble(cursor.getColumnIndex("tax"));
         }
         cursor.close();
 
         // Calculate positive cash flow
-        double positiveCashFlow = income - expenses;
+        double positiveCashFlow = income - expenses - insurance - tax;
 
         // Save savings target and aggressiveness to the database
-        savingsDatabaseHelper.insertSavingsData(income, expenses, savingsTarget, aggressivenessValue, positiveCashFlow, 0);
+        savingsDatabaseHelper.insertSavingsData(income, expenses, insurance, tax, savingsTarget, aggressivenessValue, positiveCashFlow, 0);
 
         // Check the selected criterion
         if (selectedCriterion.equals("Months")) {

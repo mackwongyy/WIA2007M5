@@ -30,7 +30,7 @@ public class P5_SavingsGuide3FMT extends AppCompatActivity {
         if (extras != null) {
             float aggressivenessValue = extras.getFloat("aggressivenessValue", 0.01f);
             double savingsTarget = extras.getDouble("savingsTarget", 0);
-            double positiveCashFlow = extras.getDouble("positiveCashFlow", 0); // Retrieve positiveCashFlow
+            double positiveCashFlow = extras.getDouble("positiveCashFlow", 0);
 
             // Calculate the number of months
             int numberOfMonths = (int) Math.ceil(savingsTarget / positiveCashFlow);
@@ -39,7 +39,7 @@ public class P5_SavingsGuide3FMT extends AppCompatActivity {
             numberOfMonthsTextView.setText(String.valueOf(numberOfMonths));
 
             // Save the number of months to the database
-            savingsDatabaseHelper.insertSavingsData(0, 0, savingsTarget, aggressivenessValue, positiveCashFlow, numberOfMonths);
+            savingsDatabaseHelper.insertSavingsData(0, 0, 0, 0, savingsTarget, aggressivenessValue, positiveCashFlow, numberOfMonths);
         }
 
         // Set up the home button listener

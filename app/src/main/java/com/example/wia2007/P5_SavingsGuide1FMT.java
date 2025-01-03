@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class P5_SavingsGuide1FMT extends AppCompatActivity {
     private EditText expensesLabel;
     private EditText incomeLabel;
+    private EditText insuranceLabel;
+    private EditText taxLabel;
     private Button backButton;
     private Button applyButton;
     private SavingsDatabaseHelper savingsDatabaseHelper;
@@ -25,6 +27,8 @@ public class P5_SavingsGuide1FMT extends AppCompatActivity {
         // Initialize UI elements
         expensesLabel = findViewById(R.id.expensesLabel);
         incomeLabel = findViewById(R.id.incomeLabel);
+        insuranceLabel = findViewById(R.id.insuranceLabel);
+        taxLabel = findViewById(R.id.taxLabel);
         backButton = findViewById(R.id.backButton);
         applyButton = findViewById(R.id.homeButton);
 
@@ -51,17 +55,21 @@ public class P5_SavingsGuide1FMT extends AppCompatActivity {
         // Retrieve income and expenses from the EditText fields
         String incomeStr = incomeLabel.getText().toString();
         String expensesStr = expensesLabel.getText().toString();
+        String insuranceStr = insuranceLabel.getText().toString();
+        String taxStr = taxLabel.getText().toString();
 
-        if (incomeStr.isEmpty() || expensesStr.isEmpty()) {
-            Toast.makeText(this, "Please input both income and expenses.", Toast.LENGTH_LONG).show();
+        if (incomeStr.isEmpty() || expensesStr.isEmpty() || insuranceStr.isEmpty() || taxStr.isEmpty()) {
+            Toast.makeText(this, "Please input all of income, expenses, insurance and tax.", Toast.LENGTH_LONG).show();
             return;
         }
 
         double income = Double.parseDouble(incomeStr);
         double expenses = Double.parseDouble(expensesStr);
+        double insurance = Double.parseDouble(insuranceStr);
+        double tax = Double.parseDouble(taxStr);
 
         // Save income and expenses to the database
-        savingsDatabaseHelper.insertSavingsData(income, expenses, 0, 0, 0, 0);
+        savingsDatabaseHelper.insertSavingsData(income, expenses, insurance, tax,0, 0, 0, 0);
 
         // Navigate to P5_SavingsGuide2FMT
         Intent intent = new Intent(P5_SavingsGuide1FMT.this, P5_SavingsGuide2FMT.class);

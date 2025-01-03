@@ -80,6 +80,7 @@
         android:id="@+id/numberOfMonths"
         android:layout_width="180dp"
         android:layout_height="150dp"
+        android:textAlignment="center"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="@+id/savingsGuideView"
         app:layout_constraintEnd_toEndOf="@+id/savingsGuideView"
