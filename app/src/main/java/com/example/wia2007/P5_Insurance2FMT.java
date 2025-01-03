@@ -25,6 +25,7 @@ public class P5_Insurance2FMT extends AppCompatActivity {
     private double lifeInsuranceDeductible;
     private double motorInsuranceDeductible;
     private double personalInsuranceDeductible;
+    private long id; // ID of the row to update
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,9 @@ public class P5_Insurance2FMT extends AppCompatActivity {
         applyButton = findViewById(R.id.homeButton);
         backButton = findViewById(R.id.backButton);
 
+        // Retrieve the ID from the intent
+        id = getIntent().getLongExtra("id", -1);
+
         // Retrieve values from P5_Insurance1FMT
         Intent intent = getIntent();
         lifeInsuranceDeductible = intent.getDoubleExtra("lifeInsuranceDeductible", 0.0);
@@ -59,29 +63,24 @@ public class P5_Insurance2FMT extends AppCompatActivity {
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Save data to SharedPreferences
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("medicalInsurance", medicalInsuranceDeductibleLabel.getText().toString());
-                editor.putString("travelInsurance", travelInsuranceDeductibleLabel.getText().toString());
-                editor.putString("otherInsurance", otherInsuranceDeductibleLabel.getText().toString());
-                editor.apply();
-
                 // Parse input values
                 double medicalInsuranceDeductible = parseDouble(medicalInsuranceDeductibleLabel.getText().toString());
                 double travelInsuranceDeductible = parseDouble(travelInsuranceDeductibleLabel.getText().toString());
                 double otherInsuranceDeductible = parseDouble(otherInsuranceDeductibleLabel.getText().toString());
 
-                // Calculate total deductibles
+                // Calculate total deductibles including values from P5_Insurance1FMT
                 double totalDeductibles = lifeInsuranceDeductible + motorInsuranceDeductible + personalInsuranceDeductible +
                         medicalInsuranceDeductible + travelInsuranceDeductible + otherInsuranceDeductible;
+
+                // Display the result
                 totalDeductiblesLabel.setText(String.format("RM %.2f", totalDeductibles));
 
-                // Insert data into the database
-                insuranceDatabaseHelper.insertInsuranceData(lifeInsuranceDeductible, motorInsuranceDeductible, personalInsuranceDeductible,
-                        medicalInsuranceDeductible, travelInsuranceDeductible, otherInsuranceDeductible, 0, 0, 0, 0, 0, 0);
+                // Update only the relevant fields in the database
+                insuranceDatabaseHelper.updateInsuranceData(id, null, null, null, medicalInsuranceDeductible, travelInsuranceDeductible, otherInsuranceDeductible, null, null, null, null, null, null);
 
                 // Navigate to the next activity
                 Intent intent = new Intent(P5_Insurance2FMT.this, P5_Insurance3FMT.class);
+                intent.putExtra("id", id); // Pass the ID to the next activity
                 startActivity(intent);
                 finish(); // Close the current activity
             }

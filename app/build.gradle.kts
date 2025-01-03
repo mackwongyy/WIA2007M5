@@ -59,5 +59,5 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
-    implementation("com.google.ai.client.generativeai:generativeai:0.1.1")
+    //implementation("com.google.ai.client.generativeai:generativeai:0.1.1")
 }

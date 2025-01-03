@@ -19,6 +19,8 @@ public class P5_Insurance3FMT extends AppCompatActivity {
     private static final String PREFS_NAME = "InsurancePrefs";
     private InsuranceDatabaseHelper insuranceDatabaseHelper;
 
+    private long id; // ID of the row to update
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,9 @@ public class P5_Insurance3FMT extends AppCompatActivity {
         applyButton = findViewById(R.id.applyButton);
         backButton = findViewById(R.id.backButton);
 
+        // Retrieve the ID from the intent
+        id = getIntent().getLongExtra("id", -1);
+
         // Load saved data
         lifeInsuranceLabel.setText(sharedPreferences.getString("lifeInsuranceCost", ""));
         motorInsuranceLabel.setText(sharedPreferences.getString("motorInsuranceCost", ""));
@@ -48,14 +53,15 @@ public class P5_Insurance3FMT extends AppCompatActivity {
             double motorInsurance = parseDouble(motorInsuranceLabel.getText().toString());
             double personalInsurance = parseDouble(personalInsuranceLabel.getText().toString());
 
-            // Insert data into the database
-            insuranceDatabaseHelper.insertInsuranceData(0, 0, 0, 0, 0, 0, lifeInsurance, motorInsurance, personalInsurance, 0, 0, 0);
+            // Update only the relevant fields in the database
+            insuranceDatabaseHelper.updateInsuranceData(id, null, null, null, null, null, null, lifeInsurance, motorInsurance, personalInsurance, null, null, null);
 
-            // Navigate to P5_Insurance4FMT and pass the values
+            // Navigate to P5_Insurance4FMT and pass the ID and insurance costs
             Intent intent = new Intent(P5_Insurance3FMT.this, P5_Insurance4FMT.class);
-            intent.putExtra("lifeInsurance", lifeInsurance);
-            intent.putExtra("motorInsurance", motorInsurance);
-            intent.putExtra("personalInsurance", personalInsurance);
+            intent.putExtra("lifeInsuranceCost", lifeInsurance);
+            intent.putExtra("motorInsuranceCost", motorInsurance);
+            intent.putExtra("personalInsuranceCost", personalInsurance);
+            intent.putExtra("id", id); // Pass the ID
             startActivity(intent);
             finish(); // Close the current activity
         });

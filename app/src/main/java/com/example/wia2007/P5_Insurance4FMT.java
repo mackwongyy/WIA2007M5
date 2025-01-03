@@ -17,14 +17,14 @@ public class P5_Insurance4FMT extends AppCompatActivity {
     private TextView totalInsuranceLabel;
     private Button backButton;
     private Button applyButton;
+    private double lifeInsuranceCost;
+    private double motorInsuranceCost;
+    private double personalInsuranceCost;
     private SharedPreferences sharedPreferences;
     private static final String PREFS_NAME = "InsurancePrefs";
     private InsuranceDatabaseHelper insuranceDatabaseHelper;
 
-    // Variables to store insurance values
-    private double lifeInsurance;
-    private double motorInsurance;
-    private double personalInsurance;
+    private long id; // ID of the row to update
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +44,11 @@ public class P5_Insurance4FMT extends AppCompatActivity {
         backButton = findViewById(R.id.backButton);
         applyButton = findViewById(R.id.applyButton);
 
-        // Retrieve values from P5_Insurance3FMT
-        Intent intent = getIntent();
-        lifeInsurance = intent.getDoubleExtra("lifeInsurance", 0.0);
-        motorInsurance = intent.getDoubleExtra("motorInsurance", 0.0);
-        personalInsurance = intent.getDoubleExtra("personalInsurance", 0.0);
+        // Retrieve the ID and values from the intent
+        id = getIntent().getLongExtra("id", -1);
+        lifeInsuranceCost = getIntent().getDoubleExtra("lifeInsuranceCost", 0.0);
+        motorInsuranceCost = getIntent().getDoubleExtra("motorInsuranceCost", 0.0);
+        personalInsuranceCost = getIntent().getDoubleExtra("personalInsuranceCost", 0.0);
 
         // Load saved data
         medicalInsuranceLabel.setText(sharedPreferences.getString("medicalInsuranceCost", ""));
@@ -59,27 +59,24 @@ public class P5_Insurance4FMT extends AppCompatActivity {
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Save data to SharedPreferences
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("medicalInsuranceCost", medicalInsuranceLabel.getText().toString());
-                editor.putString("travelInsuranceCost", travelInsuranceLabel.getText().toString());
-                editor.putString("otherInsuranceCost", otherInsuranceLabel.getText().toString());
-                editor.apply();
-
                 // Parse input values
                 double medicalInsurance = parseDouble(medicalInsuranceLabel.getText().toString());
                 double travelInsurance = parseDouble(travelInsuranceLabel.getText().toString());
                 double otherInsurance = parseDouble(otherInsuranceLabel.getText().toString());
 
-                // Calculate total insurance
-                double totalInsurance = lifeInsurance + motorInsurance + personalInsurance + medicalInsurance + travelInsurance + otherInsurance;
-                totalInsuranceLabel.setText(String.format("RM %.2f", totalInsurance));
+                // Calculate total insurance costs including values from P5_Insurance3FMT
+                double totalInsuranceCosts = lifeInsuranceCost + motorInsuranceCost + personalInsuranceCost +
+                        medicalInsurance + travelInsurance + otherInsurance;
 
-                // Insert data into the database
-                insuranceDatabaseHelper.insertInsuranceData(lifeInsurance, motorInsurance, personalInsurance, 0, 0, 0, 0, 0, 0, medicalInsurance, travelInsurance, otherInsurance);
+                // Display the result
+                totalInsuranceLabel.setText(String.format("RM %.2f", totalInsuranceCosts));
+
+                // Update only the relevant fields in the database
+                insuranceDatabaseHelper.updateInsuranceData(id, null, null, null, null, null, null, null, null, null, medicalInsurance, travelInsurance, otherInsurance);
 
                 // Navigate to the next activity
                 Intent intent = new Intent(P5_Insurance4FMT.this, P5_Insurance5FMT.class);
+                intent.putExtra("id", id); // Pass the ID to the next activity
                 startActivity(intent);
                 finish(); // Close the current activity
             }

@@ -45,28 +45,21 @@ public class P5_Insurance1FMT extends AppCompatActivity {
         applyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Save data to SharedPreferences
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("lifeInsurance", lifeInsuranceDeductibleLabel.getText().toString());
-                editor.putString("motorInsurance", motorInsuranceDeductibleLabel.getText().toString());
-                editor.putString("personalInsurance", personalInsuranceDeductibleLabel.getText().toString());
-                editor.apply();
-
                 // Parse input values
                 double lifeInsuranceDeductible = parseDouble(lifeInsuranceDeductibleLabel.getText().toString());
                 double motorInsuranceDeductible = parseDouble(motorInsuranceDeductibleLabel.getText().toString());
                 double personalInsuranceDeductible = parseDouble(personalInsuranceDeductibleLabel.getText().toString());
 
-                // Insert data into the database
-                insuranceDatabaseHelper.insertInsuranceData(lifeInsuranceDeductible, motorInsuranceDeductible, personalInsuranceDeductible, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                // Insert data into the database and get the ID of the inserted row
+                long id = insuranceDatabaseHelper.insertInsuranceData(lifeInsuranceDeductible, motorInsuranceDeductible, personalInsuranceDeductible, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
-                // Navigate to P5_Insurance2FMT and pass the values
                 Intent intent = new Intent(P5_Insurance1FMT.this, P5_Insurance2FMT.class);
                 intent.putExtra("lifeInsuranceDeductible", lifeInsuranceDeductible);
                 intent.putExtra("motorInsuranceDeductible", motorInsuranceDeductible);
                 intent.putExtra("personalInsuranceDeductible", personalInsuranceDeductible);
+                intent.putExtra("id", id); // Pass the ID
                 startActivity(intent);
-                finish(); // Close the current activity
+                finish();
             }
         });
 

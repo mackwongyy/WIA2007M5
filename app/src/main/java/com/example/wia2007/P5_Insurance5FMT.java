@@ -28,6 +28,8 @@ public class P5_Insurance5FMT extends AppCompatActivity {
     private Button homeButton;
     private InsuranceDatabaseHelper insuranceDatabaseHelper;
 
+    private long id; // ID of the row to retrieve
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +58,9 @@ public class P5_Insurance5FMT extends AppCompatActivity {
         backButton = findViewById(R.id.backButton);
         homeButton = findViewById(R.id.homeButton);
 
+        // Retrieve the ID from the intent
+        id = getIntent().getLongExtra("id", -1);
+
         // Retrieve and display data from the database
         displayInsuranceSummary();
 
@@ -73,8 +78,10 @@ public class P5_Insurance5FMT extends AppCompatActivity {
         });
     }
 
+    // Inside P5_Insurance5FMT.java
     private void displayInsuranceSummary() {
-        Cursor cursor = insuranceDatabaseHelper.getInsuranceData();
+        // Retrieve data using the ID
+        Cursor cursor = insuranceDatabaseHelper.getInsuranceDataById(id);
         if (cursor.moveToFirst()) {
             // Retrieve column indices using the correct column names
             int lifeInsuranceDeductibleIndex = cursor.getColumnIndex(InsuranceDatabaseHelper.COLUMN_LIFE_INSURANCE_DEDUCTIBLE);
