@@ -88,7 +88,7 @@ public class P5_SavingsGuide4FMT extends AppCompatActivity {
         }
 
         // Calculate the total savings possible in the given number of months
-        double totalSavings = (aggressivenessValue / 0.01) * numberOfMonths * (income - expenses - insurance - tax);
+        double totalSavings = (positiveCashFlow * (1 / aggressivenessValue)) * numberOfMonths;
 
         // Check if the savings target is achievable
         if (totalSavings >= savingsTarget) {

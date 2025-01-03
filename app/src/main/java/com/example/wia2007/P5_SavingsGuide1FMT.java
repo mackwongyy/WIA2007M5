@@ -52,14 +52,14 @@ public class P5_SavingsGuide1FMT extends AppCompatActivity {
     }
 
     public void navigationFromSavingsGuide1FMTToSavingsGuide2FMT(View view) {
-        // Retrieve income and expenses from the EditText fields
+        // Retrieve income, expenses, insurance, and tax from the EditText fields
         String incomeStr = incomeLabel.getText().toString();
         String expensesStr = expensesLabel.getText().toString();
         String insuranceStr = insuranceLabel.getText().toString();
         String taxStr = taxLabel.getText().toString();
 
         if (incomeStr.isEmpty() || expensesStr.isEmpty() || insuranceStr.isEmpty() || taxStr.isEmpty()) {
-            Toast.makeText(this, "Please input all of income, expenses, insurance and tax.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please input income, expenses, insurance, and tax.", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -68,11 +68,18 @@ public class P5_SavingsGuide1FMT extends AppCompatActivity {
         double insurance = Double.parseDouble(insuranceStr);
         double tax = Double.parseDouble(taxStr);
 
-        // Save income and expenses to the database
-        savingsDatabaseHelper.insertSavingsData(income, expenses, insurance, tax,0, 0, 0, 0);
+        // Calculate positive cash flow
+        double positiveCashFlow = income - expenses - insurance - tax;
+
+        // Save income, expenses, insurance, tax, and positive cash flow to the database
+        savingsDatabaseHelper.insertSavingsData(income, expenses, insurance, tax,0, 0, positiveCashFlow, 0);
 
         // Navigate to P5_SavingsGuide2FMT
         Intent intent = new Intent(P5_SavingsGuide1FMT.this, P5_SavingsGuide2FMT.class);
+        intent.putExtra("income", income);
+        intent.putExtra("expenses", expenses);
+        intent.putExtra("insurance", insurance);
+        intent.putExtra("tax", tax);
         startActivity(intent);
         finish();
     }

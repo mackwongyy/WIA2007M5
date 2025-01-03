@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Aggressiveness is a measure between\n0.01 and 1.0, where 0.01 is the most\nconservative savings approach, and 1.0\nis the most aggressive savings approach."
+        android:text="Aggressiveness is a measure between\n0.01 and 1.0, where 0.01 is the most\naggressive savings approach, and 1.0 is\nthe most conservative savings approach."
         app:layout_constraintEnd_toEndOf="@+id/SavingsGuide1FMTView"
         app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="@+id/SavingsGuide1FMTView"

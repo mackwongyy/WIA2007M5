@@ -32,8 +32,9 @@ public class P5_SavingsGuide3FMT extends AppCompatActivity {
             double savingsTarget = extras.getDouble("savingsTarget", 0);
             double positiveCashFlow = extras.getDouble("positiveCashFlow", 0);
 
-            // Calculate the number of months
-            int numberOfMonths = (int) Math.ceil(savingsTarget / positiveCashFlow);
+            // Calculate the number of months using the correct formula
+            double intermediateValue = positiveCashFlow * (1 / aggressivenessValue);
+            int numberOfMonths = (int) Math.ceil(savingsTarget / intermediateValue);
 
             // Display the result
             numberOfMonthsTextView.setText(String.valueOf(numberOfMonths));
