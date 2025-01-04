@@ -3,11 +3,13 @@ package com.example.wia2007;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import android.os.Handler;
 
 public class P5_Insurance2FMT extends AppCompatActivity {
 
@@ -78,11 +80,17 @@ public class P5_Insurance2FMT extends AppCompatActivity {
                 // Update only the relevant fields in the database
                 insuranceDatabaseHelper.updateInsuranceData(id, null, null, null, medicalInsuranceDeductible, travelInsuranceDeductible, otherInsuranceDeductible, null, null, null, null, null, null);
 
-                // Navigate to the next activity
-                Intent intent = new Intent(P5_Insurance2FMT.this, P5_Insurance3FMT.class);
-                intent.putExtra("id", id); // Pass the ID to the next activity
-                startActivity(intent);
-                finish(); // Close the current activity
+                // Introduce a 3-second delay before navigating to the next activity
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Navigate to the next activity after 3 seconds
+                        Intent intent = new Intent(P5_Insurance2FMT.this, P5_Insurance3FMT.class);
+                        intent.putExtra("id", id); // Pass the ID to the next activity
+                        startActivity(intent);
+                        finish(); // Close the current activity
+                    }
+                }, 3000); // 3000 milliseconds = 3 seconds
             }
         });
 
