@@ -42,9 +42,10 @@ public class P5_Tax4FMT extends AppCompatActivity {
         quitRentLabel.setText(sharedPreferences.getString("quitRent", ""));
         otherTaxLabel.setText(sharedPreferences.getString("otherTax", ""));
 
+        // Set click listeners for apply and back buttons
         applyButton.setOnClickListener(v -> {
             saveAdditionalTaxes();
-            navigationFromTax4FMTToTax5FMT(v); // Ensure this method is called
+            navigationFromTax4FMTToTax5FMT(v);
         });
 
         backButton.setOnClickListener(v -> {

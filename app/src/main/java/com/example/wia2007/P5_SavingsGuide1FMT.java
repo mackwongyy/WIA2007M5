@@ -24,7 +24,7 @@ public class P5_SavingsGuide1FMT extends AppCompatActivity {
 
         savingsDatabaseHelper = new SavingsDatabaseHelper(this);
 
-        // Initialize UI elements
+        // Initialise UI elements
         expensesLabel = findViewById(R.id.expensesLabel);
         incomeLabel = findViewById(R.id.incomeLabel);
         insuranceLabel = findViewById(R.id.insuranceLabel);
@@ -38,7 +38,7 @@ public class P5_SavingsGuide1FMT extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(P5_SavingsGuide1FMT.this, P5_HomepageFMT.class);
                 startActivity(intent);
-                finish(); // Close the current activity
+                finish();
             }
         });
 

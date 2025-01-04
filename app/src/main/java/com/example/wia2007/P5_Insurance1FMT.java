@@ -25,11 +25,8 @@ public class P5_Insurance1FMT extends AppCompatActivity {
         setContentView(R.layout.p5_insurance1fmt);
 
         insuranceDatabaseHelper = new InsuranceDatabaseHelper(this);
-
-        // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
-        // Initialize views
         lifeInsuranceDeductibleLabel = findViewById(R.id.roadTaxLabel);
         motorInsuranceDeductibleLabel = findViewById(R.id.lifeInusranceDeductiblesLabel);
         personalInsuranceDeductibleLabel = findViewById(R.id.personalInsuranceDeductibleLabel);
@@ -69,7 +66,7 @@ public class P5_Insurance1FMT extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(P5_Insurance1FMT.this, P5_HomepageFMT.class);
                 startActivity(intent);
-                finish(); // Close the current activity
+                finish();
             }
         });
     }

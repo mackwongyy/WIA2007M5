@@ -125,21 +125,21 @@ public class P5_SavingsGuide2FMT extends AppCompatActivity {
 
         // Check the selected criterion
         if (selectedCriterion.equals("Months")) {
-            // Navigate to P5_SavingsGuide3FMT
+            // Navigate to P5_SavingsGuide3FMT and pass the values
             Intent intent = new Intent(P5_SavingsGuide2FMT.this, P5_SavingsGuide3FMT.class);
             intent.putExtra("aggressivenessValue", aggressivenessValue);
             intent.putExtra("savingsTarget", savingsTarget);
-            intent.putExtra("positiveCashFlow", positiveCashFlow); // Pass positiveCashFlow
+            intent.putExtra("positiveCashFlow", positiveCashFlow);
             startActivity(intent);
             finish();
         } else if (selectedCriterion.equals("Amount")) {
             // Navigate to P5_SavingsGuide4FMT and pass the values
             Intent intent = new Intent(P5_SavingsGuide2FMT.this, P5_SavingsGuide4FMT.class);
             intent.putExtra("savingsTarget", savingsTarget);
-            intent.putExtra("positiveCashFlow", positiveCashFlow); // Pass positiveCashFlow
-            intent.putExtra("aggressivenessValue", aggressivenessValue); // Pass aggressivenessValue
+            intent.putExtra("positiveCashFlow", positiveCashFlow);
+            intent.putExtra("aggressivenessValue", aggressivenessValue);
             startActivity(intent);
-            finish(); // Close the current activity
+            finish();
         }
     }
 }

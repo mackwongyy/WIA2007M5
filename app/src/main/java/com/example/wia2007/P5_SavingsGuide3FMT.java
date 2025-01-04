@@ -47,14 +47,14 @@ public class P5_SavingsGuide3FMT extends AppCompatActivity {
         homeButton.setOnClickListener(v -> {
             Intent intent = new Intent(P5_SavingsGuide3FMT.this, P5_HomepageFMT.class);
             startActivity(intent);
-            finish(); // Close the current activity
+            finish();
         });
 
         // Set up the back button listener
         backButton.setOnClickListener(v -> {
             Intent intent = new Intent(P5_SavingsGuide3FMT.this, P5_SavingsGuide2FMT.class);
             startActivity(intent);
-            finish(); // Close the current activity
+            finish();
         });
     }
 }

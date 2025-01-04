@@ -23,11 +23,10 @@ public class P5_Insurance2FMT extends AppCompatActivity {
     private static final String PREFS_NAME = "InsurancePrefs";
     private InsuranceDatabaseHelper insuranceDatabaseHelper;
 
-    // Variables to store deductible values
     private double lifeInsuranceDeductible;
     private double motorInsuranceDeductible;
     private double personalInsuranceDeductible;
-    private long id; // ID of the row to update
+    private long id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +87,7 @@ public class P5_Insurance2FMT extends AppCompatActivity {
                         Intent intent = new Intent(P5_Insurance2FMT.this, P5_Insurance3FMT.class);
                         intent.putExtra("id", id); // Pass the ID to the next activity
                         startActivity(intent);
-                        finish(); // Close the current activity
+                        finish();
                     }
                 }, 3000); // 3000 milliseconds = 3 seconds
             }
@@ -100,7 +99,7 @@ public class P5_Insurance2FMT extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(P5_Insurance2FMT.this, P5_Insurance1FMT.class);
                 startActivity(intent);
-                finish(); // Close the current activity
+                finish();
             }
         });
     }

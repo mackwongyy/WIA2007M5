@@ -34,11 +34,8 @@ public class P5_Insurance4FMT extends AppCompatActivity {
         setContentView(R.layout.p5_insurance4fmt);
 
         insuranceDatabaseHelper = new InsuranceDatabaseHelper(this);
-
-        // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
-        // Initialize views
         medicalInsuranceLabel = findViewById(R.id.medicalInsuranceLabel);
         travelInsuranceLabel = findViewById(R.id.travelInsuranceLabel);
         otherInsuranceLabel = findViewById(R.id.otherInsuranceLabel);
@@ -84,7 +81,7 @@ public class P5_Insurance4FMT extends AppCompatActivity {
                         Intent intent = new Intent(P5_Insurance4FMT.this, P5_Insurance5FMT.class);
                         intent.putExtra("id", id); // Pass the ID to the next activity
                         startActivity(intent);
-                        finish(); // Close the current activity
+                        finish();
                     }
                 }, 3000); // 3000 milliseconds = 3 seconds
             }
@@ -96,7 +93,7 @@ public class P5_Insurance4FMT extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(P5_Insurance4FMT.this, P5_Insurance3FMT.class);
                 startActivity(intent);
-                finish(); // Close the current activity
+                finish();
             }
         });
     }

@@ -51,8 +51,8 @@ public class P5_Tax2FMT extends AppCompatActivity {
         // Save incomeTax in the database
         taxDatabaseHelper.updateTaxData(null, null, null, null, null, null, null, null, incomeTax);
 
+        // Set listeners for apply and back buttons
         applyButton.setOnClickListener(v -> {
-            // Navigate to the next activity
             Intent tax3Intent = new Intent(P5_Tax2FMT.this, P5_Tax3FMT.class);
             startActivity(tax3Intent);
         });

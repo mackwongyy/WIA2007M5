@@ -39,6 +39,7 @@ public class P5_Tax1FMT extends AppCompatActivity {
         income.setText(sharedPreferences.getString("income", ""));
         taxRelief.setText(sharedPreferences.getString("taxRelief", ""));
 
+        // Set click listeners for apply and back buttons
         applyButton.setOnClickListener(v -> {
             calculateChargeableIncome();
         });
@@ -73,9 +74,9 @@ public class P5_Tax1FMT extends AppCompatActivity {
 
         // Navigate to the next activity and pass the chargeable income
         Intent intent = new Intent(P5_Tax1FMT.this, P5_Tax2FMT.class);
-        intent.putExtra("totalIncome", totalIncome); // Pass totalIncome
-        intent.putExtra("taxRelief", taxReliefAmount); // Pass taxRelief
-        intent.putExtra("chargeableIncome", chargeable); // Pass chargeableIncome
+        intent.putExtra("totalIncome", totalIncome);
+        intent.putExtra("taxRelief", taxReliefAmount);
+        intent.putExtra("chargeableIncome", chargeable);
         startActivity(intent);
     }
 

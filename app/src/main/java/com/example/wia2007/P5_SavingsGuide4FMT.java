@@ -28,7 +28,7 @@ public class P5_SavingsGuide4FMT extends AppCompatActivity {
 
         savingsDatabaseHelper = new SavingsDatabaseHelper(this);
 
-        // Initialize UI elements
+        // Initialise UI elements
         numberOfMonthsSelectedLabel = findViewById(R.id.numberOfMonthsSelectedLabel);
         achievableLabel = findViewById(R.id.achievableLabel);
         descriptionLabel = findViewById(R.id.descriptionLabel);
@@ -66,7 +66,7 @@ public class P5_SavingsGuide4FMT extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(P5_SavingsGuide4FMT.this, P5_SavingsGuide2FMT.class);
                 startActivity(intent);
-                finish(); // Close the current activity
+                finish();
             }
         });
     }
@@ -93,9 +93,9 @@ public class P5_SavingsGuide4FMT extends AppCompatActivity {
         // Check if the savings target is achievable
         if (totalSavings >= savingsTarget) {
             achievableLabel.setText("Yes");
-            descriptionLabel.setText("Congratulations! You're on course of\nachieving your savings target!\nKeep it up and you'll edge\ncloser to the goal of\nSDG 2: Zero Hunger!");
+            descriptionLabel.setText("Congratulations! You can achieve your savings target!");
             amountLabel.setText(""); // Clear the amount label
-            amountDescription.setText(""); // Clear the amount description
+            amountDescription.setText("Keep it up!");
         } else {
             // Calculate the additional amount needed
             double additionalAmount = (savingsTarget - totalSavings) / numberOfMonths;

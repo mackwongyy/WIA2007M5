@@ -38,6 +38,7 @@ public class P5_Tax3FMT extends AppCompatActivity {
         monthlyTaxDeductionLabel.setText(sharedPreferences.getString("monthlyTaxDeduction", ""));
         takafulZakatLabel.setText(sharedPreferences.getString("takafulZakat", ""));
 
+        // Set click listeners for apply and back buttons
         applyButton.setOnClickListener(v -> {
             calculateIncomeTaxPayable();
             navigationFromTax3FMTToTax4FMT(v);

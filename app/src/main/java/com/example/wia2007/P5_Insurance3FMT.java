@@ -27,11 +27,8 @@ public class P5_Insurance3FMT extends AppCompatActivity {
         setContentView(R.layout.p5_insurance3fmt);
 
         insuranceDatabaseHelper = new InsuranceDatabaseHelper(this);
-
-        // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
-        // Initialize views
         lifeInsuranceLabel = findViewById(R.id.lifeInsuranceLabel);
         motorInsuranceLabel = findViewById(R.id.motorInsuranceLabel);
         personalInsuranceLabel = findViewById(R.id.personalInsuranceLabel);
@@ -63,7 +60,7 @@ public class P5_Insurance3FMT extends AppCompatActivity {
             intent.putExtra("personalInsuranceCost", personalInsurance);
             intent.putExtra("id", id); // Pass the ID
             startActivity(intent);
-            finish(); // Close the current activity
+            finish();
         });
 
         // Set click listener for the Back button
@@ -72,7 +69,7 @@ public class P5_Insurance3FMT extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(P5_Insurance3FMT.this, P5_Insurance2FMT.class);
                 startActivity(intent);
-                finish(); // Close the current activity
+                finish();
             }
         });
     }

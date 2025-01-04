@@ -37,7 +37,6 @@ public class P5_Insurance5FMT extends AppCompatActivity {
 
         insuranceDatabaseHelper = new InsuranceDatabaseHelper(this);
 
-        // Initialize TextViews
         lifeInsuranceDeductibleLabel = findViewById(R.id.lifeInsuranceDeductibleLabel);
         motorInsuranceDeductibleLabel = findViewById(R.id.motorInsuranceDeductibleLabel);
         personalInsuranceDeductibleLabel = findViewById(R.id.personalInsuranceDeductibleLabel);
@@ -54,7 +53,6 @@ public class P5_Insurance5FMT extends AppCompatActivity {
         totalDeductiblesLabel = findViewById(R.id.totalDeductiblesLabel);
         totalInsuranceCostLabel = findViewById(R.id.totalInsuranceCostLabel);
 
-        // Initialize Buttons
         backButton = findViewById(R.id.backButton);
         homeButton = findViewById(R.id.homeButton);
 
@@ -68,17 +66,16 @@ public class P5_Insurance5FMT extends AppCompatActivity {
         backButton.setOnClickListener(v -> {
             Intent intent = new Intent(P5_Insurance5FMT.this, P5_Insurance4FMT.class);
             startActivity(intent);
-            finish(); // Close the current activity
+            finish();
         });
 
         homeButton.setOnClickListener(v -> {
             Intent intent = new Intent(P5_Insurance5FMT.this, P5_HomepageFMT.class);
             startActivity(intent);
-            finish(); // Close the current activity
+            finish();
         });
     }
 
-    // Inside P5_Insurance5FMT.java
     private void displayInsuranceSummary() {
         // Retrieve data using the ID
         Cursor cursor = insuranceDatabaseHelper.getInsuranceDataById(id);

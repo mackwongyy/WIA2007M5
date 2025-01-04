@@ -29,7 +29,6 @@ public class P5_Tax5FMT extends AppCompatActivity {
 
         taxDatabaseHelper = new TaxDatabaseHelper(this);
 
-        // Initialize TextViews
         taxPayableLabel = findViewById(R.id.taxPayableLabel);
         incomeTaxLabel = findViewById(R.id.incomeTaxLabel);
         taxRebateReliefLabel = findViewById(R.id.taxRebateReliefLabel);
@@ -40,14 +39,13 @@ public class P5_Tax5FMT extends AppCompatActivity {
         quitRentLabel = findViewById(R.id.quitRentLabel);
         otherTaxLabel = findViewById(R.id.otherTaxLabel);
 
-        // Initialize Buttons
         backButton = findViewById(R.id.backButton);
         homeButton = findViewById(R.id.homeButton);
 
         // Retrieve and display data from the database
         displayTaxSummary();
 
-        // Set up button click listeners
+        // Set up click listeners for apply and back buttons
         backButton.setOnClickListener(v -> {
             navigationFromTax5FMTToTax4FMT(v);
         });
