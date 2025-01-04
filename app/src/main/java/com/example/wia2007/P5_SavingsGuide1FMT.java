@@ -59,7 +59,7 @@ public class P5_SavingsGuide1FMT extends AppCompatActivity {
         String taxStr = taxLabel.getText().toString();
 
         if (incomeStr.isEmpty() || expensesStr.isEmpty() || insuranceStr.isEmpty() || taxStr.isEmpty()) {
-            Toast.makeText(this, "Please input income, expenses, insurance, and tax.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please input income, expenses, insurance, and tax. Enter 0 if doesn't have.", Toast.LENGTH_LONG).show();
             return;
         }
 

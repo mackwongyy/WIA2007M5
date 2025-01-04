@@ -34,7 +34,7 @@ public class P5_SavingsGuide3FMT extends AppCompatActivity {
 
             // Calculate the number of months using the correct formula
             double intermediateValue = positiveCashFlow * (1 / aggressivenessValue);
-            int numberOfMonths = (int) Math.ceil(savingsTarget / intermediateValue);
+            long numberOfMonths = (long) Math.ceil(savingsTarget / intermediateValue);
 
             // Display the result
             numberOfMonthsTextView.setText(String.valueOf(numberOfMonths));

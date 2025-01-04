@@ -1,6 +1,7 @@
 package com.example.wia2007;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,8 @@ public class P5_Tax2FMT extends AppCompatActivity {
     private Button backButton;
     private Button applyButton;
     private TaxDatabaseHelper taxDatabaseHelper;
+    private SharedPreferences sharedPreferences;
+    private static final String PREFS_NAME = "TaxPrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +24,7 @@ public class P5_Tax2FMT extends AppCompatActivity {
         setContentView(R.layout.p5_tax2fmt);
 
         taxDatabaseHelper = new TaxDatabaseHelper(this);
+        sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
         incomeTaxLabel = findViewById(R.id.incomeTaxLabel);
         taxRebateLabel = findViewById(R.id.taxRebateLabel);

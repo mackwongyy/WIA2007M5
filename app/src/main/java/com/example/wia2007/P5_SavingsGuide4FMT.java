@@ -103,14 +103,14 @@ public class P5_SavingsGuide4FMT extends AppCompatActivity {
             if (additionalAmount <= 0) {
                 // If additionalAmount is zero or negative, the target is achievable
                 achievableLabel.setText("Yes");
-                descriptionLabel.setText("Congratulations! You're on course of\nachieving your savings target!\nKeep it up and you'll edge\ncloser to the goal of\nSDG 2: Zero Hunger!");
+                descriptionLabel.setText("Congratulations! You can achieve your savings target!");
                 amountLabel.setText(""); // Clear the amount label
-                amountDescription.setText(""); // Clear the amount description
+                amountDescription.setText("Keep it up!");
             } else {
                 achievableLabel.setText("No");
-                descriptionLabel.setText("You're not on course of\nachieving your savings target.\nYou need to save up ");
+                descriptionLabel.setText("You need to save up ");
                 amountLabel.setText(String.format("RM %.2f", additionalAmount));
-                amountDescription.setText(" more to reach your savings target! Keep it up and you can do it.");
+                amountDescription.setText(" more to reach your savings target!");
             }
         }
 

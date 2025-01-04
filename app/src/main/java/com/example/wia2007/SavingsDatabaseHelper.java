@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class SavingsDatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "Savings_Database.db";
+    private static final String DATABASE_NAME = "Savings_Database1.db";
     private static final int DATABASE_VERSION = 1;
 
     // Table name
@@ -53,7 +53,7 @@ public class SavingsDatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Insert savings data
-    public void insertSavingsData(double income, double expenses, double insurance, double tax, double savingsTarget, float aggressiveness, double positiveCashFlow, int numberOfMonths) {
+    public void insertSavingsData(double income, double expenses, double insurance, double tax, double savingsTarget, float aggressiveness, double positiveCashFlow, long numberOfMonths) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_INCOME, income);
